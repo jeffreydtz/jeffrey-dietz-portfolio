@@ -52,11 +52,82 @@ export const translations = {
       "My professional journey working with leading companies, building Salesforce solutions and enterprise applications.",
     keyAchievements: "Key Achievements:",
 
+    // Accenture
+    accentureRole: "Salesforce Developer",
+    accenturePeriod: "Nov 2025 - Present",
+    accentureDesc: "Joining Accenture to work on enterprise Salesforce implementations and digital transformation projects for global clients. Bringing 2+ years of Salesforce development experience to deliver innovative solutions.",
+    accentureAch1: "Working on large-scale Salesforce implementations for Fortune 500 clients",
+    accentureAch2: "Contributing to digital transformation initiatives across multiple industries",
+    accentureAch3: "Leveraging Apex, LWC, and integration expertise for complex business requirements",
+    accentureAch4: "Collaborating with global teams on enterprise-grade solutions",
+
+    // Avalian
+    avalianRole: "Salesforce Developer",
+    avalianPeriod: "Aug 2024 - Oct 2025",
+    avalianDesc: "Developed and implemented advanced Salesforce solutions, specializing in process automation using Apex, Lightning Web Components, and Flow Builder.",
+    avalianAch1: "Implemented REST API integrations for external database connectivity",
+    avalianAch2: "Developed custom Apex logic to optimize execution times for high-volume processes",
+    avalianAch3: "Enhanced Email-to-Case process, automating account and contact assignment",
+    avalianAch4: "Worked in Agile environment managing AMS tickets, releases, and testing",
+    avalianAch5: "Supervised data quality in critical flows and prevented duplicates",
+
+    // Deloitte
+    deloitteRole: "Salesforce Developer & Analyst",
+    deloittePeriod: "Apr 2023 - Aug 2024",
+    deloitteDesc: "Implemented critical functionalities using Apex, Visualforce, and Lightning Components for large-scale banking projects handling thousands of records.",
+    deloitteAch1: "Participated in large-scale banking projects with massive data volumes",
+    deloitteAch2: "Implemented triggers and Batch Apex for mass data management",
+    deloitteAch3: "Adapted Visualforce components to Lightning Experience",
+    deloitteAch4: "Collaborated directly with global functional teams",
+    deloitteAch5: "Improved performance of critical processes, reducing user errors",
+
+    // LBO
+    lboRole: "Full-Stack Developer",
+    lboPeriod: "Oct 2022 - Mar 2023",
+    lboDesc: "Developed a full-stack solution (Python, React) to optimize the management and visualization of financial data.",
+    lboAch1: "Designed and implemented React dashboards for real-time data visualization",
+    lboAch2: "Optimized SQL queries and ETL processes for financial analysis",
+    lboAch3: "Applied MVC patterns and consumed external APIs",
+    lboAch4: "First approach to building scalable solutions outside Salesforce environment",
+
     // Projects
     projectsTitle: "Featured Projects",
     projectsDescription:
       "A selection of projects I've worked on, showcasing my expertise in Salesforce development and platform customization.",
-    impact: "Impact:",
+
+    // Project 1
+    project1Title: "Jira-Salesforce OAuth Integration",
+    project1Desc: "Developed a bidirectional integration between Jira and Salesforce using OAuth 2.0 authentication. Implemented secure token management, automated ticket synchronization, and real-time status updates. System automatically creates Salesforce cases from Jira issues and maintains data consistency across both platforms.",
+    project1Impact: "Seamless workflow automation",
+
+    // Project 2
+    project2Title: "LWC Excel Mass Upload System",
+    project2Desc: "Developed a Lightning Web Component that allows users to upload Excel files for mass data loading. The component validates and processes data locally before sending to Apex backend, which creates records in bulk and integrates with external databases via Web Services. Reduced processing time by over 60%.",
+    project2Impact: "60%+ time reduction",
+
+    // Project 3
+    project3Title: "Email-to-Case & Lead Assignment Automation",
+    project3Desc: "Designed automated logic to associate Accounts and Contacts to Cases created via email. System intelligently matches email senders with custom fields on Account objects, prioritizing company accounts over personal accounts. Extended Salesforce's standard Email-to-Case flow.",
+    project3Impact: "Automated lead routing",
+
+    // Project 4
+    project4Title: "Batch Apex Processing Engine",
+    project4Desc: "Built custom Batch Apex job to evaluate complex business logic on large record sets. Processes date-based calculations, state transitions, and performs bulk operations with optimized SOQL queries and error handling for daily scheduled execution.",
+    project4Impact: "Automated daily processing",
+
+    // Project 5
+    project5Title: "XML Lead Processing Service",
+    project5Desc: "Implemented Apex service to process incoming emails containing XML attachments and automatically create Lead records. System reads, validates, and parses XML data dynamically, integrating Salesforce with external lead generation systems.",
+    project5Impact: "Automated lead creation",
+
+    // Skills categories
+    skillCat1: "Salesforce Development",
+    skillCat2: "Salesforce Configuration & Automation",
+    skillCat3: "Integration & APIs",
+    skillCat4: "Version Control & Development Tools",
+    skillCat5: "AI & Modern Development",
+    skillCat6: "Additional Technologies",
+    newBadge: "NEW",
 
     // Personal Projects
     personalProjectsTitle: "Personal Projects",
@@ -141,11 +212,82 @@ export const translations = {
       "Mi trayectoria profesional trabajando con empresas líderes, construyendo soluciones Salesforce y aplicaciones empresariales.",
     keyAchievements: "Logros Destacados:",
 
+    // Accenture
+    accentureRole: "Desarrollador Salesforce",
+    accenturePeriod: "Nov 2025 - Presente",
+    accentureDesc: "Uniéndome a Accenture para trabajar en implementaciones empresariales de Salesforce y proyectos de transformación digital para clientes globales. Aportando más de 2 años de experiencia en desarrollo Salesforce para entregar soluciones innovadoras.",
+    accentureAch1: "Trabajando en implementaciones de Salesforce a gran escala para clientes Fortune 500",
+    accentureAch2: "Contribuyendo a iniciativas de transformación digital en múltiples industrias",
+    accentureAch3: "Aprovechando experiencia en Apex, LWC e integraciones para requisitos empresariales complejos",
+    accentureAch4: "Colaborando con equipos globales en soluciones de nivel empresarial",
+
+    // Avalian
+    avalianRole: "Desarrollador Salesforce",
+    avalianPeriod: "Ago 2024 - Oct 2025",
+    avalianDesc: "Desarrollé e implementé soluciones avanzadas de Salesforce, especializándome en automatización de procesos usando Apex, Lightning Web Components y Flow Builder.",
+    avalianAch1: "Implementé integraciones REST API para conectividad con bases de datos externas",
+    avalianAch2: "Desarrollé lógica personalizada en Apex para optimizar tiempos de ejecución en procesos de alto volumen",
+    avalianAch3: "Mejoré el proceso Email-to-Case, automatizando la asignación de cuentas y contactos",
+    avalianAch4: "Trabajé en ambiente Ágil gestionando tickets AMS, releases y testing",
+    avalianAch5: "Supervisé la calidad de datos en flujos críticos y previne duplicados",
+
+    // Deloitte
+    deloitteRole: "Desarrollador y Analista Salesforce",
+    deloittePeriod: "Abr 2023 - Ago 2024",
+    deloitteDesc: "Implementé funcionalidades críticas usando Apex, Visualforce y Lightning Components para proyectos bancarios a gran escala manejando miles de registros.",
+    deloitteAch1: "Participé en proyectos bancarios a gran escala con volúmenes masivos de datos",
+    deloitteAch2: "Implementé triggers y Batch Apex para gestión masiva de datos",
+    deloitteAch3: "Adapté componentes Visualforce a Lightning Experience",
+    deloitteAch4: "Colaboré directamente con equipos funcionales globales",
+    deloitteAch5: "Mejoré el rendimiento de procesos críticos, reduciendo errores de usuario",
+
+    // LBO
+    lboRole: "Desarrollador Full-Stack",
+    lboPeriod: "Oct 2022 - Mar 2023",
+    lboDesc: "Desarrollé una solución full-stack (Python, React) para optimizar la gestión y visualización de datos financieros.",
+    lboAch1: "Diseñé e implementé dashboards en React para visualización de datos en tiempo real",
+    lboAch2: "Optimicé consultas SQL y procesos ETL para análisis financiero",
+    lboAch3: "Apliqué patrones MVC y consumí APIs externas",
+    lboAch4: "Primera experiencia construyendo soluciones escalables fuera del entorno Salesforce",
+
     // Projects
     projectsTitle: "Proyectos Destacados",
     projectsDescription:
       "Una selección de proyectos en los que he trabajado, demostrando mi experiencia en desarrollo y personalización de la plataforma Salesforce.",
-    impact: "Impacto:",
+
+    // Project 1
+    project1Title: "Integración OAuth Jira-Salesforce",
+    project1Desc: "Desarrollé una integración bidireccional entre Jira y Salesforce usando autenticación OAuth 2.0. Implementé gestión segura de tokens, sincronización automática de tickets y actualizaciones de estado en tiempo real. El sistema crea automáticamente casos de Salesforce desde issues de Jira y mantiene consistencia de datos entre ambas plataformas.",
+    project1Impact: "Automatización fluida del flujo de trabajo",
+
+    // Project 2
+    project2Title: "Sistema de Carga Masiva Excel LWC",
+    project2Desc: "Desarrollé un Lightning Web Component que permite a los usuarios subir archivos Excel para carga masiva de datos. El componente valida y procesa datos localmente antes de enviarlos al backend Apex, que crea registros en masa e integra con bases de datos externas vía Web Services. Redujo el tiempo de procesamiento en más del 60%.",
+    project2Impact: "Reducción de tiempo del 60%+",
+
+    // Project 3
+    project3Title: "Automatización Email-to-Case y Asignación de Leads",
+    project3Desc: "Diseñé lógica automatizada para asociar Cuentas y Contactos a Casos creados vía email. El sistema empareja inteligentemente remitentes de email con campos personalizados en objetos Account, priorizando cuentas corporativas sobre cuentas personales. Extendí el flujo estándar Email-to-Case de Salesforce.",
+    project3Impact: "Enrutamiento automático de leads",
+
+    // Project 4
+    project4Title: "Motor de Procesamiento Batch Apex",
+    project4Desc: "Construí un job personalizado de Batch Apex para evaluar lógica de negocio compleja en grandes conjuntos de registros. Procesa cálculos basados en fechas, transiciones de estado y realiza operaciones masivas con consultas SOQL optimizadas y manejo de errores para ejecución diaria programada.",
+    project4Impact: "Procesamiento diario automatizado",
+
+    // Project 5
+    project5Title: "Servicio de Procesamiento XML de Leads",
+    project5Desc: "Implementé un servicio Apex para procesar emails entrantes con archivos adjuntos XML y crear automáticamente registros Lead. El sistema lee, valida y parsea datos XML dinámicamente, integrando Salesforce con sistemas externos de generación de leads.",
+    project5Impact: "Creación automática de leads",
+
+    // Skills categories
+    skillCat1: "Desarrollo Salesforce",
+    skillCat2: "Configuración y Automatización Salesforce",
+    skillCat3: "Integración y APIs",
+    skillCat4: "Control de Versiones y Herramientas de Desarrollo",
+    skillCat5: "IA y Desarrollo Moderno",
+    skillCat6: "Tecnologías Adicionales",
+    newBadge: "NUEVO",
 
     // Personal Projects
     personalProjectsTitle: "Proyectos Personales",
