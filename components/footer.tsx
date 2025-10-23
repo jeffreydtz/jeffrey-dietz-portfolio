@@ -1,4 +1,9 @@
+"use client"
+
+import { useLanguage } from "./language-context"
+
 export default function Footer() {
+  const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -15,7 +20,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
             >
-              LinkedIn
+              {t("linkedIn")}
             </a>
             <a
               href="https://github.com/jeffrey-dietz"
@@ -23,10 +28,10 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
             >
-              GitHub
+              {t("gitHub")}
             </a>
             <a href="mailto:jeffreydietz33@gmail.com" className="hover:text-foreground transition-colors">
-              Email
+              {t("email")}
             </a>
           </div>
         </div>

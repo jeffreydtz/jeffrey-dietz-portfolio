@@ -1,56 +1,56 @@
-const projects = [
-  {
-    title: "Jira-Salesforce OAuth Integration",
-    description:
-      "Developed a bidirectional integration between Jira and Salesforce using OAuth 2.0 authentication. Implemented secure token management, automated ticket synchronization, and real-time status updates. System automatically creates Salesforce cases from Jira issues and maintains data consistency across both platforms.",
-    technologies: ["OAuth 2.0", "REST API", "Apex", "Integration", "Jira API", "Middleware"],
-    impact: "Seamless workflow automation",
-    year: "2024-2025",
-  },
-  {
-    title: "LWC Excel Mass Upload System",
-    description:
-      "Developed a Lightning Web Component that allows users to upload Excel files for mass data loading. The component validates and processes data locally before sending to Apex backend, which creates records in bulk and integrates with external databases via Web Services. Reduced processing time by over 60%.",
-    technologies: ["Lightning Web Components", "Apex", "REST/SOAP API", "Excel Processing", "Mass DML"],
-    impact: "60%+ time reduction",
-    year: "2024",
-  },
-  {
-    title: "Email-to-Case & Lead Assignment Automation",
-    description:
-      "Designed automated logic to associate Accounts and Contacts to Cases created via email. System intelligently matches email senders with custom fields on Account objects, prioritizing company accounts over personal accounts. Extended Salesforce's standard Email-to-Case flow.",
-    technologies: ["Salesforce Flows", "Email-to-Case", "SOQL", "Record-Triggered Flows", "Assignment Rules"],
-    impact: "Automated lead routing",
-    year: "2024",
-  },
-  {
-    title: "Batch Apex Processing Engine",
-    description:
-      "Built custom Batch Apex job to evaluate complex business logic on large record sets. Processes date-based calculations, state transitions, and performs bulk operations with optimized SOQL queries and error handling for daily scheduled execution.",
-    technologies: ["Batch Apex", "Schedulable Apex", "SOQL", "Governor Limits", "Error Handling"],
-    impact: "Automated daily processing",
-    year: "2023-2024",
-  },
-  {
-    title: "XML Lead Processing Service",
-    description:
-      "Implemented Apex service to process incoming emails containing XML attachments and automatically create Lead records. System reads, validates, and parses XML data dynamically, integrating Salesforce with external lead generation systems.",
-    technologies: ["Apex", "XML Parsing", "Email Services", "Dynamic SOQL", "Lead Management"],
-    impact: "Automated lead creation",
-    year: "2023",
-  },
-]
+"use client"
+
+import { useLanguage } from "./language-context"
 
 export default function Projects() {
+  const { t } = useLanguage()
+
+  const projects = [
+    {
+      title: t("project1Title"),
+      description: t("project1Desc"),
+      technologies: ["OAuth 2.0", "REST API", "Apex", "Integration", "Jira API", "Middleware"],
+      impact: t("project1Impact"),
+      year: "2024-2025",
+    },
+    {
+      title: t("project2Title"),
+      description: t("project2Desc"),
+      technologies: ["Lightning Web Components", "Apex", "REST/SOAP API", "Excel Processing", "Mass DML"],
+      impact: t("project2Impact"),
+      year: "2024",
+    },
+    {
+      title: t("project3Title"),
+      description: t("project3Desc"),
+      technologies: ["Salesforce Flows", "Email-to-Case", "SOQL", "Record-Triggered Flows", "Assignment Rules"],
+      impact: t("project3Impact"),
+      year: "2024",
+    },
+    {
+      title: t("project4Title"),
+      description: t("project4Desc"),
+      technologies: ["Batch Apex", "Schedulable Apex", "SOQL", "Governor Limits", "Error Handling"],
+      impact: t("project4Impact"),
+      year: "2023-2024",
+    },
+    {
+      title: t("project5Title"),
+      description: t("project5Desc"),
+      technologies: ["Apex", "XML Parsing", "Email Services", "Dynamic SOQL", "Lead Management"],
+      impact: t("project5Impact"),
+      year: "2023",
+    },
+  ]
+
   return (
     <section id="projects" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
-          Featured Projects
+          {t("projectsTitle")}
         </h2>
         <p className="text-muted-foreground mb-12 max-w-2xl">
-          A selection of projects I've worked on, showcasing my expertise in Salesforce development and platform
-          customization.
+          {t("projectsDescription")}
         </p>
 
         <div className="grid md:grid-cols-2 gap-6">

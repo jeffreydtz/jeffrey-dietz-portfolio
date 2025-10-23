@@ -1,6 +1,11 @@
+"use client"
+
 import Image from "next/image"
+import { useLanguage } from "./language-context"
 
 export default function Hero() {
+  const { t } = useLanguage()
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: "smooth" })
@@ -12,30 +17,31 @@ export default function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div>
-              <h2 className="text-sm font-semibold text-accent mb-2">Hello, I'm Jeffrey Dietz</h2>
-              <h1 className="text-5xl md:text-6xl font-bold text-balance leading-tight">Salesforce Developer & Analyst</h1>
+              <h2 className="text-sm font-semibold text-accent mb-2">{t("hello")}</h2>
+              <h1 className="text-5xl md:text-6xl font-bold text-balance leading-tight">{t("heroTitle")}</h1>
             </div>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Salesforce Developer at <strong className="text-foreground">Accenture</strong>, building scalable enterprise solutions with 2+ years of continuous experience.
-              Specialized in Apex development, Lightning Web Components, API integrations, and digital transformation.
-            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">{t("heroDescription")}</p>
             <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">Accenture</span>
-              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">2+ Years Experience</span>
-              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">C1 English</span>
+              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">
+                {t("accentureBadge")}
+              </span>
+              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">
+                {t("experienceBadge")}
+              </span>
+              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">{t("englishBadge")}</span>
             </div>
             <div className="flex gap-4 pt-4">
               <button
                 onClick={() => scrollToSection("projects")}
                 className="px-6 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
               >
-                View My Work
+                {t("viewWork")}
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
                 className="px-6 py-3 border border-border rounded-lg font-medium hover:bg-muted transition-colors"
               >
-                Get in Touch
+                {t("getInTouch")}
               </button>
             </div>
           </div>
@@ -51,7 +57,7 @@ export default function Hero() {
                     className="object-contain"
                   />
                 </div>
-                <p className="text-muted-foreground font-semibold text-lg">Salesforce Ecosystem</p>
+                <p className="text-muted-foreground font-semibold text-lg">{t("salesforceEcosystem")}</p>
                 <div className="flex flex-wrap gap-2 justify-center px-4">
                   <span className="text-xs px-3 py-1.5 bg-background/50 rounded-full font-medium">Apex</span>
                   <span className="text-xs px-3 py-1.5 bg-background/50 rounded-full font-medium">LWC</span>

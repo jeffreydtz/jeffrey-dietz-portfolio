@@ -1,83 +1,79 @@
-import { Building2, MapPin } from "lucide-react"
-import Image from "next/image"
+"use client"
 
-const experiences = [
-  {
-    company: "Accenture",
-    logo: "/logos/accenture.jpeg",
-    role: "Salesforce Developer",
-    period: "Nov 2025 - Present",
-    location: "Remote",
-    description:
-      "Joining Accenture to work on enterprise Salesforce implementations and digital transformation projects for global clients. Bringing 2+ years of Salesforce development experience to deliver innovative solutions.",
-    achievements: [
-      "Working on large-scale Salesforce implementations for Fortune 500 clients",
-      "Contributing to digital transformation initiatives across multiple industries",
-      "Leveraging Apex, LWC, and integration expertise for complex business requirements",
-      "Collaborating with global teams on enterprise-grade solutions",
-    ],
-    technologies: ["Salesforce", "Apex", "LWC", "Enterprise Architecture", "Consulting", "Digital Transformation"],
-  },
-  {
-    company: "Avalian",
-    logo: "/logos/avalian.png",
-    role: "Salesforce Developer",
-    period: "Aug 2024 - Oct 2025",
-    location: "Remote",
-    description:
-      "Developed and implemented advanced Salesforce solutions, specializing in process automation using Apex, Lightning Web Components, and Flow Builder.",
-    achievements: [
-      "Implemented REST API integrations for external database connectivity",
-      "Developed custom Apex logic to optimize execution times for high-volume processes",
-      "Enhanced Email-to-Case process, automating account and contact assignment",
-      "Worked in Agile environment managing AMS tickets, releases, and testing",
-      "Supervised data quality in critical flows and prevented duplicates",
-    ],
-    technologies: ["Apex", "LWC", "Flow Builder", "REST API", "Batch Apex", "SOQL"],
-  },
-  {
-    company: "Deloitte",
-    logo: "/logos/deloitte.jpeg",
-    role: "Salesforce Developer & Analyst",
-    period: "Apr 2023 - Aug 2024",
-    location: "Hybrid",
-    description:
-      "Implemented critical functionalities using Apex, Visualforce, and Lightning Components for large-scale banking projects handling thousands of records.",
-    achievements: [
-      "Participated in large-scale banking projects with massive data volumes",
-      "Implemented triggers and Batch Apex for mass data management",
-      "Adapted Visualforce components to Lightning Experience",
-      "Collaborated directly with global functional teams",
-      "Improved performance of critical processes, reducing user errors",
-    ],
-    technologies: ["Apex", "Visualforce", "Lightning Components", "Batch Apex", "Triggers", "SOQL"],
-  },
-  {
-    company: "LBO",
-    logo: "/logos/lbo.png",
-    role: "Full-Stack Developer",
-    period: "Oct 2022 - Mar 2023",
-    location: "Remote",
-    description:
-      "Developed a full-stack solution (Python, React) to optimize the management and visualization of financial data.",
-    achievements: [
-      "Designed and implemented React dashboards for real-time data visualization",
-      "Optimized SQL queries and ETL processes for financial analysis",
-      "Applied MVC patterns and consumed external APIs",
-      "First approach to building scalable solutions outside Salesforce environment",
-    ],
-    technologies: ["Python", "React", "PostgreSQL", "REST APIs", "SQL", "ETL"],
-  },
-]
+import { Building2 } from "lucide-react"
+import Image from "next/image"
+import { useLanguage } from "./language-context"
 
 export default function Experience() {
+  const { t } = useLanguage()
+
+  const experiences = [
+    {
+      company: "Accenture",
+      logo: "/logos/accenture.jpeg",
+      role: t("accentureRole"),
+      period: t("accenturePeriod"),
+      description: t("accentureDesc"),
+      achievements: [
+        t("accentureAch1"),
+        t("accentureAch2"),
+        t("accentureAch3"),
+        t("accentureAch4"),
+      ],
+      technologies: ["Salesforce", "Apex", "LWC", "Enterprise Architecture", "Consulting", "Digital Transformation"],
+    },
+    {
+      company: "Avalian",
+      logo: "/logos/avalian.png",
+      role: t("avalianRole"),
+      period: t("avalianPeriod"),
+      description: t("avalianDesc"),
+      achievements: [
+        t("avalianAch1"),
+        t("avalianAch2"),
+        t("avalianAch3"),
+        t("avalianAch4"),
+        t("avalianAch5"),
+      ],
+      technologies: ["Apex", "LWC", "Flow Builder", "REST API", "Batch Apex", "SOQL"],
+    },
+    {
+      company: "Deloitte",
+      logo: "/logos/deloitte.jpeg",
+      role: t("deloitteRole"),
+      period: t("deloittePeriod"),
+      description: t("deloitteDesc"),
+      achievements: [
+        t("deloitteAch1"),
+        t("deloitteAch2"),
+        t("deloitteAch3"),
+        t("deloitteAch4"),
+        t("deloitteAch5"),
+      ],
+      technologies: ["Apex", "Visualforce", "Lightning Components", "Batch Apex", "Triggers", "SOQL"],
+    },
+    {
+      company: "LBO",
+      logo: "/logos/lbo.png",
+      role: t("lboRole"),
+      period: t("lboPeriod"),
+      description: t("lboDesc"),
+      achievements: [
+        t("lboAch1"),
+        t("lboAch2"),
+        t("lboAch3"),
+        t("lboAch4"),
+      ],
+      technologies: ["Python", "React", "PostgreSQL", "REST APIs", "SQL", "ETL"],
+    },
+  ]
+
   return (
     <section id="experience" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Professional Experience</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">{t("experienceTitle")}</h2>
         <p className="text-muted-foreground mb-12 max-w-2xl">
-          My professional journey working with leading companies, building Salesforce solutions and enterprise
-          applications.
+          {t("experienceDescription")}
         </p>
 
         <div className="space-y-12">
@@ -109,18 +105,14 @@ export default function Experience() {
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm text-muted-foreground font-medium">{exp.period}</p>
-                    <p className="text-sm text-muted-foreground flex items-center gap-1 justify-end">
-                      <MapPin className="w-3 h-3" />
-                      {exp.location}
-                    </p>
+                    <p className="text-sm text-muted-foreground font-medium font-mono">{exp.period}</p>
                   </div>
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
 
                 <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-foreground mb-2">Key Achievements:</h4>
+                  <h4 className="text-sm font-semibold text-foreground mb-2">{t("keyAchievements")}</h4>
                   <ul className="space-y-1">
                     {exp.achievements.map((achievement, i) => (
                       <li key={i} className="text-sm text-muted-foreground flex items-start">

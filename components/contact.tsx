@@ -1,11 +1,16 @@
+"use client"
+
+import { useLanguage } from "./language-context"
+
 export default function Contact() {
+  const { t } = useLanguage()
+
   return (
     <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Let's Work Together</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">{t("contactTitle")}</h2>
         <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-          I'm always interested in hearing about new Salesforce projects and opportunities. Whether you need a developer
-          for enterprise solutions, integrations, or process automation, feel free to reach out.
+          {t("contactDescription")}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -13,7 +18,7 @@ export default function Contact() {
             href="mailto:jeffreydietz33@gmail.com"
             className="px-8 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
           >
-            Send Email
+            {t("sendEmail")}
           </a>
           <a
             href="https://www.linkedin.com/in/jeffrey--dietz"
@@ -21,7 +26,7 @@ export default function Contact() {
             rel="noopener noreferrer"
             className="px-8 py-3 border border-border rounded-lg font-medium hover:bg-muted transition-colors"
           >
-            View LinkedIn
+            {t("viewLinkedIn")}
           </a>
         </div>
 
@@ -52,10 +57,10 @@ export default function Contact() {
 
         <div className="mt-12 pt-8 border-t border-border">
           <p className="text-sm text-muted-foreground">
-            <strong className="text-foreground">Location:</strong> Available for remote opportunities worldwide
+            <strong className="text-foreground">{t("location")}</strong> {t("locationValue")}
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            <strong className="text-foreground">Languages:</strong> Spanish (Native) | English (C1 - goFLUENT Certified)
+            <strong className="text-foreground">{t("languages")}</strong> {t("languagesValue")}
           </p>
         </div>
       </div>
