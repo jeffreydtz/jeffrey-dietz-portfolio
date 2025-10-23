@@ -10,13 +10,13 @@ export default function Contact() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
           <a
-            href="mailto:jeffrey.dietz.dev@gmail.com"
+            href="mailto:jeffreydietz33@gmail.com"
             className="px-8 py-3 bg-accent text-accent-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
           >
             Send Email
           </a>
           <a
-            href="https://www.linkedin.com/in/jeffrey-dietz/"
+            href="https://www.linkedin.com/in/jeffrey--dietz"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3 border border-border rounded-lg font-medium hover:bg-muted transition-colors"
@@ -27,7 +27,7 @@ export default function Contact() {
 
         <div className="flex justify-center gap-6">
           <a
-            href="https://www.linkedin.com/in/jeffrey-dietz/"
+            href="https://www.linkedin.com/in/jeffrey--dietz"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-accent transition-colors"

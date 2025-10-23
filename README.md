@@ -136,8 +136,8 @@ Every push to `main` triggers an automatic deployment.
 
 ## 📧 Contact
 
-- **Email:** jeffrey.dietz.dev@gmail.com
-- **LinkedIn:** [linkedin.com/in/jeffrey-dietz](https://www.linkedin.com/in/jeffrey-dietz/)
+- **Email:** jeffreydietz33@gmail.com
+- **LinkedIn:** [linkedin.com/in/jeffrey--dietz](https://www.linkedin.com/in/jeffrey--dietz)
 - **GitHub:** [github.com/jeffrey-dietz](https://github.com/jeffrey-dietz)
 
 ## 📄 License

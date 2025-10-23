@@ -6,11 +6,11 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Jeffrey Dietz. Built with Next.js & Tailwind CSS.
+            © {currentYear} Jeffrey Dietz.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a
-              href="https://www.linkedin.com/in/jeffrey-dietz/"
+              href="https://www.linkedin.com/in/jeffrey--dietz"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
@@ -25,7 +25,7 @@ export default function Footer() {
             >
               GitHub
             </a>
-            <a href="mailto:jeffrey.dietz.dev@gmail.com" className="hover:text-foreground transition-colors">
+            <a href="mailto:jeffreydietz33@gmail.com" className="hover:text-foreground transition-colors">
               Email
             </a>
           </div>

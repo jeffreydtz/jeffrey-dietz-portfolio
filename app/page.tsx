@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { LanguageProvider } from "@/components/language-context"
 import Navigation from "@/components/navigation"
 import Hero from "@/components/hero"
 import About from "@/components/about"
@@ -15,16 +16,18 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("about")
 
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
-      <Hero />
-      <About setActiveSection={setActiveSection} />
-      <Experience />
-      <Projects />
-      <PersonalProjects />
-      <Skills />
-      <Contact />
-      <Footer />
-    </main>
+    <LanguageProvider>
+      <main className="min-h-screen bg-background text-foreground">
+        <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
+        <Hero />
+        <About setActiveSection={setActiveSection} />
+        <Experience />
+        <Projects />
+        <PersonalProjects />
+        <Skills />
+        <Contact />
+        <Footer />
+      </main>
+    </LanguageProvider>
   )
 }

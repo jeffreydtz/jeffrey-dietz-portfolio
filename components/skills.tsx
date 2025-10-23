@@ -1,6 +1,9 @@
+import { Sparkles } from "lucide-react"
+
 const skillCategories = [
   {
     category: "Salesforce Development",
+    icon: "⚡",
     skills: [
       "Apex",
       "Lightning Web Components (LWC)",
@@ -10,10 +13,12 @@ const skillCategories = [
       "Schedulable Apex",
       "Triggers & Classes",
       "Visualforce",
+      "OAuth 2.0",
     ],
   },
   {
     category: "Salesforce Configuration & Automation",
+    icon: "🔧",
     skills: [
       "Flows (Screen, Record-Triggered, Scheduled)",
       "Process Builder",
@@ -26,6 +31,7 @@ const skillCategories = [
   },
   {
     category: "Integration & APIs",
+    icon: "🔗",
     skills: [
       "REST API",
       "SOAP Web Services",
@@ -33,12 +39,17 @@ const skillCategories = [
       "XML/JSON Parsing",
       "n8n (Automation Platform)",
       "Callouts & HTTP Requests",
+      "Jira API Integration",
+      "Middleware",
     ],
   },
   {
-    category: "Development Tools & Practices",
+    category: "Version Control & Development Tools",
+    icon: "🛠️",
     skills: [
-      "Git & Version Control",
+      "Git",
+      "GitHub",
+      "Bitbucket",
       "VS Code + SFDX CLI",
       "Jira / ServiceNow (AMS)",
       "Agile / Scrum",
@@ -47,13 +58,29 @@ const skillCategories = [
     ],
   },
   {
+    category: "AI & Modern Development",
+    icon: "🤖",
+    skills: [
+      "Claude AI",
+      "ChatGPT",
+      "GitHub Copilot",
+      "AI-Assisted Development",
+      "Prompt Engineering",
+      "AI Code Review",
+      "AI Pair Programming",
+    ],
+    highlight: true,
+  },
+  {
     category: "Additional Technologies",
+    icon: "💻",
     skills: [
       "Python & Django",
       "Flutter (Mobile Development)",
       "JavaScript / TypeScript",
       "PostgreSQL / SQLite",
       "HTML / CSS",
+      "Next.js & React",
     ],
   },
 ]
@@ -62,20 +89,41 @@ export default function Skills() {
   return (
     <section id="skills" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">Skills & Expertise</h2>
+        <div className="flex items-center gap-3 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-balance bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
+            Skills & Expertise
+          </h2>
+          <Sparkles className="w-8 h-8 text-accent animate-pulse" />
+        </div>
         <p className="text-muted-foreground mb-12 max-w-2xl">
-          A comprehensive overview of my technical skills and areas of expertise in Salesforce development.
+          A comprehensive overview of my technical skills and areas of expertise in Salesforce development and modern
+          technologies.
         </p>
 
         <div className="space-y-8">
           {skillCategories.map((category, index) => (
-            <div key={index} className="space-y-4">
-              <h3 className="text-lg font-semibold text-foreground">{category.category}</h3>
+            <div
+              key={index}
+              className={`space-y-4 p-6 rounded-xl border transition-all duration-300 ${
+                category.highlight
+                  ? "border-accent/50 bg-gradient-to-br from-accent/5 to-transparent shadow-lg shadow-accent/5"
+                  : "border-border bg-card/50"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <span className="text-2xl">{category.icon}</span>
+                <h3 className="text-lg font-semibold text-foreground">{category.category}</h3>
+                {category.highlight && (
+                  <span className="ml-auto px-3 py-1 text-xs font-semibold bg-accent/20 text-accent rounded-full border border-accent/30">
+                    NEW
+                  </span>
+                )}
+              </div>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-4 py-2 bg-background border border-border rounded-lg text-sm font-medium text-foreground hover:border-accent/50 transition-colors"
+                    className="px-4 py-2 bg-background border border-border rounded-lg text-sm font-medium text-foreground hover:border-accent/50 hover:shadow-sm transition-all duration-200 cursor-default"
                   >
                     {skill}
                   </span>
