@@ -10,7 +10,7 @@ interface NavigationProps {
 export default function Navigation({ activeSection, setActiveSection }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const sections = ["about", "projects", "skills", "contact"]
+  const sections = ["about", "experience", "projects", "skills", "contact"]
 
   const handleNavClick = (section: string) => {
     setActiveSection(section)
@@ -24,7 +24,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-accent">SF Dev</h1>
+            <h1 className="text-2xl font-bold text-accent">JD</h1>
           </div>
 
           {/* Desktop Navigation */}

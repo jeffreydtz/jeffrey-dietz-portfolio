@@ -1,30 +1,35 @@
 const projects = [
   {
-    title: "Custom CRM Integration",
+    title: "LWC Excel Mass Upload System",
     description:
-      "Built a comprehensive CRM system integrating Salesforce with third-party APIs, handling 10,000+ daily transactions.",
-    technologies: ["Apex", "REST API", "Lightning Web Components"],
+      "Developed a Lightning Web Component that allows users to upload Excel files for mass data loading. The component validates and processes data locally before sending to Apex backend, which creates records in bulk and integrates with external databases via Web Services. Reduced processing time by over 60%.",
+    technologies: ["Lightning Web Components", "Apex", "REST/SOAP API", "Excel Processing", "Mass DML"],
+    impact: "60%+ time reduction",
     year: "2024",
   },
   {
-    title: "Automated Workflow Engine",
+    title: "Email-to-Case & Lead Assignment Automation",
     description:
-      "Developed an advanced workflow automation system reducing manual processes by 80% and improving team productivity.",
-    technologies: ["Apex Triggers", "Process Builder", "Flow"],
-    year: "2023",
+      "Designed automated logic to associate Accounts and Contacts to Cases created via email. System intelligently matches email senders with custom field 'Correo_electronico__c' on Account objects, prioritizing company accounts over personal accounts. Extended Salesforce's standard Email-to-Case flow.",
+    technologies: ["Salesforce Flows", "Email-to-Case", "SOQL", "Record-Triggered Flows", "Assignment Rules"],
+    impact: "Automated lead routing",
+    year: "2024",
   },
   {
-    title: "Lightning Dashboard Suite",
+    title: "Batch Apex - CRM_RCCR_Saltos_Batch",
     description:
-      "Created interactive dashboards and reports providing real-time insights into sales and customer data.",
-    technologies: ["Lightning Components", "SOQL", "Analytics"],
-    year: "2023",
+      "Built custom Batch Apex job to evaluate complex business logic on large record sets. Processes date-based calculations, state transitions, and performs bulk operations with optimized SOQL queries and error handling for daily scheduled execution.",
+    technologies: ["Batch Apex", "Schedulable Apex", "SOQL", "Governor Limits", "Error Handling"],
+    impact: "Automated daily processing",
+    year: "2023-2024",
   },
   {
-    title: "Data Migration Platform",
-    description: "Engineered a robust data migration tool for moving legacy systems to Salesforce with zero data loss.",
-    technologies: ["Apex", "Batch Processing", "Data Loader"],
-    year: "2022",
+    title: "VW_EmailToLeadService_Fabrica - XML Lead Processing",
+    description:
+      "Implemented Apex service to process incoming emails containing XML attachments and automatically create Lead records. System reads, validates, and parses XML data dynamically, integrating Salesforce with external lead generation systems.",
+    technologies: ["Apex", "XML Parsing", "Email Services", "Dynamic SOQL", "Lead Management"],
+    impact: "Automated lead creation",
+    year: "2023",
   },
 ]
 
@@ -51,7 +56,15 @@ export default function Projects() {
                 <span className="text-sm text-muted-foreground">{project.year}</span>
               </div>
 
-              <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+              <p className="text-muted-foreground mb-3 leading-relaxed">{project.description}</p>
+
+              {project.impact && (
+                <div className="mb-4">
+                  <span className="inline-block px-3 py-1 text-xs font-semibold bg-green-500/10 text-green-600 dark:text-green-400 rounded-full">
+                    Impact: {project.impact}
+                  </span>
+                </div>
+              )}
 
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((tech, i) => (

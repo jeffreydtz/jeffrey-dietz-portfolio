@@ -1,19 +1,60 @@
 const skillCategories = [
   {
-    category: "Languages & Frameworks",
-    skills: ["Apex", "JavaScript", "TypeScript", "Lightning Web Components", "Visualforce"],
+    category: "Salesforce Development",
+    skills: [
+      "Apex",
+      "Lightning Web Components (LWC)",
+      "Aura Components",
+      "SOQL / SOSL",
+      "Batch Apex",
+      "Schedulable Apex",
+      "Triggers & Classes",
+      "Visualforce",
+    ],
   },
   {
-    category: "Salesforce Tools",
-    skills: ["Process Builder", "Flow", "Workflows", "Batch Apex", "Scheduled Actions", "REST API"],
+    category: "Salesforce Configuration & Automation",
+    skills: [
+      "Flows (Screen, Record-Triggered, Scheduled)",
+      "Process Builder",
+      "Workflows",
+      "Validation Rules",
+      "Record Types & Page Layouts",
+      "Email-to-Case",
+      "Assignment Rules",
+    ],
   },
   {
-    category: "Integration & Data",
-    skills: ["REST/SOAP APIs", "Data Loader", "ETL", "Middleware Integration", "Database Design"],
+    category: "Integration & APIs",
+    skills: [
+      "REST API",
+      "SOAP Web Services",
+      "External Database Integration",
+      "XML/JSON Parsing",
+      "n8n (Automation Platform)",
+      "Callouts & HTTP Requests",
+    ],
   },
   {
-    category: "Development Practices",
-    skills: ["Unit Testing", "Git", "CI/CD", "Agile", "Code Review", "Documentation"],
+    category: "Development Tools & Practices",
+    skills: [
+      "Git & Version Control",
+      "VS Code + SFDX CLI",
+      "Jira / ServiceNow (AMS)",
+      "Agile / Scrum",
+      "Unit Testing",
+      "Code Review & Documentation",
+    ],
+  },
+  {
+    category: "Additional Technologies",
+    skills: [
+      "Python & Django",
+      "Flutter (Mobile Development)",
+      "JavaScript / TypeScript",
+      "PostgreSQL / SQLite",
+      "HTML / CSS",
+    ],
   },
 ]
 
@@ -26,7 +67,7 @@ export default function Skills() {
           A comprehensive overview of my technical skills and areas of expertise in Salesforce development.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="space-y-8">
           {skillCategories.map((category, index) => (
             <div key={index} className="space-y-4">
               <h3 className="text-lg font-semibold text-foreground">{category.category}</h3>

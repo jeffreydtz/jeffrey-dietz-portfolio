@@ -8,6 +8,20 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.worldvectorlogo.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.cdnlogo.com',
+      },
+    ],
   },
 }
 

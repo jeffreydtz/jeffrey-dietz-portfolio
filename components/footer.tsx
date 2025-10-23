@@ -5,16 +5,28 @@ export default function Footer() {
     <footer className="border-t border-border bg-muted/30 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-muted-foreground">© {currentYear} Salesforce Developer. All rights reserved.</p>
+          <p className="text-sm text-muted-foreground">
+            © {currentYear} Jeffrey Dietz. Built with Next.js & Tailwind CSS.
+          </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">
-              Privacy
+            <a
+              href="https://www.linkedin.com/in/jeffrey-dietz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              LinkedIn
             </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Terms
+            <a
+              href="https://github.com/jeffrey-dietz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors"
+            >
+              GitHub
             </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Sitemap
+            <a href="mailto:jeffrey.dietz.dev@gmail.com" className="hover:text-foreground transition-colors">
+              Email
             </a>
           </div>
         </div>
