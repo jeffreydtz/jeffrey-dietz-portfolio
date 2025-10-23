@@ -4,7 +4,7 @@ import Image from "next/image"
 const experiences = [
   {
     company: "Accenture",
-    logo: "/logos/accenture.png",
+    logo: "/logos/accenture.jpeg",
     role: "Salesforce Developer",
     period: "Nov 2025 - Present",
     location: "Remote",
@@ -37,7 +37,7 @@ const experiences = [
   },
   {
     company: "Deloitte",
-    logo: "/logos/deloitte.png",
+    logo: "/logos/deloitte.jpeg",
     role: "Salesforce Developer & Analyst",
     period: "Apr 2023 - Aug 2024",
     location: "Hybrid",

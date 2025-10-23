@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function Hero() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -38,15 +40,24 @@ export default function Hero() {
             </div>
           </div>
           <div className="hidden md:block">
-            <div className="relative w-full aspect-square bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl border border-border/50 flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <div className="text-6xl mb-4">☁️</div>
-                <p className="text-muted-foreground font-semibold">Salesforce Ecosystem</p>
+            <div className="relative w-full aspect-square bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl border border-border/50 flex items-center justify-center p-8">
+              <div className="text-center space-y-6">
+                <div className="flex justify-center mb-4">
+                  <Image
+                    src="/logos/salesforce.jpeg"
+                    alt="Salesforce"
+                    width={120}
+                    height={120}
+                    className="object-contain"
+                  />
+                </div>
+                <p className="text-muted-foreground font-semibold text-lg">Salesforce Ecosystem</p>
                 <div className="flex flex-wrap gap-2 justify-center px-4">
-                  <span className="text-xs px-2 py-1 bg-background/50 rounded">Apex</span>
-                  <span className="text-xs px-2 py-1 bg-background/50 rounded">LWC</span>
-                  <span className="text-xs px-2 py-1 bg-background/50 rounded">Flows</span>
-                  <span className="text-xs px-2 py-1 bg-background/50 rounded">APIs</span>
+                  <span className="text-xs px-3 py-1.5 bg-background/50 rounded-full font-medium">Apex</span>
+                  <span className="text-xs px-3 py-1.5 bg-background/50 rounded-full font-medium">LWC</span>
+                  <span className="text-xs px-3 py-1.5 bg-background/50 rounded-full font-medium">Flows</span>
+                  <span className="text-xs px-3 py-1.5 bg-background/50 rounded-full font-medium">APIs</span>
+                  <span className="text-xs px-3 py-1.5 bg-background/50 rounded-full font-medium">Integration</span>
                 </div>
               </div>
             </div>
