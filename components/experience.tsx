@@ -3,13 +3,29 @@ import Image from "next/image"
 
 const experiences = [
   {
-    company: "Avalian",
-    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHQxP7HfLJPHQ/company-logo_200_200/company-logo_200_200/0/1719430451311",
+    company: "Accenture",
+    logo: "/logos/accenture.png",
     role: "Salesforce Developer",
-    period: "Aug 2024 - Present",
+    period: "Nov 2025 - Present",
     location: "Remote",
     description:
-      "Developing and implementing advanced Salesforce solutions, specializing in process automation using Apex, Lightning Web Components, and Flow Builder.",
+      "Joining Accenture to work on enterprise Salesforce implementations and digital transformation projects for global clients. Bringing 2+ years of Salesforce development experience to deliver innovative solutions.",
+    achievements: [
+      "Working on large-scale Salesforce implementations for Fortune 500 clients",
+      "Contributing to digital transformation initiatives across multiple industries",
+      "Leveraging Apex, LWC, and integration expertise for complex business requirements",
+      "Collaborating with global teams on enterprise-grade solutions",
+    ],
+    technologies: ["Salesforce", "Apex", "LWC", "Enterprise Architecture", "Consulting", "Digital Transformation"],
+  },
+  {
+    company: "Avalian",
+    logo: "/logos/avalian.png",
+    role: "Salesforce Developer",
+    period: "Aug 2024 - Oct 2025",
+    location: "Remote",
+    description:
+      "Developed and implemented advanced Salesforce solutions, specializing in process automation using Apex, Lightning Web Components, and Flow Builder.",
     achievements: [
       "Implemented REST API integrations for external database connectivity",
       "Developed custom Apex logic to optimize execution times for high-volume processes",
@@ -21,7 +37,7 @@ const experiences = [
   },
   {
     company: "Deloitte",
-    logo: "https://cdn.worldvectorlogo.com/logos/deloitte-1.svg",
+    logo: "/logos/deloitte.png",
     role: "Salesforce Developer & Analyst",
     period: "Apr 2023 - Aug 2024",
     location: "Hybrid",
@@ -38,7 +54,7 @@ const experiences = [
   },
   {
     company: "LBO",
-    logo: null,
+    logo: "/logos/lbo.png",
     role: "Full-Stack Developer",
     period: "Oct 2022 - Mar 2023",
     location: "Remote",

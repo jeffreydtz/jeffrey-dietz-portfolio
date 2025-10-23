@@ -14,13 +14,13 @@ export default function Hero() {
               <h1 className="text-5xl md:text-6xl font-bold text-balance leading-tight">Salesforce Developer & Analyst</h1>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Building scalable, enterprise-grade solutions on the Salesforce platform with 2+ years of continuous experience.
-              Specialized in Apex development, Lightning Web Components, API integrations, and process automation.
+              Salesforce Developer at <strong className="text-foreground">Accenture</strong>, building scalable enterprise solutions with 2+ years of continuous experience.
+              Specialized in Apex development, Lightning Web Components, API integrations, and digital transformation.
             </p>
             <div className="flex flex-wrap gap-3 text-sm text-muted-foreground">
-              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">C1 English Certified</span>
+              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">Accenture</span>
               <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">2+ Years Experience</span>
-              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">Full-Stack Mindset</span>
+              <span className="px-3 py-1 bg-accent/10 text-accent rounded-full font-medium">C1 English</span>
             </div>
             <div className="flex gap-4 pt-4">
               <button
