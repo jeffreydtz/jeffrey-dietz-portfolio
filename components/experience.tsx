@@ -3,9 +3,11 @@
 import { Building2 } from "lucide-react"
 import Image from "next/image"
 import { useLanguage } from "./language-context"
+import { useScrollAnimation } from "@/lib/use-scroll-animation"
 
 export default function Experience() {
   const { t } = useLanguage()
+  const { ref, isVisible } = useScrollAnimation()
 
   const experiences = [
     {
@@ -69,73 +71,101 @@ export default function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance">{t("experienceTitle")}</h2>
-        <p className="text-muted-foreground mb-12 max-w-2xl">
-          {t("experienceDescription")}
-        </p>
+    <section id="experience" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="max-w-6xl mx-auto relative z-10">
+        <div 
+          ref={ref}
+          className={`transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            {t("experienceTitle")}
+          </h2>
+          <p className="text-muted-foreground mb-12 max-w-2xl text-lg">
+            {t("experienceDescription")}
+          </p>
 
-        <div className="space-y-12">
-          {experiences.map((exp, index) => (
-            <div key={index} className="relative pl-8 border-l-2 border-accent/30">
-              <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-accent border-4 border-background"></div>
+          <div className="space-y-8">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="group relative pl-8 md:pl-12 border-l-2 border-accent/30 hover:border-accent/60 transition-all duration-300"
+              >
+                {/* Animated dot */}
+                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gradient-to-br from-accent to-accent/70 border-4 border-background shadow-lg shadow-accent/20 group-hover:scale-125 transition-transform duration-300" />
 
-              <div className="mb-4">
-                <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                  <div className="flex items-center gap-4">
-                    {exp.logo ? (
-                      <div className="w-16 h-16 rounded-lg bg-background border border-border flex items-center justify-center overflow-hidden p-2">
-                        <Image
-                          src={exp.logo}
-                          alt={`${exp.company} logo`}
-                          width={48}
-                          height={48}
-                          className="object-contain"
-                        />
+                <div className="p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
+                  <div className="mb-6">
+                    <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                      <div className="flex items-center gap-4">
+                        {exp.logo ? (
+                          <div className="w-16 h-16 rounded-xl bg-background border border-border flex items-center justify-center overflow-hidden p-2 group-hover:border-accent/50 group-hover:shadow-md transition-all duration-300">
+                            <Image
+                              src={exp.logo}
+                              alt={`${exp.company} logo`}
+                              width={48}
+                              height={48}
+                              className="object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-16 h-16 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
+                            <Building2 className="w-8 h-8 text-accent" />
+                          </div>
+                        )}
+                        <div>
+                          <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
+                            {exp.company}
+                          </h3>
+                          <p className="text-lg text-accent font-semibold">{exp.role}</p>
+                        </div>
                       </div>
-                    ) : (
-                      <div className="w-16 h-16 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
-                        <Building2 className="w-8 h-8 text-accent" />
+                      <div className="text-right">
+                        <p className="text-sm text-muted-foreground font-medium font-mono bg-muted/50 px-3 py-1 rounded-lg">
+                          {exp.period}
+                        </p>
                       </div>
-                    )}
-                    <div>
-                      <h3 className="text-2xl font-bold text-foreground">{exp.company}</h3>
-                      <p className="text-lg text-accent font-semibold">{exp.role}</p>
+                    </div>
+
+                    <p className="text-muted-foreground leading-relaxed mb-6 text-base">{exp.description}</p>
+
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-accent" />
+                        {t("keyAchievements")}
+                      </h4>
+                      <ul className="space-y-2">
+                        {exp.achievements.map((achievement, i) => (
+                          <li
+                            key={i}
+                            className="text-sm text-muted-foreground flex items-start gap-3 group/item"
+                          >
+                            <span className="text-accent mt-1.5 group-hover/item:scale-110 transition-transform duration-200">▹</span>
+                            <span className="group-hover/item:text-foreground transition-colors duration-200">{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.technologies.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1.5 text-xs font-medium bg-accent/10 border border-accent/20 rounded-full text-foreground hover:bg-accent/20 hover:border-accent/30 hover:scale-105 transition-all duration-200 cursor-default"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm text-muted-foreground font-medium font-mono">{exp.period}</p>
-                  </div>
-                </div>
-
-                <p className="text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
-
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-foreground mb-2">{t("keyAchievements")}</h4>
-                  <ul className="space-y-1">
-                    {exp.achievements.map((achievement, i) => (
-                      <li key={i} className="text-sm text-muted-foreground flex items-start">
-                        <span className="text-accent mr-2 mt-1">▹</span>
-                        <span>{achievement}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 text-xs font-medium bg-muted border border-border rounded-full text-foreground"
-                    >
-                      {tech}
-                    </span>
-                  ))}
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
