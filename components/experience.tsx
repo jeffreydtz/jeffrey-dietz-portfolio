@@ -106,10 +106,11 @@ export default function Experience() {
                           <div className="w-16 h-16 rounded-xl bg-background border border-border flex items-center justify-center overflow-hidden p-2 group-hover:border-accent/50 group-hover:shadow-md transition-all duration-300">
                             <Image
                               src={exp.logo}
-                              alt={`${exp.company} logo`}
+                              alt={`${exp.company} company logo - ${exp.role} position at ${exp.company}`}
                               width={48}
                               height={48}
                               className="object-contain"
+                              loading="lazy"
                             />
                           </div>
                         ) : (

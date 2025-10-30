@@ -19,13 +19,15 @@ export default function Home() {
     <LanguageProvider>
       <main className="min-h-screen bg-background text-foreground">
         <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
-        <Hero />
-        <About setActiveSection={setActiveSection} />
-        <Experience />
-        <Projects />
-        <PersonalProjects />
-        <Skills />
-        <Contact />
+        <article itemScope itemType="https://schema.org/ProfilePage">
+          <Hero />
+          <About setActiveSection={setActiveSection} />
+          <Experience />
+          <Projects />
+          <PersonalProjects />
+          <Skills />
+          <Contact />
+        </article>
         <Footer />
       </main>
     </LanguageProvider>

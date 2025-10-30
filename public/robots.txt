@@ -1,0 +1,17 @@
+# robots.txt for jeffreydietz.dev
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths (if any exist in the future)
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /_next/image
+
+# Sitemap location
+Sitemap: https://jeffreydietz.dev/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+

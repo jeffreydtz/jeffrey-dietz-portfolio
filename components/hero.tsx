@@ -83,10 +83,11 @@ export default function Hero() {
                     <div className="absolute inset-0 bg-accent/20 rounded-full blur-2xl animate-pulse" />
                     <Image
                       src="/logos/salesforce.jpeg"
-                      alt="Salesforce"
+                      alt="Salesforce CRM platform logo - Jeffrey Dietz specializes in Salesforce development, Apex, Lightning Web Components, and enterprise integrations"
                       width={120}
                       height={120}
                       className="object-contain relative z-10 drop-shadow-lg"
+                      priority
                     />
                   </div>
                   <p className="text-foreground font-semibold text-lg">{t("salesforceEcosystem")}</p>
