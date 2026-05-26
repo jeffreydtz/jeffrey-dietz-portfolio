@@ -11,13 +11,15 @@ import PersonalProjects from "@/components/personal-projects"
 import Skills from "@/components/skills"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
+import AmbientBackdrop from "@/components/ambient-backdrop"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about")
 
   return (
     <LanguageProvider>
-      <main className="min-h-screen bg-background text-foreground">
+      <main className="relative min-h-screen bg-background text-foreground">
+        <AmbientBackdrop />
         <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
         <article itemScope itemType="https://schema.org/ProfilePage">
           <Hero />

@@ -1,8 +1,18 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { Sparkles } from "lucide-react"
 import { useLanguage } from "./language-context"
 import { useScrollAnimation } from "@/lib/use-scroll-animation"
+
+const CodeOrb = dynamic(() => import("./three/CodeOrb"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div className="w-24 h-24 rounded-full bg-accent/20 blur-2xl animate-pulse" />
+    </div>
+  ),
+})
 
 export default function Skills() {
   const { t } = useLanguage()
@@ -106,15 +116,25 @@ export default function Skills() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="flex items-center gap-3 mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-balance bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-              {t("skillsTitle")}
-            </h2>
-            <Sparkles className="w-8 h-8 text-accent animate-pulse" />
+          <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center mb-12">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-xs font-mono uppercase tracking-[0.3em] text-accent">// 04 · Stack</span>
+                <Sparkles className="w-4 h-4 text-accent animate-pulse" />
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-balance leading-tight">
+                <span className="shimmer-text">{t("skillsTitle")}</span>
+              </h2>
+              <p className="text-muted-foreground mt-4 max-w-2xl text-lg">
+                {t("skillsDescription")}
+              </p>
+            </div>
+            <div className="relative w-full max-w-[280px] aspect-square hidden md:block">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(91,141,239,0.25),transparent_60%)] blur-2xl pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl border border-accent/20" />
+              <CodeOrb />
+            </div>
           </div>
-          <p className="text-muted-foreground mb-12 max-w-2xl text-lg">
-            {t("skillsDescription")}
-          </p>
 
           <div className="space-y-6">
             {skillCategories.map((category, index) => (
