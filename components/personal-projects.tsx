@@ -42,7 +42,7 @@ const personalProjects: Project[] = [
       "Mercado Pago",
       "Vercel",
     ],
-    links: { live: "https://zarix.vercel.app", code: "https://github.com/jeffreydtz/zarix" },
+    links: { live: "https://zarix-phi.vercel.app", code: "https://github.com/jeffreydtz/zarix" },
     en: {
       title: "Zarix",
       tagline: "AI-Powered Personal Finance Platform",
