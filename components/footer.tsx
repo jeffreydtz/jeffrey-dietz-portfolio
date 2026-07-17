@@ -23,7 +23,7 @@ export default function Footer() {
               {t("linkedIn")}
             </a>
             <a
-              href="https://github.com/jeffrey-dietz"
+              href="https://github.com/jeffreydtz"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"

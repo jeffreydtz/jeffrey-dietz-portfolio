@@ -58,7 +58,7 @@ export default function Contact() {
               <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-accent transition-colors" />
             </a>
             <a
-              href="https://github.com/jeffrey-dietz"
+              href="https://github.com/jeffreydtz"
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 rounded-full bg-card/50 border border-border/50 hover:border-accent/50 hover:bg-accent/10 transition-all duration-300 hover:scale-110"

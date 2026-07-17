@@ -122,7 +122,7 @@ export default function RootLayout({
     url: siteUrl,
     sameAs: [
       'https://www.linkedin.com/in/jeffrey--dietz',
-      'https://github.com/jeffrey-dietz',
+      'https://github.com/jeffreydtz',
     ],
     knowsAbout: [
       'Salesforce',
