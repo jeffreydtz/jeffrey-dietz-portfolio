@@ -7,9 +7,9 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jeffreydietz.dev'
-const siteName = 'Jeffrey Dietz | Salesforce Developer & Analyst'
-const defaultDescription = 'Salesforce Developer with 2+ years of experience specializing in Apex, Lightning Web Components, integrations, and automation. C1 English certified professional focused on building scalable enterprise solutions.'
-const defaultKeywords = 'Salesforce Developer, Apex, Lightning Web Components, LWC, Salesforce Integration, Batch Apex, SOQL, REST API, Salesforce Analyst, Salesforce Consultant, Enterprise Salesforce Solutions, Salesforce Automation, CRM Developer, Salesforce Platform Developer, Argentina Salesforce Developer, Remote Salesforce Developer'
+const siteName = 'Jeffrey Dietz | Salesforce & AI Developer'
+const defaultDescription = 'Salesforce Developer at Accenture with 3+ years of experience in Apex, Lightning Web Components, integrations and automation — and builder of AI products: Agentforce, Claude API agentic pipelines, computer vision, and full-stack SaaS. C1 English certified.'
+const defaultKeywords = 'Salesforce Developer, Agentforce, Salesforce AI, Apex, Lightning Web Components, LWC, Salesforce Integration, Batch Apex, SOQL, REST API, AI Engineer, Claude API, AI Agents, Computer Vision, Next.js Developer, Salesforce Analyst, Salesforce Consultant, Enterprise Salesforce Solutions, Salesforce Automation, CRM Developer, Salesforce Platform Developer, Argentina Salesforce Developer, Remote Salesforce Developer'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Jeffrey Dietz - Salesforce Developer & Analyst',
+        alt: 'Jeffrey Dietz - Salesforce & AI Developer',
       },
     ],
   },
@@ -94,7 +94,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Jeffrey Dietz',
-    jobTitle: 'Salesforce Developer & Analyst',
+    jobTitle: 'Salesforce & AI Developer',
     worksFor: {
       '@type': 'Organization',
       name: 'Accenture',
@@ -126,6 +126,11 @@ export default function RootLayout({
     ],
     knowsAbout: [
       'Salesforce',
+      'Agentforce',
+      'Salesforce AI',
+      'AI Agents',
+      'Claude API',
+      'Computer Vision',
       'Apex',
       'Lightning Web Components',
       'Salesforce Integration',
@@ -216,7 +221,7 @@ export default function RootLayout({
     mainEntity: {
       '@type': 'Person',
       name: 'Jeffrey Dietz',
-      jobTitle: 'Salesforce Developer & Analyst',
+      jobTitle: 'Salesforce & AI Developer',
       worksFor: {
         '@type': 'Organization',
         name: 'Accenture',
@@ -229,6 +234,9 @@ export default function RootLayout({
         },
         skills: [
           'Salesforce Development',
+          'Agentforce',
+          'AI Agents',
+          'Claude API',
           'Apex Programming',
           'Lightning Web Components',
           'Salesforce Integration',

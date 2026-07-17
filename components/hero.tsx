@@ -17,19 +17,21 @@ const SalesforceCloud = dynamic(() => import("./three/SalesforceCloud"), {
 const MARQUEE_ITEMS = [
   "Apex",
   "Lightning Web Components",
+  "Agentforce",
   "Flows",
   "REST API",
   "OAuth 2.0",
   "Batch Apex",
   "SOQL",
-  "Triggers",
-  "n8n",
+  "Claude API",
+  "MCP",
+  "Computer Vision",
   "Python",
+  "FastAPI",
   "Next.js",
   "TypeScript",
-  "Claude AI",
-  "GitHub Copilot",
-  "Sistemas",
+  "Supabase",
+  "AI Agents",
 ]
 
 function MagneticButton({
@@ -106,7 +108,7 @@ export default function Hero() {
               </span>
               <span className="text-accent">{t("hello")}</span>
               <span className="text-border">/</span>
-              <span>Salesforce Developer × Systems Eng.</span>
+              <span>Salesforce × AI × Systems Eng.</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-balance leading-[1.02] tracking-tight">
@@ -118,7 +120,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-wrap gap-2.5 text-sm">
-              {[t("accentureBadge"), t("experienceBadge"), t("englishBadge")].map((b, i) => (
+              {[t("accentureBadge"), t("experienceBadge"), t("aiBadge"), t("englishBadge")].map((b, i) => (
                 <span
                   key={i}
                   className="group px-4 py-2 rounded-full font-medium border border-accent/25 bg-gradient-to-br from-accent/15 to-transparent text-accent backdrop-blur-md hover:border-accent/60 hover:shadow-[0_0_20px_-5px_var(--accent)] transition-all duration-300 cursor-default"
@@ -142,9 +144,9 @@ export default function Hero() {
             {/* Stat strip */}
             <div className="grid grid-cols-3 gap-3 pt-6 max-w-lg">
               {[
-                { k: "5+", v: "yrs Salesforce" },
+                { k: "3+", v: "yrs Salesforce" },
+                { k: "3", v: "AI products shipped" },
                 { k: "20+", v: "integrations" },
-                { k: "∞", v: "curiosity" },
               ].map((s, i) => (
                 <div
                   key={i}

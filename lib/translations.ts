@@ -9,12 +9,13 @@ export const translations = {
 
     // Hero
     hello: "Hello, I'm Jeffrey Dietz",
-    heroTitle: "Salesforce Developer & Analyst",
+    heroTitle: "Salesforce & AI Developer",
     heroDescription:
-      "Salesforce Developer at Accenture, building scalable enterprise solutions with 2+ years of continuous experience. Specialized in Apex development, Lightning Web Components, API integrations, and digital transformation.",
+      "Salesforce Developer at Accenture with 3+ years building scalable enterprise solutions — Apex, Lightning Web Components, API integrations. Now pushing into Agentforce and agentic AI: I design, build and ship real AI-powered products end to end.",
     accentureBadge: "Accenture",
-    experienceBadge: "2+ Years Experience",
+    experienceBadge: "3+ Years Experience",
     englishBadge: "C1 English",
+    aiBadge: "Agentforce & AI",
     viewWork: "View My Work",
     getInTouch: "Get in Touch",
     salesforceEcosystem: "Salesforce Ecosystem",
@@ -22,11 +23,11 @@ export const translations = {
     // About
     aboutTitle: "About",
     aboutParagraph1:
-      "I'm a passionate Salesforce Developer with 2+ years of continuous experience (since April 2023) building custom solutions on the Salesforce platform. My profile combines technical development expertise with analytical thinking and a strong orientation toward business process improvement.",
+      "I'm a passionate Salesforce Developer with 3+ years of continuous experience (since April 2023) building custom solutions on the Salesforce platform. My profile combines technical development expertise with analytical thinking and a strong orientation toward business process improvement.",
     aboutParagraph2:
       "My expertise spans Apex development, Lightning Web Components, REST/SOAP integrations, and declarative automation (Flows, Process Builder). I've successfully delivered projects that reduced processing time by over 60% and automated complex business workflows in AMS environments.",
     aboutParagraph3:
-      "Beyond Salesforce, I have experience with Python/Django, Flutter, and full-stack development, which gives me a unique perspective when designing integrations and scalable solutions.",
+      "Beyond Salesforce, I build and ship my own AI products: a fintech platform with an AI Telegram bot, a computer-vision sports-analytics SaaS, and an autonomous Claude-powered content pipeline. Working daily with LLM APIs, agentic workflows, and full-stack TypeScript/Python gives me a unique edge as Salesforce moves into the Agentforce era.",
     professionalFocus: "Professional Focus",
     professionalFocusText:
       "Salesforce Developer | Analyst | Engineer specializing in enterprise automation, custom integrations, and AMS (Application Management Services)",
@@ -55,7 +56,7 @@ export const translations = {
     // Accenture
     accentureRole: "Salesforce Developer",
     accenturePeriod: "Nov 2025 - Present",
-    accentureDesc: "Joining Accenture to work on enterprise Salesforce implementations and digital transformation projects for global clients. Bringing 2+ years of Salesforce development experience to deliver innovative solutions.",
+    accentureDesc: "Joining Accenture to work on enterprise Salesforce implementations and digital transformation projects for global clients. Bringing 3+ years of Salesforce development experience to deliver innovative solutions.",
     accentureAch1: "Working on large-scale Salesforce implementations for Fortune 500 clients",
     accentureAch2: "Contributing to digital transformation initiatives across multiple industries",
     accentureAch3: "Leveraging Apex, LWC, and integration expertise for complex business requirements",
@@ -125,16 +126,20 @@ export const translations = {
     skillCat2: "Salesforce Configuration & Automation",
     skillCat3: "Integration & APIs",
     skillCat4: "Version Control & Development Tools",
-    skillCat5: "AI & Modern Development",
+    skillCat5: "AI Engineering & Agents",
     skillCat6: "Additional Technologies",
+    skillCatAgentforce: "Agentforce & Salesforce AI",
     newBadge: "NEW",
 
     // Personal Projects
-    personalProjectsTitle: "Personal Projects",
+    personalProjectsTitle: "Products & AI Projects",
     personalProjectsDescription:
-      "Side projects that showcase my passion for software development, product thinking, and entrepreneurial spirit beyond corporate work.",
+      "Real products I design, build and ship end to end — AI agents, computer vision, and full-stack SaaS beyond my corporate work.",
     keyFeatures: "Key Features:",
     status: "Status:",
+    liveApp: "Live App",
+    viewCode: "View Code",
+    privateRepo: "Private Repo",
 
     // Skills
     skillsTitle: "Skills & Expertise",
@@ -168,12 +173,13 @@ export const translations = {
 
     // Hero
     hello: "Hola, soy Jeffrey Dietz",
-    heroTitle: "Desarrollador y Analista Salesforce",
+    heroTitle: "Desarrollador Salesforce e IA",
     heroDescription:
-      "Desarrollador Salesforce en Accenture, construyendo soluciones empresariales escalables con más de 2 años de experiencia continua. Especializado en desarrollo Apex, Lightning Web Components, integraciones API y transformación digital.",
+      "Desarrollador Salesforce en Accenture con más de 3 años construyendo soluciones empresariales escalables — Apex, Lightning Web Components, integraciones API. Ahora avanzando en Agentforce e IA agéntica: diseño, construyo y lanzo productos reales potenciados por IA de punta a punta.",
     accentureBadge: "Accenture",
-    experienceBadge: "2+ Años de Experiencia",
+    experienceBadge: "3+ Años de Experiencia",
     englishBadge: "Inglés C1",
+    aiBadge: "Agentforce e IA",
     viewWork: "Ver Mi Trabajo",
     getInTouch: "Contactar",
     salesforceEcosystem: "Ecosistema Salesforce",
@@ -181,11 +187,11 @@ export const translations = {
     // About
     aboutTitle: "Sobre mí",
     aboutParagraph1:
-      "Soy un Desarrollador Salesforce apasionado con más de 2 años de experiencia continua (desde abril 2023) construyendo soluciones personalizadas en la plataforma Salesforce. Mi perfil combina experiencia técnica en desarrollo con pensamiento analítico y una fuerte orientación hacia la mejora de procesos de negocio.",
+      "Soy un Desarrollador Salesforce apasionado con más de 3 años de experiencia continua (desde abril 2023) construyendo soluciones personalizadas en la plataforma Salesforce. Mi perfil combina experiencia técnica en desarrollo con pensamiento analítico y una fuerte orientación hacia la mejora de procesos de negocio.",
     aboutParagraph2:
       "Mi experiencia abarca desarrollo Apex, Lightning Web Components, integraciones REST/SOAP y automatización declarativa (Flows, Process Builder). He entregado exitosamente proyectos que redujeron el tiempo de procesamiento en más del 60% y automatizaron flujos de trabajo empresariales complejos en entornos AMS.",
     aboutParagraph3:
-      "Más allá de Salesforce, tengo experiencia con Python/Django, Flutter y desarrollo full-stack, lo que me da una perspectiva única al diseñar integraciones y soluciones escalables.",
+      "Más allá de Salesforce, construyo y lanzo mis propios productos de IA: una plataforma fintech con bot de Telegram con IA, un SaaS de análisis deportivo con visión por computadora y un pipeline autónomo de contenido con Claude. Trabajar a diario con APIs de LLM, flujos agénticos y full-stack TypeScript/Python me da una ventaja única ahora que Salesforce entra en la era Agentforce.",
     professionalFocus: "Enfoque Profesional",
     professionalFocusText:
       "Desarrollador | Analista | Ingeniero Salesforce especializado en automatización empresarial, integraciones personalizadas y AMS (Application Management Services)",
@@ -215,7 +221,7 @@ export const translations = {
     // Accenture
     accentureRole: "Desarrollador Salesforce",
     accenturePeriod: "Nov 2025 - Presente",
-    accentureDesc: "Uniéndome a Accenture para trabajar en implementaciones empresariales de Salesforce y proyectos de transformación digital para clientes globales. Aportando más de 2 años de experiencia en desarrollo Salesforce para entregar soluciones innovadoras.",
+    accentureDesc: "Uniéndome a Accenture para trabajar en implementaciones empresariales de Salesforce y proyectos de transformación digital para clientes globales. Aportando más de 3 años de experiencia en desarrollo Salesforce para entregar soluciones innovadoras.",
     accentureAch1: "Trabajando en implementaciones de Salesforce a gran escala para clientes Fortune 500",
     accentureAch2: "Contribuyendo a iniciativas de transformación digital en múltiples industrias",
     accentureAch3: "Aprovechando experiencia en Apex, LWC e integraciones para requisitos empresariales complejos",
@@ -285,16 +291,20 @@ export const translations = {
     skillCat2: "Configuración y Automatización Salesforce",
     skillCat3: "Integración y APIs",
     skillCat4: "Control de Versiones y Herramientas de Desarrollo",
-    skillCat5: "IA y Desarrollo Moderno",
+    skillCat5: "Ingeniería de IA y Agentes",
     skillCat6: "Tecnologías Adicionales",
+    skillCatAgentforce: "Agentforce e IA de Salesforce",
     newBadge: "NUEVO",
 
     // Personal Projects
-    personalProjectsTitle: "Proyectos Personales",
+    personalProjectsTitle: "Productos y Proyectos de IA",
     personalProjectsDescription:
-      "Proyectos paralelos que demuestran mi pasión por el desarrollo de software, pensamiento de producto y espíritu emprendedor más allá del trabajo corporativo.",
+      "Productos reales que diseño, construyo y lanzo de punta a punta — agentes de IA, visión por computadora y SaaS full-stack más allá del trabajo corporativo.",
     keyFeatures: "Características Principales:",
     status: "Estado:",
+    liveApp: "App en Vivo",
+    viewCode: "Ver Código",
+    privateRepo: "Repo Privado",
 
     // Skills
     skillsTitle: "Habilidades y Experiencia",
