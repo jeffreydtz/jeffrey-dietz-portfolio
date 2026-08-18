@@ -140,6 +140,9 @@ export const translations = {
     liveApp: "Live App",
     viewCode: "View Code",
     privateRepo: "Private Repo",
+    sideProjectsTitle: "More Things I've Shipped",
+    sideProjectsDescription:
+      "Smaller experiments and side builds — each one live, each one taught me something different.",
 
     // Skills
     skillsTitle: "Skills & Expertise",
@@ -305,6 +308,9 @@ export const translations = {
     liveApp: "App en Vivo",
     viewCode: "Ver Código",
     privateRepo: "Repo Privado",
+    sideProjectsTitle: "Más Cosas Que Construí",
+    sideProjectsDescription:
+      "Experimentos y proyectos paralelos — todos en vivo, cada uno me enseñó algo distinto.",
 
     // Skills
     skillsTitle: "Habilidades y Experiencia",
