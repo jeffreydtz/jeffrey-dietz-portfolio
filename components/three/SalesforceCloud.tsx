@@ -16,9 +16,9 @@ import * as THREE from "three"
 import { useInView } from "@/lib/use-in-view"
 import { useCoarsePointer, usePrefersReducedMotion } from "@/lib/use-motion-prefs"
 
-const SF_BLUE = "#00A1E0"
-const SF_BLUE_DEEP = "#0070D2"
-const SF_BLUE_LIGHT = "#7FD2F5"
+const SF_BLUE = "#9FE4F8"
+const SF_BLUE_DEEP = "#4EC8F0"
+const SF_BLUE_LIGHT = "#D4F4FF"
 
 export type CloudNodeDef = {
   id: string
@@ -80,19 +80,19 @@ function CloudLobe({
         <meshStandardMaterial
           color={SF_BLUE}
           emissive={SF_BLUE_DEEP}
-          emissiveIntensity={0.35}
-          roughness={0.15}
-          metalness={0.25}
+          emissiveIntensity={0.55}
+          roughness={0.22}
+          metalness={0.08}
         />
       ) : (
         <MeshDistortMaterial
           color={SF_BLUE}
           emissive={SF_BLUE_DEEP}
-          emissiveIntensity={0.35}
-          roughness={0.15}
-          metalness={0.25}
+          emissiveIntensity={0.55}
+          roughness={0.22}
+          metalness={0.08}
           clearcoat={1}
-          clearcoatRoughness={0.1}
+          clearcoatRoughness={0.18}
           distort={0.22}
           speed={1.4}
         />
@@ -125,7 +125,7 @@ function CloudGroup({ reducedMotion }: { reducedMotion: boolean }) {
           ))}
           <mesh>
             <sphereGeometry args={[1.9, 32, 32]} />
-            <meshBasicMaterial color={SF_BLUE_LIGHT} transparent opacity={0.08} />
+            <meshBasicMaterial color={SF_BLUE_LIGHT} transparent opacity={0.16} />
           </mesh>
         </group>
       </Float>
@@ -177,6 +177,7 @@ function TechNode({
   onSelect: () => void
 }) {
   const ref = useRef<THREE.Group>(null)
+  const orbRef = useRef<THREE.Group>(null)
   const scale = useRef(1)
   const pulse = useRef(0)
 
@@ -187,46 +188,48 @@ function TechNode({
     ref.current.position.z = Math.sin(t) * orbit.orbit
     ref.current.position.y = Math.sin(t * 0.7) * (reducedMotion ? 0 : 0.28) + orbit.tilt
 
-    const target = hovered ? 1.55 : 1
-    scale.current = THREE.MathUtils.lerp(scale.current, target, 0.12)
+    const target = hovered ? 1.12 : 1
+    scale.current = THREE.MathUtils.lerp(scale.current, target, 0.16)
     if (pulse.current > 0) {
       pulse.current = Math.max(0, pulse.current - 0.016)
-      scale.current += Math.sin(pulse.current * 18) * 0.12
+      scale.current += Math.sin(pulse.current * 18) * 0.04
     }
-    ref.current.scale.setScalar(scale.current)
+    if (orbRef.current) orbRef.current.scale.setScalar(scale.current)
   })
 
   return (
     <group ref={ref}>
-      <mesh
-        onPointerOver={(e) => {
-          e.stopPropagation()
-          onHover(node.id)
-        }}
-        onPointerOut={(e) => {
-          e.stopPropagation()
-          onHover(null)
-        }}
-        onPointerDown={(e) => e.stopPropagation()}
-        onClick={(e) => {
-          e.stopPropagation()
-          pulse.current = 0.4
-          onSelect()
-        }}
-      >
-        <sphereGeometry args={[0.13, 24, 24]} />
-        <meshStandardMaterial
-          color={orbit.color}
-          emissive={orbit.color}
-          emissiveIntensity={hovered ? 1.4 : 0.55}
-          roughness={0.25}
-          metalness={0.6}
-        />
-      </mesh>
-      <mesh>
-        <sphereGeometry args={[0.2, 16, 16]} />
-        <meshBasicMaterial color={orbit.color} transparent opacity={hovered ? 0.22 : 0.08} />
-      </mesh>
+      <group ref={orbRef}>
+        <mesh
+          onPointerOver={(e) => {
+            e.stopPropagation()
+            onHover(node.id)
+          }}
+          onPointerOut={(e) => {
+            e.stopPropagation()
+            onHover(null)
+          }}
+          onPointerDown={(e) => e.stopPropagation()}
+          onClick={(e) => {
+            e.stopPropagation()
+            pulse.current = 0.4
+            onSelect()
+          }}
+        >
+          <sphereGeometry args={[0.13, 24, 24]} />
+          <meshStandardMaterial
+            color={orbit.color}
+            emissive={orbit.color}
+            emissiveIntensity={hovered ? 1.15 : 0.55}
+            roughness={0.25}
+            metalness={0.6}
+          />
+        </mesh>
+        <mesh>
+          <sphereGeometry args={[0.2, 16, 16]} />
+          <meshBasicMaterial color={orbit.color} transparent opacity={hovered ? 0.18 : 0.08} />
+        </mesh>
+      </group>
       <Billboard follow>
         <Text
           position={[0, 0.28, 0]}
@@ -241,7 +244,7 @@ function TechNode({
         </Text>
       </Billboard>
       {hovered ? (
-        <Html center position={[0, 0.52, 0]} distanceFactor={7} style={{ pointerEvents: "none" }} zIndexRange={[20, 0]}>
+        <Html center position={[0, 0.48, 0]} distanceFactor={8} style={{ pointerEvents: "none" }} zIndexRange={[20, 0]}>
           <div className="whitespace-nowrap rounded-md border border-[#00A1E0]/45 bg-[#041018]/90 px-2.5 py-1 text-[10px] font-mono text-[#7FD2F5] shadow-lg backdrop-blur-md">
             {node.hint}
           </div>
@@ -271,10 +274,10 @@ function Scene({
 
   return (
     <>
-      <ambientLight intensity={0.45} />
-      <directionalLight position={[4, 6, 4]} intensity={1.4} color={SF_BLUE_LIGHT} />
-      <pointLight position={[-4, -2, -3]} intensity={1.8} color={SF_BLUE} />
-      <pointLight position={[0, 0, 4]} intensity={0.9} color="#ffffff" />
+      <ambientLight intensity={0.72} />
+      <directionalLight position={[4, 6, 4]} intensity={1.7} color="#F2FBFF" />
+      <pointLight position={[-4, -2, -3]} intensity={1.2} color={SF_BLUE_DEEP} />
+      <pointLight position={[0, 0, 4]} intensity={1.35} color="#ffffff" />
 
       <CloudGroup reducedMotion={reducedMotion} />
 
@@ -301,7 +304,7 @@ function Scene({
         </>
       )}
 
-      <ContactShadows position={[0, -2, 0]} opacity={0.35} scale={8} blur={2.5} far={4} color={SF_BLUE_DEEP} />
+      <ContactShadows position={[0, -2, 0]} opacity={0.22} scale={8} blur={2.5} far={4} color={SF_BLUE_DEEP} />
 
       <OrbitControls
         makeDefault

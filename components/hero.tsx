@@ -183,7 +183,7 @@ export default function Hero() {
             <p className="sr-only">{t("cloudA11y")}</p>
 
             {/* Glow halo */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,161,224,0.35),transparent_60%)] blur-2xl pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(159,228,248,0.45),transparent_60%)] blur-2xl pointer-events-none" />
 
             {/* Frame */}
             <div className="absolute inset-0 rounded-[2rem] border border-[#00A1E0]/20 backdrop-blur-[2px] pointer-events-none" />
