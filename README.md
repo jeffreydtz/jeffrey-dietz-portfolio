@@ -130,9 +130,9 @@ See [LOGO_SETUP.md](LOGO_SETUP.md) for detailed instructions.
 
 This project is automatically deployed to Vercel:
 
-**Production URL:** [https://vercel.com/jeffreys-projects-591940ca/v0-salesforce-developer-portfolio](https://vercel.com/jeffreys-projects-591940ca/v0-salesforce-developer-portfolio)
+**Production URL:** [https://www.jeffreydietz.dev](https://www.jeffreydietz.dev/)
 
-Every push to `main` triggers an automatic deployment.
+Every push to `main` triggers an automatic deployment. Apex (`jeffreydietz.dev`) redirects to `www`.
 
 ## 📧 Contact
 

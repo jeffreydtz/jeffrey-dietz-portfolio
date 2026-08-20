@@ -3,10 +3,16 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+})
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+})
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jeffreydietz.dev'
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jeffreydietz.dev').replace(/\/$/, '')
 const siteName = 'Jeffrey Dietz | Salesforce & AI Developer'
 const defaultDescription = 'Salesforce Developer at Accenture with 3+ years of experience in Apex, Lightning Web Components, integrations and automation — and builder of AI products: Agentforce, Claude API agentic pipelines, computer vision, and full-stack SaaS. C1 English certified.'
 const defaultKeywords = 'Salesforce Developer, Agentforce, Salesforce AI, Apex, Lightning Web Components, LWC, Salesforce Integration, Batch Apex, SOQL, REST API, AI Engineer, Claude API, AI Agents, Computer Vision, Next.js Developer, Salesforce Analyst, Salesforce Consultant, Enterprise Salesforce Solutions, Salesforce Automation, CRM Developer, Salesforce Platform Developer, Argentina Salesforce Developer, Remote Salesforce Developer'
@@ -29,10 +35,6 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: '/',
-    languages: {
-      'en': '/en',
-      'es': '/es',
-    },
   },
   openGraph: {
     type: 'website',
@@ -202,14 +204,6 @@ export default function RootLayout({
       name: 'Jeffrey Dietz',
     },
     inLanguage: ['en', 'es'],
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteUrl}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   }
 
   const professionalProfileJsonLd = {
@@ -256,11 +250,11 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
         <link rel="canonical" href={siteUrl} />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <meta name="theme-color" content="#8b5cf6" />
+        <meta name="theme-color" content="#0a0a0a" />
         <meta name="color-scheme" content="dark light" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -280,7 +274,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalProfileJsonLd) }}
         />
       </head>
-      <body className={`font-sans antialiased`}>
+      <body className={`${geistSans.className} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>

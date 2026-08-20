@@ -6,6 +6,9 @@ export const translations = {
     projects: "Projects",
     skills: "Skills",
     contact: "Contact",
+    personalProjectsNav: "Products",
+    skipToContent: "Skip to content",
+    languageSwitcher: "Language",
 
     // Hero
     hello: "Hello, I'm Jeffrey Dietz",
@@ -19,6 +22,21 @@ export const translations = {
     viewWork: "View My Work",
     getInTouch: "Get in Touch",
     salesforceEcosystem: "Salesforce Ecosystem",
+    heroStat1k: "3+",
+    heroStat1v: "yrs Salesforce",
+    heroStat2k: "3",
+    heroStat2v: "AI products shipped",
+    heroStat3k: "20+",
+    heroStat3v: "integrations",
+    cloudHintDesktop: "Drag to explore · Click a node",
+    cloudHintMobile: "Tap a node to explore",
+    cloudA11y:
+      "Interactive 3D Salesforce cloud. Use the chips below to jump to Skills or Projects.",
+    cloudNodeApexHint: "Apex · backend logic, Batch, Triggers",
+    cloudNodeLwcHint: "LWC · Lightning Web Components",
+    cloudNodeFlowsHint: "Flows · declarative automation",
+    cloudNodeAgentforceHint: "Agentforce · Salesforce AI agents",
+    cloudNodeApisHint: "APIs · REST, OAuth, integrations",
 
     // About
     aboutTitle: "About",
@@ -154,6 +172,8 @@ export const translations = {
     contactDescription:
       "I'm always interested in hearing about new Salesforce projects and opportunities. Whether you need a developer for enterprise solutions, integrations, or process automation, feel free to reach out.",
     sendEmail: "Send Email",
+    copyEmail: "Copy email",
+    emailCopied: "Copied",
     viewLinkedIn: "View LinkedIn",
     location: "Location",
     locationValue: "Available for remote opportunities worldwide",
@@ -173,6 +193,9 @@ export const translations = {
     projects: "Proyectos",
     skills: "Habilidades",
     contact: "Contacto",
+    personalProjectsNav: "Productos",
+    skipToContent: "Saltar al contenido",
+    languageSwitcher: "Idioma",
 
     // Hero
     hello: "Hola, soy Jeffrey Dietz",
@@ -186,6 +209,21 @@ export const translations = {
     viewWork: "Ver Mi Trabajo",
     getInTouch: "Contactar",
     salesforceEcosystem: "Ecosistema Salesforce",
+    heroStat1k: "3+",
+    heroStat1v: "años Salesforce",
+    heroStat2k: "3",
+    heroStat2v: "productos de IA",
+    heroStat3k: "20+",
+    heroStat3v: "integraciones",
+    cloudHintDesktop: "Arrastrá para explorar · Click en un nodo",
+    cloudHintMobile: "Tocá un nodo para explorar",
+    cloudA11y:
+      "Nube 3D interactiva de Salesforce. Usá los chips de abajo para ir a Habilidades o Proyectos.",
+    cloudNodeApexHint: "Apex · lógica backend, Batch, Triggers",
+    cloudNodeLwcHint: "LWC · Lightning Web Components",
+    cloudNodeFlowsHint: "Flows · automatización declarativa",
+    cloudNodeAgentforceHint: "Agentforce · agentes de IA de Salesforce",
+    cloudNodeApisHint: "APIs · REST, OAuth, integraciones",
 
     // About
     aboutTitle: "Sobre mí",
@@ -322,6 +360,8 @@ export const translations = {
     contactDescription:
       "Siempre estoy interesado en conocer nuevos proyectos y oportunidades en Salesforce. Ya sea que necesites un desarrollador para soluciones empresariales, integraciones o automatización de procesos, no dudes en contactarme.",
     sendEmail: "Enviar Email",
+    copyEmail: "Copiar email",
+    emailCopied: "Copiado",
     viewLinkedIn: "Ver LinkedIn",
     location: "Ubicación",
     locationValue: "Disponible para oportunidades remotas en todo el mundo",

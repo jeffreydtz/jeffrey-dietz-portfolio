@@ -23,6 +23,17 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'jeffreydietz.dev' }],
+        destination: 'https://www.jeffreydietz.dev/:path*',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig
+

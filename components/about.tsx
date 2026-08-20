@@ -53,6 +53,15 @@ export default function About({ setActiveSection }: AboutProps) {
                 </span>
               </button>
               <button
+                onClick={() => scrollToSection("personal-projects")}
+                className="group block w-full text-left px-4 py-2 text-muted-foreground hover:text-foreground transition-all duration-300 rounded-lg hover:bg-muted/50 hover:translate-x-1"
+              >
+                <span className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  {t("personalProjectsNav")}
+                </span>
+              </button>
+              <button
                 onClick={() => scrollToSection("skills")}
                 className="group block w-full text-left px-4 py-2 text-muted-foreground hover:text-foreground transition-all duration-300 rounded-lg hover:bg-muted/50 hover:translate-x-1"
               >

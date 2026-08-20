@@ -1,4 +1,4 @@
-# robots.txt for jeffreydietz.dev
+# robots.txt for https://www.jeffreydietz.dev
 # Allow all search engines to crawl the site
 
 User-agent: *
@@ -10,8 +10,7 @@ Disallow: /_next/static/
 Disallow: /_next/image
 
 # Sitemap location
-Sitemap: https://jeffreydietz.dev/sitemap.xml
+Sitemap: https://www.jeffreydietz.dev/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
-

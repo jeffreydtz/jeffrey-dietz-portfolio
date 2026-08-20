@@ -1,28 +1,14 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jeffreydietz.dev'
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jeffreydietz.dev').replace(/\/$/, '')
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    '',
-    '/about',
-    '/experience',
-    '/projects',
-    '/skills',
-    '/contact',
-  ]
-
-  return routes.map((route) => ({
-    url: `${siteUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly' as const,
-    priority: route === '' ? 1.0 : 0.8,
-    alternates: {
-      languages: {
-        en: `${siteUrl}${route}`,
-        es: `${siteUrl}/es${route}`,
-      },
+  return [
+    {
+      url: siteUrl,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
     },
-  }))
+  ]
 }
-

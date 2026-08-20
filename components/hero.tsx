@@ -1,9 +1,11 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { useRef } from "react"
+import { useCallback, useMemo, useRef, useState } from "react"
 import { useLanguage } from "./language-context"
 import { useScrollAnimation } from "@/lib/use-scroll-animation"
+import { useCoarsePointer } from "@/lib/use-motion-prefs"
+import type { CloudNodeDef } from "./three/SalesforceCloud"
 
 const SalesforceCloud = dynamic(() => import("./three/SalesforceCloud"), {
   ssr: false,
@@ -82,14 +84,27 @@ function MagneticButton({
 export default function Hero() {
   const { t } = useLanguage()
   const { ref, isVisible } = useScrollAnimation()
+  const coarse = useCoarsePointer()
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null)
 
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id)
     element?.scrollIntoView({ behavior: "smooth" })
-  }
+  }, [])
+
+  const cloudNodes: CloudNodeDef[] = useMemo(
+    () => [
+      { id: "apex", label: "Apex", hint: t("cloudNodeApexHint"), target: "skills" },
+      { id: "lwc", label: "LWC", hint: t("cloudNodeLwcHint"), target: "skills" },
+      { id: "flows", label: "Flows", hint: t("cloudNodeFlowsHint"), target: "skills" },
+      { id: "agentforce", label: "Agentforce", hint: t("cloudNodeAgentforceHint"), target: "skills" },
+      { id: "apis", label: "APIs", hint: t("cloudNodeApisHint"), target: "projects" },
+    ],
+    [t],
+  )
 
   return (
-    <section className="relative px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[92vh] flex items-center pt-8 pb-16">
+    <section id="hero" className="relative px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[92vh] flex items-center pt-8 pb-16">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
@@ -144,9 +159,9 @@ export default function Hero() {
             {/* Stat strip */}
             <div className="grid grid-cols-3 gap-3 pt-6 max-w-lg">
               {[
-                { k: "3+", v: "yrs Salesforce" },
-                { k: "3", v: "AI products shipped" },
-                { k: "20+", v: "integrations" },
+                { k: t("heroStat1k"), v: t("heroStat1v") },
+                { k: t("heroStat2k"), v: t("heroStat2v") },
+                { k: t("heroStat3k"), v: t("heroStat3v") },
               ].map((s, i) => (
                 <div
                   key={i}
@@ -164,12 +179,14 @@ export default function Hero() {
           </div>
 
           {/* RIGHT: 3D Salesforce cloud */}
-          <div className="relative w-full aspect-square max-w-[640px] mx-auto">
+          <div className="relative w-full aspect-square max-w-[640px] mx-auto mb-10">
+            <p className="sr-only">{t("cloudA11y")}</p>
+
             {/* Glow halo */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,161,224,0.35),transparent_60%)] blur-2xl pointer-events-none" />
 
             {/* Frame */}
-            <div className="absolute inset-0 rounded-[2rem] border border-[#00A1E0]/20 backdrop-blur-[2px]" />
+            <div className="absolute inset-0 rounded-[2rem] border border-[#00A1E0]/20 backdrop-blur-[2px] pointer-events-none" />
 
             {/* Corner tickmarks */}
             {[
@@ -180,33 +197,51 @@ export default function Hero() {
             ].map((c, i) => (
               <span
                 key={i}
-                className={`absolute w-5 h-5 border-[#00A1E0]/60 ${c}`}
+                className={`absolute w-5 h-5 border-[#00A1E0]/60 pointer-events-none ${c}`}
               />
             ))}
 
             {/* HUD top label */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 px-3 py-1 rounded-full bg-[#00A1E0]/10 border border-[#00A1E0]/30 text-[10px] font-mono uppercase tracking-[0.2em] text-[#7FD2F5]">
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 z-10 px-3 py-1 rounded-full bg-[#00A1E0]/10 border border-[#00A1E0]/30 text-[10px] font-mono uppercase tracking-[0.2em] text-[#7FD2F5] pointer-events-none">
               ☁ Salesforce · Cloud Stack
             </div>
 
-            {/* HUD bottom chips */}
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex flex-wrap gap-2 justify-center max-w-[90%]">
-              {["Apex", "LWC", "Flows", "APIs", "Integration"].map((tech) => (
-                <span
-                  key={tech}
-                  className="text-[10px] font-mono px-2.5 py-1 rounded-full border border-[#00A1E0]/40 bg-background/70 backdrop-blur-md text-[#7FD2F5]"
-                >
-                  {tech}
-                </span>
-              ))}
+            {/* HUD bottom chips — keyboard/touch counterpart to 3D nodes */}
+            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-10 flex flex-wrap gap-2 justify-center max-w-[90%] pointer-events-none">
+              {cloudNodes.map((node) => {
+                const active = hoveredNode === node.id
+                return (
+                  <button
+                    key={node.id}
+                    type="button"
+                    onClick={() => scrollToSection(node.target)}
+                    onMouseEnter={() => setHoveredNode(node.id)}
+                    onMouseLeave={() => setHoveredNode(null)}
+                    onFocus={() => setHoveredNode(node.id)}
+                    onBlur={() => setHoveredNode(null)}
+                    className={`text-[10px] font-mono px-2.5 py-1 rounded-full border backdrop-blur-md transition-all duration-200 pointer-events-auto focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00A1E0]/80 ${
+                      active
+                        ? "border-[#00A1E0] bg-[#00A1E0]/25 text-white shadow-[0_0_16px_-4px_#00A1E0] scale-105"
+                        : "border-[#00A1E0]/40 bg-background/70 text-[#7FD2F5] hover:border-[#00A1E0]/80"
+                    }`}
+                  >
+                    {node.label}
+                  </button>
+                )
+              })}
             </div>
 
             <div className="relative w-full h-full">
-              <SalesforceCloud />
+              <SalesforceCloud
+                nodes={cloudNodes}
+                hoveredId={hoveredNode}
+                onNodeHover={setHoveredNode}
+                onNodeSelect={(_id, target) => scrollToSection(target)}
+              />
             </div>
 
-            <p className="absolute -bottom-8 left-0 right-0 text-center text-xs text-muted-foreground font-mono">
-              {t("salesforceEcosystem")}
+            <p className="absolute -bottom-8 left-0 right-0 text-center text-xs text-muted-foreground font-mono pointer-events-none">
+              {coarse ? t("cloudHintMobile") : t("cloudHintDesktop")}
             </p>
           </div>
         </div>

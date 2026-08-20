@@ -148,7 +148,7 @@ export default function Skills() {
             </div>
             <div className="relative w-full max-w-[280px] aspect-square hidden md:block">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(91,141,239,0.25),transparent_60%)] blur-2xl pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-accent/20" />
+              <div className="absolute inset-0 rounded-2xl border border-accent/20 pointer-events-none" />
               <CodeOrb />
             </div>
           </div>

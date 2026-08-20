@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { LanguageProvider } from "@/components/language-context"
-import Navigation from "@/components/navigation"
+import Navigation, { SkipToContent } from "@/components/navigation"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import Experience from "@/components/experience"
@@ -18,7 +18,8 @@ export default function Home() {
 
   return (
     <LanguageProvider>
-      <main className="relative min-h-screen bg-background text-foreground">
+      <SkipToContent />
+      <main id="main" className="relative min-h-screen bg-background text-foreground">
         <AmbientBackdrop />
         <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
         <article itemScope itemType="https://schema.org/ProfilePage">

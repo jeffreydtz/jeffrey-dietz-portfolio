@@ -4,8 +4,8 @@
   "description": "Salesforce & AI Developer portfolio — enterprise Salesforce solutions, Agentforce, AI products and full-stack SaaS",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#8b5cf6",
+  "background_color": "#0a0a0a",
+  "theme_color": "#5B8DEF",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -25,4 +25,3 @@
   "lang": "en",
   "dir": "ltr"
 }
-
