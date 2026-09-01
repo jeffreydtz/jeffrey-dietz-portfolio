@@ -65,6 +65,18 @@ export const translations = {
     workApproachText:
       "Strong analytical mindset with experience in Agile methodologies (Scrum), AMS support, ticket management (Jira/ServiceNow), and cross-functional collaboration with business analysts and QA teams.",
 
+    // Companies marquee
+    companiesMarqueeA11y: "Companies I've worked at",
+    companiesMarqueeBadge: "Not sponsored · Just employed",
+    companiesMarqueeTitle: "Companies that have my back",
+    companiesMarqueeSubtitle:
+      "The modern landing-page vibe — except these aren't sponsors. They're places where I actually clocked in, shipped code, and survived standups.",
+    companiesMarqueeDisclaimer: "No endorsement implied · Just my résumé doing a victory lap",
+    companyTagAccenture: "Current · Salesforce dev",
+    companyTagAvalian: "Ex · AMS & automations",
+    companyTagDeloitte: "Ex · Banking at scale",
+    companyTagLbo: "Ex · Full-stack era",
+
     // Experience
     experienceTitle: "Professional Experience",
     experienceDescription:
@@ -252,6 +264,18 @@ export const translations = {
     workApproach: "Metodología de Trabajo",
     workApproachText:
       "Mentalidad analítica fuerte con experiencia en metodologías Ágiles (Scrum), soporte AMS, gestión de tickets (Jira/ServiceNow) y colaboración multifuncional con analistas de negocio y equipos de QA.",
+
+    // Companies marquee
+    companiesMarqueeA11y: "Empresas donde trabajé",
+    companiesMarqueeBadge: "No es sponsor · Laburé ahí",
+    companiesMarqueeTitle: "Empresas que me bancan",
+    companiesMarqueeSubtitle:
+      "El estilo landing moderna — excepto que no son sponsors. Son lugares donde entré, codeé, y sobreviví las daily standups.",
+    companiesMarqueeDisclaimer: "Sin endorsement · Solo mi CV haciendo una vuelta de honor",
+    companyTagAccenture: "Actual · Dev Salesforce",
+    companyTagAvalian: "Ex · AMS y automatizaciones",
+    companyTagDeloitte: "Ex · Banking a escala",
+    companyTagLbo: "Ex · Era full-stack",
 
     // Experience
     experienceTitle: "Experiencia Profesional",
