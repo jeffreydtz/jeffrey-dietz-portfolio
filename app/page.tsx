@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/components/language-context"
 import Navigation, { SkipToContent } from "@/components/navigation"
 import Hero from "@/components/hero"
 import About from "@/components/about"
+import CompaniesMarquee from "@/components/companies-marquee"
 import Experience from "@/components/experience"
 import Projects from "@/components/projects"
 import PersonalProjects from "@/components/personal-projects"
@@ -25,6 +26,7 @@ export default function Home() {
         <article itemScope itemType="https://schema.org/ProfilePage">
           <Hero />
           <About setActiveSection={setActiveSection} />
+          <CompaniesMarquee />
           <Experience />
           <Projects />
           <PersonalProjects />
