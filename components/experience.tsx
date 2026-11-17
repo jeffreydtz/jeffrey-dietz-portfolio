@@ -1,6 +1,6 @@
 "use client"
 
-import { Building2 } from "lucide-react"
+import { Building2, GraduationCap } from "lucide-react"
 import Image from "next/image"
 import { useLanguage } from "./language-context"
 import { useScrollAnimation } from "@/lib/use-scroll-animation"
@@ -11,6 +11,7 @@ export default function Experience() {
 
   const experiences = [
     {
+      kind: "work" as const,
       company: "Accenture",
       logo: "/logos/accenture.jpeg",
       role: t("accentureRole"),
@@ -22,9 +23,10 @@ export default function Experience() {
         t("accentureAch3"),
         t("accentureAch4"),
       ],
-      technologies: ["Salesforce", "Apex", "LWC", "Enterprise Architecture", "Consulting", "Digital Transformation"],
+      technologies: ["Salesforce", "Agentforce", "Apex", "LWC", "Azure DevOps", "Consulting"],
     },
     {
+      kind: "work" as const,
       company: "Avalian",
       logo: "/logos/avalian.png",
       role: t("avalianRole"),
@@ -40,6 +42,7 @@ export default function Experience() {
       technologies: ["Apex", "LWC", "Flow Builder", "REST API", "Batch Apex", "SOQL"],
     },
     {
+      kind: "work" as const,
       company: "Deloitte",
       logo: "/logos/deloitte.jpeg",
       role: t("deloitteRole"),
@@ -55,6 +58,7 @@ export default function Experience() {
       technologies: ["Apex", "Visualforce", "Lightning Components", "Batch Apex", "Triggers", "SOQL"],
     },
     {
+      kind: "work" as const,
       company: "LBO",
       logo: "/logos/lbo.png",
       role: t("lboRole"),
@@ -67,6 +71,26 @@ export default function Experience() {
         t("lboAch4"),
       ],
       technologies: ["Python", "React", "PostgreSQL", "REST APIs", "SQL", "ETL"],
+    },
+    {
+      kind: "education" as const,
+      company: "Universidad Abierta Interamericana",
+      logo: "",
+      role: t("educationTitle"),
+      period: t("uaiPeriod"),
+      description: t("educationCourses"),
+      achievements: [],
+      technologies: ["Systems Engineering"],
+    },
+    {
+      kind: "education" as const,
+      company: "Universidad Austral",
+      logo: "",
+      role: t("universityDegreeTitle"),
+      period: t("australPeriod"),
+      description: "",
+      achievements: [],
+      technologies: ["Programming"],
     },
   ]
 
@@ -115,10 +139,19 @@ export default function Experience() {
                           </div>
                         ) : (
                           <div className="w-16 h-16 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
-                            <Building2 className="w-8 h-8 text-accent" />
+                            {exp.kind === "education" ? (
+                              <GraduationCap className="w-8 h-8 text-accent" />
+                            ) : (
+                              <Building2 className="w-8 h-8 text-accent" />
+                            )}
                           </div>
                         )}
                         <div>
+                          {exp.kind === "education" ? (
+                            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent mb-1">
+                              {t("educationBadge")}
+                            </p>
+                          ) : null}
                           <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
                             {exp.company}
                           </h3>
@@ -132,8 +165,11 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed mb-6 text-base">{exp.description}</p>
+                    {exp.description ? (
+                      <p className="text-muted-foreground leading-relaxed mb-6 text-base">{exp.description}</p>
+                    ) : null}
 
+                    {exp.achievements.length > 0 ? (
                     <div className="mb-6">
                       <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
                         <span className="w-1 h-1 rounded-full bg-accent" />
@@ -151,6 +187,7 @@ export default function Experience() {
                         ))}
                       </ul>
                     </div>
+                    ) : null}
 
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech, i) => (

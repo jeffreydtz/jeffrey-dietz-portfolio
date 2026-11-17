@@ -39,12 +39,10 @@ export default function Skills() {
       icon: "☁️",
       skills: [
         "Agentforce (Agents, Topics & Actions)",
+        "Agentforce Scripting / Orchestrators",
         "Prompt Builder & Prompt Templates",
-        "Einstein Copilot",
         "Models API",
         "Flow + Apex Agent Actions",
-        "RAG & Data Grounding",
-        "Einstein Bots",
       ],
       highlight: true,
     },
@@ -81,6 +79,7 @@ export default function Skills() {
       skills: [
         "Git",
         "GitHub",
+        "Azure DevOps (Repos, Boards, User Stories)",
         "Bitbucket",
         "VS Code + SFDX CLI",
         "Jira / ServiceNow (AMS)",
@@ -93,6 +92,7 @@ export default function Skills() {
       category: t("skillCat5"),
       icon: "🤖",
       skills: [
+        "Grok Bot (multi-agent teams)",
         "Claude API (Anthropic SDK)",
         "Gemini API",
         "Agentic Pipelines & Multi-Agent Orchestration",
@@ -136,7 +136,7 @@ export default function Skills() {
           <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center mb-12">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs font-mono uppercase tracking-[0.3em] text-accent">// 04 · Stack</span>
+                <span className="text-xs font-mono uppercase tracking-[0.3em] text-accent">{"// 04 · Stack"}</span>
                 <Sparkles className="w-4 h-4 text-accent animate-pulse" />
               </div>
               <h2 className="text-3xl md:text-5xl font-bold text-balance leading-tight">

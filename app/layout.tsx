@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { LINKEDIN_URL } from '@/lib/links'
+import Providers from '@/components/providers'
 import './globals.css'
 
 const geistSans = Geist({
@@ -14,8 +16,10 @@ const geistMono = Geist_Mono({
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jeffreydietz.dev').replace(/\/$/, '')
 const siteName = 'Jeffrey Dietz | Salesforce & AI Developer'
-const defaultDescription = 'Salesforce Developer at Accenture with 3+ years of experience in Apex, Lightning Web Components, integrations and automation — and builder of AI products: Agentforce, Claude API agentic pipelines, computer vision, and full-stack SaaS. C1 English certified.'
-const defaultKeywords = 'Salesforce Developer, Agentforce, Salesforce AI, Apex, Lightning Web Components, LWC, Salesforce Integration, Batch Apex, SOQL, REST API, AI Engineer, Claude API, AI Agents, Computer Vision, Next.js Developer, Salesforce Analyst, Salesforce Consultant, Enterprise Salesforce Solutions, Salesforce Automation, CRM Developer, Salesforce Platform Developer, Argentina Salesforce Developer, Remote Salesforce Developer'
+const defaultDescription =
+  'Salesforce & AI developer at Accenture. Agentforce orchestrators in production (≈91% accuracy after scripting-mode migration), Apex, LWC, COBOL and Jira integrations. Builder of Zarix, Matilda POS, BeProPlayer and a ~30-agent Grok Bot fleet. C1 English. Remote from Argentina.'
+const defaultKeywords =
+  'Salesforce Developer, Agentforce, Agentforce Orchestrator, Apex, Lightning Web Components, LWC, Azure DevOps, Salesforce Integration, COBOL, Prompt Builder, AI Engineer, Grok Bot, Zarix, Matilda POS, BeProPlayer, Colonos 3D, Next.js Developer, Argentina Salesforce Developer, Remote Salesforce Developer'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -25,7 +29,7 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   keywords: defaultKeywords,
-  authors: [{ name: 'Jeffrey Dietz', url: 'https://www.linkedin.com/in/jeffrey--dietz' }],
+  authors: [{ name: 'Jeffrey Dietz', url: LINKEDIN_URL }],
   creator: 'Jeffrey Dietz',
   publisher: 'Jeffrey Dietz',
   formatDetection: {
@@ -123,7 +127,7 @@ export default function RootLayout({
     email: 'jeffreydietz33@gmail.com',
     url: siteUrl,
     sameAs: [
-      'https://www.linkedin.com/in/jeffrey--dietz',
+      LINKEDIN_URL,
       'https://github.com/jeffreydtz',
     ],
     knowsAbout: [
@@ -131,6 +135,8 @@ export default function RootLayout({
       'Agentforce',
       'Salesforce AI',
       'AI Agents',
+      'Grok Bot',
+      'Azure DevOps',
       'Claude API',
       'Computer Vision',
       'Apex',
@@ -230,6 +236,8 @@ export default function RootLayout({
           'Salesforce Development',
           'Agentforce',
           'AI Agents',
+          'Grok Bot',
+          'Azure DevOps',
           'Claude API',
           'Apex Programming',
           'Lightning Web Components',
@@ -275,7 +283,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${geistSans.className} font-sans antialiased`}>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
         <Analytics />
       </body>
     </html>

@@ -1,11 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Mail, Linkedin, Github, Copy, Check } from "lucide-react"
+import { Mail, Linkedin, Github, Copy, Check, FileText } from "lucide-react"
 import { useLanguage } from "./language-context"
 import { useScrollAnimation } from "@/lib/use-scroll-animation"
-
-const EMAIL = "jeffreydietz33@gmail.com"
+import { EMAIL, LINKEDIN_URL } from "@/lib/links"
 
 export default function Contact() {
   const { t } = useLanguage()
@@ -67,7 +66,7 @@ export default function Contact() {
               {copied ? t("emailCopied") : t("copyEmail")}
             </button>
             <a
-              href="https://www.linkedin.com/in/jeffrey--dietz"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-4 border-2 border-border rounded-xl font-semibold hover:bg-muted hover:border-accent/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
@@ -75,11 +74,18 @@ export default function Contact() {
               <Linkedin className="w-5 h-5" />
               {t("viewLinkedIn")}
             </a>
+            <a
+              href="/cv"
+              className="px-8 py-4 border-2 border-border rounded-xl font-semibold hover:bg-muted hover:border-accent/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <FileText className="w-5 h-5" />
+              {t("viewCv")}
+            </a>
           </div>
 
           <div className="flex justify-center gap-6 mb-12">
             <a
-              href="https://www.linkedin.com/in/jeffrey--dietz"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="group p-3 rounded-full bg-card/50 border border-border/50 hover:border-accent/50 hover:bg-accent/10 transition-all duration-300 hover:scale-110"

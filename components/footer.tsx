@@ -1,6 +1,7 @@
 "use client"
 
 import { useLanguage } from "./language-context"
+import { LINKEDIN_URL } from "@/lib/links"
 
 export default function Footer() {
   const { t } = useLanguage()
@@ -15,7 +16,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a
-              href="https://www.linkedin.com/in/jeffrey--dietz"
+              href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-foreground transition-colors"
@@ -29,6 +30,9 @@ export default function Footer() {
               className="hover:text-foreground transition-colors"
             >
               {t("gitHub")}
+            </a>
+            <a href="/cv" className="hover:text-foreground transition-colors">
+              {t("viewCv")}
             </a>
             <a href="mailto:jeffreydietz33@gmail.com" className="hover:text-foreground transition-colors">
               {t("email")}

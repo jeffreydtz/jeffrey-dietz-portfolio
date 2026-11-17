@@ -34,20 +34,25 @@ const MARQUEE_ITEMS = [
   "TypeScript",
   "Supabase",
   "AI Agents",
+  "Grok Bot",
+  "Azure DevOps",
+  "PWA",
 ]
 
 function MagneticButton({
   children,
   onClick,
+  href,
   variant = "primary",
 }: {
   children: React.ReactNode
-  onClick: () => void
+  onClick?: () => void
+  href?: string
   variant?: "primary" | "ghost"
 }) {
-  const ref = useRef<HTMLButtonElement>(null)
+  const ref = useRef<HTMLElement>(null)
 
-  const onMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onMove = (e: React.MouseEvent<HTMLElement>) => {
     const el = ref.current
     if (!el) return
     const rect = el.getBoundingClientRect()
@@ -62,21 +67,37 @@ function MagneticButton({
   }
 
   const base =
-    "relative px-8 py-4 rounded-xl font-semibold transition-[transform,box-shadow,background] duration-300 will-change-transform overflow-hidden"
+    "relative inline-flex px-8 py-4 rounded-xl font-semibold transition-[transform,box-shadow,background] duration-300 will-change-transform overflow-hidden"
   const styles =
     variant === "primary"
       ? "bg-gradient-to-r from-accent to-accent/80 text-accent-foreground hover:shadow-[0_0_40px_-5px_var(--accent)] glow-edge"
       : "border border-border/70 hover:border-accent/60 bg-background/50 backdrop-blur-md text-foreground hover:bg-muted/60"
 
+  const inner = <span className="relative z-10 flex items-center gap-2">{children}</span>
+
+  if (href) {
+    return (
+      <a
+        ref={ref as React.RefObject<HTMLAnchorElement | null>}
+        href={href}
+        onMouseMove={onMove}
+        onMouseLeave={onLeave}
+        className={`${base} ${styles}`}
+      >
+        {inner}
+      </a>
+    )
+  }
+
   return (
     <button
-      ref={ref}
+      ref={ref as React.RefObject<HTMLButtonElement | null>}
       onClick={onClick}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       className={`${base} ${styles}`}
     >
-      <span className="relative z-10 flex items-center gap-2">{children}</span>
+      {inner}
     </button>
   )
 }
@@ -98,7 +119,7 @@ export default function Hero() {
       { id: "lwc", label: "LWC", hint: t("cloudNodeLwcHint"), target: "skills" },
       { id: "flows", label: "Flows", hint: t("cloudNodeFlowsHint"), target: "skills" },
       { id: "agentforce", label: "Agentforce", hint: t("cloudNodeAgentforceHint"), target: "skills" },
-      { id: "apis", label: "APIs", hint: t("cloudNodeApisHint"), target: "projects" },
+      { id: "apis", label: "APIs", hint: t("cloudNodeApisHint"), target: "salesforce-cases" },
     ],
     [t],
   )
@@ -123,7 +144,7 @@ export default function Hero() {
               </span>
               <span className="text-accent">{t("hello")}</span>
               <span className="text-border">/</span>
-              <span>Salesforce × AI × Systems Eng.</span>
+              <span>{t("heroEyebrow")}</span>
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-balance leading-[1.02] tracking-tight">
@@ -147,12 +168,15 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-4 pt-2">
-              <MagneticButton onClick={() => scrollToSection("projects")} variant="primary">
+              <MagneticButton onClick={() => scrollToSection("products")} variant="primary">
                 {t("viewWork")}
                 <span aria-hidden className="ml-1">→</span>
               </MagneticButton>
               <MagneticButton onClick={() => scrollToSection("contact")} variant="ghost">
                 {t("getInTouch")}
+              </MagneticButton>
+              <MagneticButton href="/cv" variant="ghost">
+                {t("viewCv")}
               </MagneticButton>
             </div>
 
