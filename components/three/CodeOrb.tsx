@@ -7,9 +7,9 @@ import * as THREE from "three"
 import { useInView } from "@/lib/use-in-view"
 import { useCoarsePointer, usePrefersReducedMotion } from "@/lib/use-motion-prefs"
 
-const ACCENT = "#5B8DEF"
-const ACCENT_DEEP = "#3B5BDB"
-const GLOW = "#9FB8FF"
+const ACCENT = "#4F8CFF"
+const ACCENT_DEEP = "#1E4ED8"
+const GLOW = "#C5DBFF"
 
 const SYMBOLS = ["{ }", "</>", "()", "=>", "[ ]", ";", "&&", "||", "++", "//"]
 
@@ -161,7 +161,7 @@ export default function CodeOrb() {
       <Canvas
         dpr={[1, 1.75]}
         camera={{ position: [0, 0, 5.5], fov: 42 }}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        gl={{ antialias: true, alpha: true, powerPreference: "default", failIfMajorPerformanceCaveat: false }}
         frameloop={inView ? "always" : "never"}
       >
         <Suspense fallback={null}>

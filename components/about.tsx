@@ -1,11 +1,10 @@
 "use client"
 
 import { useLanguage } from "./language-context"
-import { useScrollAnimation } from "@/lib/use-scroll-animation"
+import Reveal from "./reveal"
 
 export default function About() {
   const { t } = useLanguage()
-  const { ref, isVisible } = useScrollAnimation()
 
   const scrollToSection = (section: string) => {
     const element = document.getElementById(section)
@@ -13,148 +12,80 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/30 via-background to-background relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div 
-          ref={ref}
-          className={`grid md:grid-cols-3 gap-12 transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              {t("aboutTitle")}
-            </h2>
-            <nav className="space-y-3">
-              <button
-                onClick={() => scrollToSection("experience")}
-                className="group block w-full text-left px-4 py-2 text-muted-foreground hover:text-foreground transition-all duration-300 rounded-lg hover:bg-muted/50 hover:translate-x-1"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  {t("experience")}
-                </span>
-              </button>
-              <button
-                onClick={() => scrollToSection("salesforce-cases")}
-                className="group block w-full text-left px-4 py-2 text-muted-foreground hover:text-foreground transition-all duration-300 rounded-lg hover:bg-muted/50 hover:translate-x-1"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  {t("salesforceCasesNav")}
-                </span>
-              </button>
-              <button
-                onClick={() => scrollToSection("workflow")}
-                className="group block w-full text-left px-4 py-2 text-muted-foreground hover:text-foreground transition-all duration-300 rounded-lg hover:bg-muted/50 hover:translate-x-1"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  {t("workflowNav")}
-                </span>
-              </button>
-              <button
-                onClick={() => scrollToSection("products")}
-                className="group block w-full text-left px-4 py-2 text-muted-foreground hover:text-foreground transition-all duration-300 rounded-lg hover:bg-muted/50 hover:translate-x-1"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  {t("personalProjectsNav")}
-                </span>
-              </button>
-              <button
-                onClick={() => scrollToSection("skills")}
-                className="group block w-full text-left px-4 py-2 text-muted-foreground hover:text-foreground transition-all duration-300 rounded-lg hover:bg-muted/50 hover:translate-x-1"
-              >
-                <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  {t("skills")}
-                </span>
-              </button>
+    <section id="about" className="section-shell">
+      <div className="section-inner">
+        <Reveal className="grid gap-12 md:grid-cols-12">
+          <div className="space-y-6 md:col-span-4">
+            <p className="micro-label text-accent">01</p>
+            <h2 className="heading-3">{t("aboutTitle")}</h2>
+            <nav className="space-y-2">
+              {[
+                { id: "experience", label: t("experience") },
+                { id: "salesforce-cases", label: t("salesforceCasesNav") },
+                { id: "workflow", label: t("workflowNav") },
+                { id: "products", label: t("personalProjectsNav") },
+                { id: "skills", label: t("skills") },
+              ].map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => scrollToSection(item.id)}
+                  className="title-4 block w-full rounded-lg px-3 py-2 text-left text-muted-foreground transition-colors duration-300 hover:bg-muted hover:text-foreground"
+                >
+                  {item.label}
+                </button>
+              ))}
             </nav>
           </div>
 
-          <div className="md:col-span-2 space-y-6">
-            <div className="space-y-6">
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">{t("aboutParagraph1")}</p>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">{t("aboutParagraph2")}</p>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">{t("aboutParagraph3")}</p>
-            </div>
+          <div className="space-y-6 md:col-span-8">
+            <p className="body-3 text-lg text-muted-foreground">{t("aboutParagraph1")}</p>
+            <p className="body-3 text-lg text-muted-foreground">{t("aboutParagraph2")}</p>
+            <p className="body-3 text-lg text-muted-foreground">{t("aboutParagraph3")}</p>
 
-            <div className="pt-8 space-y-8">
-              <div className="p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:border-accent/30 transition-all duration-300">
-                <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-accent" />
-                  {t("professionalFocus")}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">{t("professionalFocusText")}</p>
+            <div className="grid gap-4 pt-8">
+              <div className="glass-card rounded-2xl p-6">
+                <h3 className="title-3 mb-3">{t("professionalFocus")}</h3>
+                <p className="body-6 text-muted-foreground">{t("professionalFocusText")}</p>
               </div>
 
-              <div className="p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:border-accent/30 transition-all duration-300">
-                <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-accent" />
-                  {t("education")}
-                </h3>
+              <div className="glass-card rounded-2xl p-6">
+                <h3 className="title-3 mb-4">{t("education")}</h3>
                 <div className="space-y-4">
-                  <div className="pl-4 border-l-2 border-accent/30">
-                    <p className="text-foreground font-medium">{t("educationTitle")}</p>
-                    <p className="text-muted-foreground text-sm mt-1">{t("educationSubtitle")}</p>
-                    <p className="text-muted-foreground text-sm mt-2 italic">{t("educationCourses")}</p>
+                  <div className="rounded-xl border border-border p-4">
+                    <p className="title-3">{t("educationTitle")}</p>
+                    <p className="body-6 mt-1 text-muted-foreground">{t("educationSubtitle")}</p>
+                    <p className="body-6 mt-2 text-muted-foreground">{t("educationCourses")}</p>
                   </div>
-                  <div className="pl-4 border-l-2 border-accent/30">
-                    <p className="text-foreground font-medium">{t("universityDegreeTitle")}</p>
-                    <p className="text-muted-foreground text-sm mt-1">{t("universityDegreeSubtitle")}</p>
+                  <div className="rounded-xl border border-border p-4">
+                    <p className="title-3">{t("universityDegreeTitle")}</p>
+                    <p className="body-6 mt-1 text-muted-foreground">{t("universityDegreeSubtitle")}</p>
                   </div>
                 </div>
               </div>
 
-              <div className="p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:border-accent/30 transition-all duration-300">
-                <h3 className="font-semibold text-foreground mb-4 flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-accent" />
-                  {t("certifications")}
-                </h3>
-                <ul className="text-muted-foreground space-y-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1.5">▹</span>
-                    <span>
-                      <strong className="text-foreground">{t("certGoFluent")}</strong>
-                    </span>
+              <div className="glass-card rounded-2xl p-6">
+                <h3 className="title-3 mb-4">{t("certifications")}</h3>
+                <ul className="space-y-3 text-muted-foreground">
+                  <li className="body-6">
+                    <strong className="font-medium text-foreground">{t("certGoFluent")}</strong>
                   </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1.5">▹</span>
-                    <span>{t("certCambridge")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1.5">▹</span>
-                    <span>{t("certDELF")}</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-accent mt-1.5">▹</span>
-                    <span>{t("certSalesforce")}</span>
-                  </li>
-                  <li className="flex items-start gap-3 pt-2 border-t border-border/50 mt-3">
-                    <span className="text-accent mt-1.5">▹</span>
-                    <span>
-                      <strong className="text-foreground">{t("languagesBilingual")}</strong>
-                    </span>
+                  <li className="body-6">{t("certCambridge")}</li>
+                  <li className="body-6">{t("certDELF")}</li>
+                  <li className="body-6">{t("certSalesforce")}</li>
+                  <li className="body-6 border-t border-border pt-3">
+                    <strong className="font-medium text-foreground">{t("languagesBilingual")}</strong>
                   </li>
                 </ul>
               </div>
 
-              <div className="p-6 rounded-xl bg-gradient-to-br from-accent/10 via-accent/5 to-transparent border border-accent/20 backdrop-blur-sm hover:border-accent/30 transition-all duration-300">
-                <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-accent" />
-                  {t("workApproach")}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">{t("workApproachText")}</p>
+              <div className="glass-card rounded-2xl p-6">
+                <h3 className="title-3 mb-3">{t("workApproach")}</h3>
+                <p className="body-6 text-muted-foreground">{t("workApproachText")}</p>
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

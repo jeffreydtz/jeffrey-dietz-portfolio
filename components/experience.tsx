@@ -1,13 +1,11 @@
 "use client"
 
-import { Building2, GraduationCap } from "lucide-react"
 import Image from "next/image"
 import { useLanguage } from "./language-context"
-import { useScrollAnimation } from "@/lib/use-scroll-animation"
+import Reveal from "./reveal"
 
 export default function Experience() {
   const { t } = useLanguage()
-  const { ref, isVisible } = useScrollAnimation()
 
   const experiences = [
     {
@@ -17,12 +15,7 @@ export default function Experience() {
       role: t("accentureRole"),
       period: t("accenturePeriod"),
       description: t("accentureDesc"),
-      achievements: [
-        t("accentureAch1"),
-        t("accentureAch2"),
-        t("accentureAch3"),
-        t("accentureAch4"),
-      ],
+      achievements: [t("accentureAch1"), t("accentureAch2"), t("accentureAch3"), t("accentureAch4")],
       technologies: ["Salesforce", "Agentforce", "Apex", "LWC", "Azure DevOps", "Consulting"],
     },
     {
@@ -32,13 +25,7 @@ export default function Experience() {
       role: t("avalianRole"),
       period: t("avalianPeriod"),
       description: t("avalianDesc"),
-      achievements: [
-        t("avalianAch1"),
-        t("avalianAch2"),
-        t("avalianAch3"),
-        t("avalianAch4"),
-        t("avalianAch5"),
-      ],
+      achievements: [t("avalianAch1"), t("avalianAch2"), t("avalianAch3"), t("avalianAch4"), t("avalianAch5")],
       technologies: ["Apex", "LWC", "Flow Builder", "REST API", "Batch Apex", "SOQL"],
     },
     {
@@ -48,13 +35,7 @@ export default function Experience() {
       role: t("deloitteRole"),
       period: t("deloittePeriod"),
       description: t("deloitteDesc"),
-      achievements: [
-        t("deloitteAch1"),
-        t("deloitteAch2"),
-        t("deloitteAch3"),
-        t("deloitteAch4"),
-        t("deloitteAch5"),
-      ],
+      achievements: [t("deloitteAch1"), t("deloitteAch2"), t("deloitteAch3"), t("deloitteAch4"), t("deloitteAch5")],
       technologies: ["Apex", "Visualforce", "Lightning Components", "Batch Apex", "Triggers", "SOQL"],
     },
     {
@@ -64,12 +45,7 @@ export default function Experience() {
       role: t("lboRole"),
       period: t("lboPeriod"),
       description: t("lboDesc"),
-      achievements: [
-        t("lboAch1"),
-        t("lboAch2"),
-        t("lboAch3"),
-        t("lboAch4"),
-      ],
+      achievements: [t("lboAch1"), t("lboAch2"), t("lboAch3"), t("lboAch4")],
       technologies: ["Python", "React", "PostgreSQL", "REST APIs", "SQL", "ETL"],
     },
     {
@@ -95,116 +71,72 @@ export default function Experience() {
   ]
 
   return (
-    <section id="experience" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div 
-          ref={ref}
-          className={`transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-            {t("experienceTitle")}
-          </h2>
-          <p className="text-muted-foreground mb-12 max-w-2xl text-lg">
-            {t("experienceDescription")}
-          </p>
+    <section id="experience" className="section-shell">
+      <div className="section-inner">
+        <Reveal>
+          <p className="micro-label mb-4 text-accent">02 · {t("experience")}</p>
+          <h2 className="heading-3 mb-4">{t("experienceTitle")}</h2>
+          <p className="body-3 mb-12 max-w-[680px] text-lg text-muted-foreground">{t("experienceDescription")}</p>
 
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className="group relative pl-8 md:pl-12 border-l-2 border-accent/30 hover:border-accent/60 transition-all duration-300"
-              >
-                {/* Animated dot */}
-                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gradient-to-br from-accent to-accent/70 border-4 border-background shadow-lg shadow-accent/20 group-hover:scale-125 transition-transform duration-300" />
-
-                <div className="p-6 rounded-xl bg-card/50 border border-border/50 backdrop-blur-sm hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
-                  <div className="mb-6">
-                    <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                      <div className="flex items-center gap-4">
-                        {exp.logo ? (
-                          <div className="w-16 h-16 rounded-xl bg-background border border-border flex items-center justify-center overflow-hidden p-2 group-hover:border-accent/50 group-hover:shadow-md transition-all duration-300">
-                            <Image
-                              src={exp.logo}
-                              alt={`${exp.company} company logo - ${exp.role} position at ${exp.company}`}
-                              width={48}
-                              height={48}
-                              className="object-contain"
-                              loading="lazy"
-                            />
-                          </div>
-                        ) : (
-                          <div className="w-16 h-16 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent/20 transition-colors duration-300">
-                            {exp.kind === "education" ? (
-                              <GraduationCap className="w-8 h-8 text-accent" />
-                            ) : (
-                              <Building2 className="w-8 h-8 text-accent" />
-                            )}
-                          </div>
-                        )}
-                        <div>
-                          {exp.kind === "education" ? (
-                            <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-accent mb-1">
-                              {t("educationBadge")}
-                            </p>
-                          ) : null}
-                          <h3 className="text-2xl font-bold text-foreground group-hover:text-accent transition-colors duration-300">
-                            {exp.company}
-                          </h3>
-                          <p className="text-lg text-accent font-semibold">{exp.role}</p>
-                        </div>
+          <div className="grid gap-6">
+            {experiences.map((exp) => (
+              <article key={`${exp.company}-${exp.period}`} className="glass-card rounded-2xl p-6 md:p-8">
+                <div className="mb-6 flex flex-wrap items-start justify-between gap-4">
+                  <div className="flex items-center gap-4">
+                    {exp.logo ? (
+                      <div className="flex h-16 w-16 items-center justify-center overflow-hidden rounded-xl border border-border bg-background p-2">
+                        <Image
+                          src={exp.logo}
+                          alt={`${exp.company} company logo - ${exp.role} position at ${exp.company}`}
+                          width={48}
+                          height={48}
+                          className="object-contain"
+                          loading="lazy"
+                        />
                       </div>
-                      <div className="text-right">
-                        <p className="text-sm text-muted-foreground font-medium font-mono bg-muted/50 px-3 py-1 rounded-lg">
-                          {exp.period}
-                        </p>
+                    ) : (
+                      <div className="flex h-16 w-16 items-center justify-center rounded-xl border border-border bg-muted">
+                        <span className="micro-label text-accent">EDU</span>
                       </div>
-                    </div>
-
-                    {exp.description ? (
-                      <p className="text-muted-foreground leading-relaxed mb-6 text-base">{exp.description}</p>
-                    ) : null}
-
-                    {exp.achievements.length > 0 ? (
-                    <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-foreground mb-3 flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-accent" />
-                        {t("keyAchievements")}
-                      </h4>
-                      <ul className="space-y-2">
-                        {exp.achievements.map((achievement, i) => (
-                          <li
-                            key={i}
-                            className="text-sm text-muted-foreground flex items-start gap-3 group/item"
-                          >
-                            <span className="text-accent mt-1.5 group-hover/item:scale-110 transition-transform duration-200">▹</span>
-                            <span className="group-hover/item:text-foreground transition-colors duration-200">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    ) : null}
-
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1.5 text-xs font-medium bg-accent/10 border border-accent/20 rounded-full text-foreground hover:bg-accent/20 hover:border-accent/30 hover:scale-105 transition-all duration-200 cursor-default"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                    )}
+                    <div>
+                      {exp.kind === "education" ? (
+                        <p className="micro-label mb-1 text-accent">{t("educationBadge")}</p>
+                      ) : null}
+                      <h3 className="heading-5">{exp.company}</h3>
+                      <p className="title-2 mt-1 text-muted-foreground">{exp.role}</p>
                     </div>
                   </div>
+                  <p className="micro-label rounded-lg border border-border bg-muted/60 px-3 py-2">{exp.period}</p>
                 </div>
-              </div>
+
+                {exp.description ? <p className="body-6 mb-6 text-muted-foreground">{exp.description}</p> : null}
+
+                {exp.achievements.length > 0 ? (
+                  <div className="mb-6">
+                    <h4 className="micro-label mb-3 text-accent">{t("keyAchievements")}</h4>
+                    <ul className="space-y-2">
+                      {exp.achievements.map((achievement) => (
+                        <li key={achievement} className="body-6 flex items-start gap-3 text-muted-foreground">
+                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+
+                <div className="flex flex-wrap gap-2">
+                  {exp.technologies.map((tech) => (
+                    <span key={tech} className="chip">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </article>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
