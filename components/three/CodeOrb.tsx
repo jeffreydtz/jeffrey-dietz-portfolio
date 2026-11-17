@@ -7,9 +7,9 @@ import * as THREE from "three"
 import { useInView } from "@/lib/use-in-view"
 import { useCoarsePointer, usePrefersReducedMotion } from "@/lib/use-motion-prefs"
 
-const ACCENT = "#7CFF6B"
-const ACCENT_DEEP = "#3D8F38"
-const GLOW = "#E8FFE4"
+const ACCENT = "#4F8CFF"
+const ACCENT_DEEP = "#1E4ED8"
+const GLOW = "#C5DBFF"
 
 const SYMBOLS = ["{ }", "</>", "()", "=>", "[ ]", ";", "&&", "||", "++", "//"]
 

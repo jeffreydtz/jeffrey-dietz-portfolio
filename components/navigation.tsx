@@ -124,7 +124,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
                 aria-current={activeSection === section.id ? "true" : undefined}
                 className={cn(
                   "title-4 rounded-lg px-3 py-2 transition-colors duration-300 focus-visible:outline-none",
-                  activeSection === section.id ? "bg-accent/10 text-accent" : "text-muted-foreground hover:text-foreground",
+                  activeSection === section.id ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {section.label}

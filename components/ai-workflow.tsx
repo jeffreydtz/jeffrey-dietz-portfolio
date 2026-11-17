@@ -18,7 +18,7 @@ export default function AiWorkflow() {
           <div className="glass-card mb-12 overflow-hidden rounded-2xl p-6 md:p-8">
             <p className="micro-label mb-6 text-center text-accent">{t("workflowDiagramLabel")}</p>
             <div className="flex flex-col items-center gap-4">
-              <div className="rounded-lg border border-accent/40 bg-accent/10 px-6 py-3 title-4 text-accent shadow-[0_0_32px_-12px_var(--accent)]">
+              <div className="rounded-lg border border-border bg-muted/40 px-6 py-3 title-4">
                 {t("workflowFleetHub").replace("{n}", String(AI_FLEET_SIZE))}
               </div>
               <div className="h-6 w-px bg-border" />

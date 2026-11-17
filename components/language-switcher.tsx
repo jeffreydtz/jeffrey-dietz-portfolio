@@ -15,7 +15,7 @@ export default function LanguageSwitcher() {
           aria-pressed={language === "en"}
           className={cn(
             "button-sm rounded-md px-3 py-2 transition-colors duration-300 focus-visible:outline-none",
-            language === "en" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground",
+            language === "en" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground",
           )}
         >
           EN
@@ -26,7 +26,7 @@ export default function LanguageSwitcher() {
           aria-pressed={language === "es"}
           className={cn(
             "button-sm rounded-md px-3 py-2 transition-colors duration-300 focus-visible:outline-none",
-            language === "es" ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:text-foreground",
+            language === "es" ? "bg-foreground text-background" : "text-muted-foreground hover:text-foreground",
           )}
         >
           ES

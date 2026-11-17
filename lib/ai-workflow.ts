@@ -102,7 +102,7 @@ export const workflowTeams: WorkflowTeam[] = [
   },
   {
     id: "vps",
-    accent: "#22c55e",
+    accent: "#4f8cff",
     en: {
       title: "VPS admin agent",
       summary: "Operates services on my own VPS — no public IPs or internal URLs here. Cloud coding agents open PRs; independent AI reviews cross-check each other so false positives get discarded before merge.",
