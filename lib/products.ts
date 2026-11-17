@@ -74,7 +74,7 @@ export const featuredProducts: Product[] = [
     accent: "#d97706",
     featured: true,
     technologies: ["Next.js 16", "TypeScript", "Supabase", "Dexie / IndexedDB", "PWA", "Tiendanube"],
-    links: { live: "https://matildepdv.vercel.app", privateRepo: true },
+    links: { privateRepo: true },
     en: {
       title: "Matilda POS / Sherpa",
       tagline: "Offline-first PWA point of sale",
