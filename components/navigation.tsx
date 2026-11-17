@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react"
 import LanguageSwitcher from "./language-switcher"
 import { useLanguage } from "./language-context"
+import { cn } from "@/lib/utils"
 
 const SECTION_IDS = [
   "about",
@@ -24,7 +25,7 @@ export function SkipToContent() {
   return (
     <a
       href="#about"
-      className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-accent-foreground focus:font-semibold"
+      className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:font-semibold focus:text-accent-foreground"
     >
       {t("skipToContent")}
     </a>
@@ -50,22 +51,43 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
   )
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+    const hero = document.getElementById("hero")
+    const heroObserver = hero
+      ? new IntersectionObserver(([entry]) => setScrolled(!entry.isIntersecting), {
+          threshold: 0,
+          rootMargin: "-12px 0px 0px 0px",
+        })
+      : null
+    if (hero && heroObserver) heroObserver.observe(hero)
 
-      const currentSection = SECTION_IDS.find((id) => {
-        const element = document.getElementById(id)
-        if (!element) return false
-        const rect = element.getBoundingClientRect()
-        return rect.top <= 100 && rect.bottom >= 100
-      })
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+        const id = visible[0]?.target.id
+        if (id) setActiveSection(id)
+      },
+      { rootMargin: "-24% 0px -58% 0px", threshold: [0, 0.2, 0.5, 1] },
+    )
 
-      if (currentSection) setActiveSection(currentSection)
+    SECTION_IDS.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) sectionObserver.observe(el)
+    })
+
+    return () => {
+      heroObserver?.disconnect()
+      sectionObserver.disconnect()
     }
-
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
   }, [setActiveSection])
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isOpen])
 
   const handleNavClick = (sectionId: string) => {
     setActiveSection(sectionId)
@@ -81,89 +103,90 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
   }
 
   return (
-    <nav
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border/50 shadow-lg"
-          : "bg-background/95 backdrop-blur-sm border-b border-border/30"
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <button onClick={handleHomeClick} className="flex-shrink-0 group" aria-label="Home">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-accent via-accent/80 to-accent/60 bg-clip-text text-transparent group-hover:from-accent/90 group-hover:via-accent/70 group-hover:to-accent/50 transition-all duration-300">
-              JD
-            </h1>
+    <>
+      <nav className="pointer-events-none fixed top-3 right-3 left-3 z-50 md:top-4">
+        <div
+          className={cn(
+            "pointer-events-auto glass-nav mx-auto flex h-14 max-w-7xl items-center justify-between rounded-2xl px-4 transition-shadow duration-300",
+            scrolled && "shadow-[0_16px_48px_-24px_rgba(0,0,0,0.8)]",
+          )}
+        >
+          <button type="button" onClick={handleHomeClick} className="group shrink-0" aria-label="Home">
+            <span className="heading-6 tracking-tight text-foreground">JD</span>
           </button>
 
-          <div className="hidden md:flex items-center gap-3 lg:gap-6">
+          <div className="hidden items-center gap-1 lg:flex">
             {sections.map((section) => (
               <button
                 key={section.id}
+                type="button"
                 onClick={() => handleNavClick(section.id)}
                 aria-current={activeSection === section.id ? "true" : undefined}
-                className={`text-sm font-medium transition-all duration-300 relative group focus-visible:outline-none focus-visible:text-accent ${
-                  activeSection === section.id ? "text-accent" : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={cn(
+                  "title-4 rounded-lg px-3 py-2 transition-colors duration-300 focus-visible:outline-none",
+                  activeSection === section.id ? "bg-accent/10 text-accent" : "text-muted-foreground hover:text-foreground",
+                )}
               >
-                <span className="relative z-10">{section.label}</span>
-                {activeSection === section.id ? (
-                  <span className="absolute -bottom-[17px] left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent animate-in slide-in-from-left" />
-                ) : null}
-                <span className="absolute inset-0 bg-accent/5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
+                {section.label}
               </button>
             ))}
             <LanguageSwitcher />
           </div>
 
-          <div className="md:hidden flex items-center gap-2">
+          <div className="flex items-center gap-2 lg:hidden">
             <LanguageSwitcher />
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg hover:bg-muted transition-colors relative"
+              type="button"
+              onClick={() => setIsOpen((open) => !open)}
+              className="relative h-10 w-10 rounded-lg"
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
-              <div className="relative w-6 h-6">
-                <span
-                  className={`absolute top-0 left-0 w-6 h-0.5 bg-foreground transition-all duration-300 ${
-                    isOpen ? "rotate-45 translate-y-2.5" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute top-2.5 left-0 w-6 h-0.5 bg-foreground transition-all duration-300 ${
-                    isOpen ? "opacity-0" : ""
-                  }`}
-                />
-                <span
-                  className={`absolute top-5 left-0 w-6 h-0.5 bg-foreground transition-all duration-300 ${
-                    isOpen ? "-rotate-45 -translate-y-2.5" : ""
-                  }`}
-                />
-              </div>
+              <span
+                className={cn(
+                  "absolute top-3 left-2 h-0.5 w-6 bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  isOpen && "translate-y-1.5 rotate-45",
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute top-[19px] left-2 h-0.5 w-6 bg-foreground transition-opacity duration-300",
+                  isOpen && "opacity-0",
+                )}
+              />
+              <span
+                className={cn(
+                  "absolute top-[26px] left-2 h-0.5 w-6 bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                  isOpen && "-translate-y-1.5 -rotate-45",
+                )}
+              />
             </button>
           </div>
         </div>
+      </nav>
 
-        {isOpen ? (
-          <div className="md:hidden pb-4 space-y-2 animate-in slide-in-from-top duration-300">
-            {sections.map((section) => (
+      {isOpen ? (
+        <div className="fixed inset-0 z-40 lg:hidden">
+          <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" />
+          <div className="relative flex h-full flex-col px-6 pt-24 pb-8">
+            {sections.map((section, index) => (
               <button
                 key={section.id}
+                type="button"
                 onClick={() => handleNavClick(section.id)}
                 aria-current={activeSection === section.id ? "true" : undefined}
-                className={`block w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${
-                  activeSection === section.id
-                    ? "bg-accent/10 text-accent border-l-4 border-accent"
-                    : "hover:bg-muted text-muted-foreground hover:text-foreground"
-                }`}
+                className={cn(
+                  "menu-link-in heading-5 border-b border-border py-6 text-left",
+                  activeSection === section.id ? "text-accent" : "text-foreground",
+                )}
+                style={{ animationDelay: `${Math.min(index * 60, 360)}ms` }}
               >
                 {section.label}
               </button>
             ))}
           </div>
-        ) : null}
-      </div>
-    </nav>
+        </div>
+      ) : null}
+    </>
   )
 }

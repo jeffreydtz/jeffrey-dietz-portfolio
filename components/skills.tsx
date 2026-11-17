@@ -1,27 +1,22 @@
 "use client"
 
 import dynamic from "next/dynamic"
-import { Sparkles } from "lucide-react"
 import { useLanguage } from "./language-context"
-import { useScrollAnimation } from "@/lib/use-scroll-animation"
+import Reveal from "./reveal"
+import { useCanvasMode } from "@/lib/use-motion-prefs"
 
 const CodeOrb = dynamic(() => import("./three/CodeOrb"), {
   ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="w-24 h-24 rounded-full bg-accent/20 blur-2xl animate-pulse" />
-    </div>
-  ),
+  loading: () => <div className="h-full w-full rounded-2xl bg-[#181818]/40" />,
 })
 
 export default function Skills() {
   const { t } = useLanguage()
-  const { ref, isVisible } = useScrollAnimation()
+  const canvasMode = useCanvasMode()
 
   const skillCategories = [
     {
       category: t("skillCat1"),
-      icon: "⚡",
       skills: [
         "Apex",
         "Lightning Web Components (LWC)",
@@ -36,7 +31,6 @@ export default function Skills() {
     },
     {
       category: t("skillCatAgentforce"),
-      icon: "☁️",
       skills: [
         "Agentforce (Agents, Topics & Actions)",
         "Agentforce Scripting / Orchestrators",
@@ -48,7 +42,6 @@ export default function Skills() {
     },
     {
       category: t("skillCat2"),
-      icon: "🔧",
       skills: [
         "Flows (Screen, Record-Triggered, Scheduled)",
         "Process Builder",
@@ -61,7 +54,6 @@ export default function Skills() {
     },
     {
       category: t("skillCat3"),
-      icon: "🔗",
       skills: [
         "REST API",
         "SOAP Web Services",
@@ -75,7 +67,6 @@ export default function Skills() {
     },
     {
       category: t("skillCat4"),
-      icon: "🛠️",
       skills: [
         "Git",
         "GitHub",
@@ -90,7 +81,6 @@ export default function Skills() {
     },
     {
       category: t("skillCat5"),
-      icon: "🤖",
       skills: [
         "Grok Bot (multi-agent teams)",
         "Claude API (Anthropic SDK)",
@@ -106,7 +96,6 @@ export default function Skills() {
     },
     {
       category: t("skillCat6"),
-      icon: "💻",
       skills: [
         "Python (Django, FastAPI)",
         "Next.js & React",
@@ -121,64 +110,38 @@ export default function Skills() {
   ]
 
   return (
-    <section id="skills" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-muted/30 via-background to-background relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-      
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div
-          ref={ref}
-          className={`transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <div className="grid md:grid-cols-[1fr_auto] gap-8 items-center mb-12">
+    <section id="skills" className="section-shell">
+      <div className="section-inner">
+        <Reveal>
+          <div className="mb-12 grid items-center gap-8 md:grid-cols-[1fr_auto]">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-xs font-mono uppercase tracking-[0.3em] text-accent">{"// 04 · Stack"}</span>
-                <Sparkles className="w-4 h-4 text-accent animate-pulse" />
+              <p className="micro-label mb-4 text-accent">{"// 04 · Stack"}</p>
+              <h2 className="heading-3">{t("skillsTitle")}</h2>
+              <p className="body-3 mt-4 max-w-[680px] text-lg text-muted-foreground">{t("skillsDescription")}</p>
+            </div>
+            {canvasMode === "3d" ? (
+              <div className="relative hidden aspect-square w-full max-w-[280px] md:block">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,color-mix(in_srgb,var(--accent)_18%,transparent),transparent_60%)] blur-2xl" />
+                <div className="glass-card absolute inset-0 rounded-2xl">
+                  <CodeOrb />
+                </div>
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold text-balance leading-tight">
-                <span className="shimmer-text">{t("skillsTitle")}</span>
-              </h2>
-              <p className="text-muted-foreground mt-4 max-w-2xl text-lg">
-                {t("skillsDescription")}
-              </p>
-            </div>
-            <div className="relative w-full max-w-[280px] aspect-square hidden md:block">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(91,141,239,0.25),transparent_60%)] blur-2xl pointer-events-none" />
-              <div className="absolute inset-0 rounded-2xl border border-accent/20 pointer-events-none" />
-              <CodeOrb />
-            </div>
+            ) : null}
           </div>
 
           <div className="space-y-6">
-            {skillCategories.map((category, index) => (
+            {skillCategories.map((category) => (
               <div
-                key={index}
-                className={`group space-y-4 p-6 md:p-8 rounded-2xl border transition-all duration-500 hover:scale-[1.02] ${
-                  category.highlight
-                    ? "border-accent/50 bg-gradient-to-br from-accent/10 via-accent/5 to-transparent shadow-lg shadow-accent/10 hover:shadow-xl hover:shadow-accent/20"
-                    : "border-border/50 bg-card/50 backdrop-blur-sm hover:border-accent/30 hover:shadow-lg"
-                }`}
+                key={category.category}
+                className={`glass-card space-y-4 rounded-2xl p-6 md:p-8 ${category.highlight ? "shadow-[0_0_40px_-20px_var(--glow)]" : ""}`}
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-3xl">{category.icon}</span>
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground">{category.category}</h3>
-                  {category.highlight && (
-                    <span className="ml-auto px-3 py-1 text-xs font-semibold bg-accent/20 text-accent rounded-full border border-accent/30 animate-pulse">
-                      {t("newBadge")}
-                    </span>
-                  )}
+                  <h3 className="title-1">{category.category}</h3>
+                  {category.highlight ? <span className="chip ml-auto text-accent">{t("newBadge")}</span> : null}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, i) => (
-                    <span
-                      key={i}
-                      className="px-4 py-2 bg-background/80 backdrop-blur-sm border border-border/50 rounded-lg text-sm font-medium text-foreground hover:border-accent/50 hover:bg-accent/5 hover:shadow-md hover:scale-105 transition-all duration-300 cursor-default"
-                      style={{ animationDelay: `${i * 30}ms` }}
-                    >
+                  {category.skills.map((skill) => (
+                    <span key={skill} className="chip">
                       {skill}
                     </span>
                   ))}
@@ -186,7 +149,7 @@ export default function Skills() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

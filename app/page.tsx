@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <SkipToContent />
-      <main id="main" className="relative min-h-screen bg-background text-foreground">
+      <main id="main" className="relative min-h-screen text-foreground">
         <AmbientBackdrop />
         <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
         <article itemScope itemType="https://schema.org/ProfilePage">

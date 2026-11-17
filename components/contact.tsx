@@ -1,14 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { Mail, Linkedin, Github, Copy, Check, FileText } from "lucide-react"
 import { useLanguage } from "./language-context"
-import { useScrollAnimation } from "@/lib/use-scroll-animation"
-import { EMAIL, LINKEDIN_URL } from "@/lib/links"
+import Reveal from "./reveal"
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/links"
 
 export default function Contact() {
   const { t } = useLanguage()
-  const { ref, isVisible } = useScrollAnimation()
   const [copied, setCopied] = useState(false)
 
   const copyEmail = async () => {
@@ -22,104 +20,67 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent/5 via-transparent to-accent/10 opacity-50 pointer-events-none" />
-
-      <div className="max-w-2xl mx-auto text-center relative z-10">
-        <div
-          ref={ref}
-          className={`transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-            {t("contactTitle")}
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-            {t("contactDescription")}
-          </p>
+    <section id="contact" className="section-shell">
+      <div className="relative z-10 mx-auto max-w-2xl text-center">
+        <Reveal>
+          <p className="micro-label mb-4 text-accent">05 · {t("contact")}</p>
+          <h2 className="heading-3 mb-4">{t("contactTitle")}</h2>
+          <p className="body-3 mb-8 text-lg text-muted-foreground">{t("contactDescription")}</p>
 
           <p className="mb-10">
-            <a
-              href={`mailto:${EMAIL}`}
-              className="font-mono text-sm md:text-base text-accent hover:underline underline-offset-4"
-            >
+            <a href={`mailto:${EMAIL}`} className="font-mono text-sm text-accent md:text-base">
               {EMAIL}
             </a>
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center mb-12">
-            <a
-              href={`mailto:${EMAIL}`}
-              className="group relative px-8 py-4 bg-gradient-to-r from-accent to-accent/90 text-accent-foreground rounded-xl font-semibold hover:shadow-lg hover:shadow-accent/30 transition-all duration-300 hover:scale-105 overflow-hidden flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <Mail className="w-5 h-5" />
-              <span className="relative z-10">{t("sendEmail")}</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-accent/90 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="mb-12 flex flex-col flex-wrap justify-center gap-4 sm:flex-row">
+            <a href={`mailto:${EMAIL}`} className="btn-primary px-6 py-3">
+              {t("sendEmail")}
             </a>
-            <button
-              type="button"
-              onClick={copyEmail}
-              className="px-8 py-4 border-2 border-border rounded-xl font-semibold hover:bg-muted hover:border-accent/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              {copied ? <Check className="w-5 h-5 text-green-400" /> : <Copy className="w-5 h-5" />}
+            <button type="button" onClick={copyEmail} className="btn-ghost px-6 py-3">
               {copied ? t("emailCopied") : t("copyEmail")}
             </button>
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 border-2 border-border rounded-xl font-semibold hover:bg-muted hover:border-accent/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <Linkedin className="w-5 h-5" />
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="btn-ghost px-6 py-3">
               {t("viewLinkedIn")}
             </a>
-            <a
-              href="/cv"
-              className="px-8 py-4 border-2 border-border rounded-xl font-semibold hover:bg-muted hover:border-accent/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-            >
-              <FileText className="w-5 h-5" />
+            <a href="/cv" className="btn-ghost px-6 py-3">
               {t("viewCv")}
             </a>
           </div>
 
-          <div className="flex justify-center gap-6 mb-12">
+          <div className="mb-12 flex justify-center gap-4">
             <a
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 rounded-full bg-card/50 border border-border/50 hover:border-accent/50 hover:bg-accent/10 transition-all duration-300 hover:scale-110"
+              className="glass-card rounded-xl px-4 py-3 title-4"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-accent transition-colors" />
+              {t("linkedIn")}
             </a>
             <a
-              href="https://github.com/jeffreydtz"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 rounded-full bg-card/50 border border-border/50 hover:border-accent/50 hover:bg-accent/10 transition-all duration-300 hover:scale-110"
+              className="glass-card rounded-xl px-4 py-3 title-4"
               aria-label="GitHub"
             >
-              <Github className="w-6 h-6 text-muted-foreground group-hover:text-accent transition-colors" />
+              {t("gitHub")}
             </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="group p-3 rounded-full bg-card/50 border border-border/50 hover:border-accent/50 hover:bg-accent/10 transition-all duration-300 hover:scale-110"
-              aria-label="Email"
-            >
-              <Mail className="w-6 h-6 text-muted-foreground group-hover:text-accent transition-colors" />
+            <a href={`mailto:${EMAIL}`} className="glass-card rounded-xl px-4 py-3 title-4" aria-label="Email">
+              {t("email")}
             </a>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-border/50 space-y-4">
-            <p className="text-sm text-muted-foreground">
-              <strong className="text-foreground">{t("location")}</strong> {t("locationValue")}
+          <div className="space-y-4 border-t border-border pt-8">
+            <p className="body-6 text-muted-foreground">
+              <strong className="font-medium text-foreground">{t("location")}</strong> {t("locationValue")}
             </p>
-            <p className="text-sm text-muted-foreground">
-              <strong className="text-foreground">{t("languages")}</strong> {t("languagesValue")}
+            <p className="body-6 text-muted-foreground">
+              <strong className="font-medium text-foreground">{t("languages")}</strong> {t("languagesValue")}
             </p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
