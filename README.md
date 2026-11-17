@@ -138,7 +138,7 @@ Every push to `main` triggers an automatic deployment. Apex (`jeffreydietz.dev`)
 ## 📧 Contact
 
 - **Email:** jeffreydietz33@gmail.com
-- **LinkedIn:** [linkedin.com/in/jeffrey-dietz](https://www.linkedin.com/in/jeffrey-dietz)
+- **LinkedIn:** [linkedin.com/in/jeffrey--dietz](https://www.linkedin.com/in/jeffrey--dietz)
 - **GitHub:** [github.com/jeffrey-dietz](https://github.com/jeffrey-dietz)
 
 ## 📄 License
