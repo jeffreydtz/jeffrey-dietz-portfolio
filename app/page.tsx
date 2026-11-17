@@ -7,6 +7,7 @@ import Hero from "@/components/hero"
 import About from "@/components/about"
 import CompaniesMarquee from "@/components/companies-marquee"
 import Experience from "@/components/experience"
+import SalesforceCases from "@/components/salesforce-cases"
 import Projects from "@/components/projects"
 import PersonalProjects from "@/components/personal-projects"
 import Skills from "@/components/skills"
@@ -25,9 +26,10 @@ export default function Home() {
         <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
         <article itemScope itemType="https://schema.org/ProfilePage">
           <Hero />
-          <About setActiveSection={setActiveSection} />
+          <About />
           <CompaniesMarquee />
           <Experience />
+          <SalesforceCases />
           <Projects />
           <PersonalProjects />
           <Skills />

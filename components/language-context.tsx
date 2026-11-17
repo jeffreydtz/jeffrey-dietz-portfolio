@@ -24,6 +24,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const lang = readStoredLanguage()
+    // Hydrate from localStorage / navigator after mount (SSR starts on EN).
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time client language sync
     setLanguageState(lang)
     document.documentElement.lang = lang
   }, [])

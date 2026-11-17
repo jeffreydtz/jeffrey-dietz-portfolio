@@ -98,7 +98,7 @@ export default function Hero() {
       { id: "lwc", label: "LWC", hint: t("cloudNodeLwcHint"), target: "skills" },
       { id: "flows", label: "Flows", hint: t("cloudNodeFlowsHint"), target: "skills" },
       { id: "agentforce", label: "Agentforce", hint: t("cloudNodeAgentforceHint"), target: "skills" },
-      { id: "apis", label: "APIs", hint: t("cloudNodeApisHint"), target: "projects" },
+      { id: "apis", label: "APIs", hint: t("cloudNodeApisHint"), target: "salesforce-cases" },
     ],
     [t],
   )
@@ -147,7 +147,7 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-4 pt-2">
-              <MagneticButton onClick={() => scrollToSection("projects")} variant="primary">
+              <MagneticButton onClick={() => scrollToSection("salesforce-cases")} variant="primary">
                 {t("viewWork")}
                 <span aria-hidden className="ml-1">→</span>
               </MagneticButton>

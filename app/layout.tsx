@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { LINKEDIN_URL } from '@/lib/links'
 import './globals.css'
 
 const geistSans = Geist({
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   },
   description: defaultDescription,
   keywords: defaultKeywords,
-  authors: [{ name: 'Jeffrey Dietz', url: 'https://www.linkedin.com/in/jeffrey--dietz' }],
+  authors: [{ name: 'Jeffrey Dietz', url: LINKEDIN_URL }],
   creator: 'Jeffrey Dietz',
   publisher: 'Jeffrey Dietz',
   formatDetection: {
@@ -123,7 +124,7 @@ export default function RootLayout({
     email: 'jeffreydietz33@gmail.com',
     url: siteUrl,
     sameAs: [
-      'https://www.linkedin.com/in/jeffrey--dietz',
+      LINKEDIN_URL,
       'https://github.com/jeffreydtz',
     ],
     knowsAbout: [

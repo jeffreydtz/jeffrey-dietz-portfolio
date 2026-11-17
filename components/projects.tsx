@@ -9,34 +9,6 @@ export default function Projects() {
 
   const projects = [
     {
-      title: t("project1Title"),
-      description: t("project1Desc"),
-      technologies: ["OAuth 2.0", "REST API", "Apex", "Integration", "Jira API", "Middleware"],
-      impact: t("project1Impact"),
-      year: "2024-2025",
-    },
-    {
-      title: t("project2Title"),
-      description: t("project2Desc"),
-      technologies: ["Lightning Web Components", "Apex", "REST/SOAP API", "Excel Processing", "Mass DML"],
-      impact: t("project2Impact"),
-      year: "2024",
-    },
-    {
-      title: t("project3Title"),
-      description: t("project3Desc"),
-      technologies: ["Salesforce Flows", "Email-to-Case", "SOQL", "Record-Triggered Flows", "Assignment Rules"],
-      impact: t("project3Impact"),
-      year: "2024",
-    },
-    {
-      title: t("project4Title"),
-      description: t("project4Desc"),
-      technologies: ["Batch Apex", "Schedulable Apex", "SOQL", "Governor Limits", "Error Handling"],
-      impact: t("project4Impact"),
-      year: "2023-2024",
-    },
-    {
       title: t("project5Title"),
       description: t("project5Desc"),
       technologies: ["Apex", "XML Parsing", "Email Services", "Dynamic SOQL", "Lead Management"],

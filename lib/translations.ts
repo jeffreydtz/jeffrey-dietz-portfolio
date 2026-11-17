@@ -9,6 +9,7 @@ export const translations = {
     personalProjectsNav: "Products",
     skipToContent: "Skip to content",
     languageSwitcher: "Language",
+    salesforceCasesNav: "Cases",
 
     // Hero
     hello: "Hello, I'm Jeffrey Dietz",
@@ -26,7 +27,7 @@ export const translations = {
     heroStat1v: "yrs Salesforce",
     heroStat2k: "3",
     heroStat2v: "AI products shipped",
-    heroStat3k: "20+",
+    heroStat3k: "Multiple",
     heroStat3v: "integrations",
     cloudHintDesktop: "Drag to explore · Click a node",
     cloudHintMobile: "Tap a node to explore",
@@ -51,7 +52,7 @@ export const translations = {
       "Salesforce Developer | Analyst | Engineer specializing in enterprise automation, custom integrations, and AMS (Application Management Services)",
     education: "Education",
     educationTitle: "Systems Engineering",
-    educationSubtitle: "(In Progress, expected completion end of 2027) - Universidad Abierta Interamericana (UAI)",
+    educationSubtitle: "(In Progress, expected completion end of 2026) - Universidad Abierta Interamericana (UAI)",
     educationCourses: "Courses: System Analysis & Design, Calculus II, Physics I, Communication Technologies II",
     universityDegreeTitle: "University Technician in Programming",
     universityDegreeSubtitle: "(Completed 2021-2023) - Universidad Austral",
@@ -87,14 +88,14 @@ export const translations = {
     accentureRole: "Salesforce Developer",
     accenturePeriod: "Nov 2025 - Present",
     accentureDesc: "Joining Accenture to work on enterprise Salesforce implementations and digital transformation projects for global clients. Bringing 3+ years of Salesforce development experience to deliver innovative solutions.",
-    accentureAch1: "Working on large-scale Salesforce implementations for Fortune 500 clients",
+    accentureAch1: "Working on large-scale Salesforce implementations for enterprise clients",
     accentureAch2: "Contributing to digital transformation initiatives across multiple industries",
     accentureAch3: "Leveraging Apex, LWC, and integration expertise for complex business requirements",
     accentureAch4: "Collaborating with global teams on enterprise-grade solutions",
 
     // Avalian
     avalianRole: "Salesforce Developer",
-    avalianPeriod: "Aug 2024 - Oct 2025",
+    avalianPeriod: "Aug 2024 - Nov 2025",
     avalianDesc: "Developed and implemented advanced Salesforce solutions, specializing in process automation using Apex, Lightning Web Components, and Flow Builder.",
     avalianAch1: "Implemented REST API integrations for external database connectivity",
     avalianAch2: "Developed custom Apex logic to optimize execution times for high-volume processes",
@@ -121,31 +122,27 @@ export const translations = {
     lboAch3: "Applied MVC patterns and consumed external APIs",
     lboAch4: "First approach to building scalable solutions outside Salesforce environment",
 
+    // Salesforce case studies
+    salesforceCasesKicker: "// Cases · Salesforce",
+    salesforceCasesTitle: "Salesforce Case Studies",
+    salesforceCasesDescription:
+      "Selected Salesforce work across Agentforce, Apex, LWC, integrations, service and sales. Client companies stay unnamed; context is the industry, not the logo.",
+    salesforceCasesFilterAll: "All",
+    salesforceCasesFiltersLabel: "Filter case studies by area",
+    salesforceCasesProblem: "Problem",
+    salesforceCasesApproach: "Approach",
+    salesforceCasesDesign: "Design decisions",
+    salesforceCasesOutcome: "Outcome",
+    salesforceCasesStack: "Stack",
+    salesforceCasesClose: "Close",
+    salesforceCasesOpenHint: "Click to open the full case →",
+
     // Projects
-    projectsTitle: "Featured Projects",
+    projectsTitle: "More Salesforce Work",
     projectsDescription:
-      "A selection of projects I've worked on, showcasing my expertise in Salesforce development and platform customization.",
+      "Additional Salesforce work beyond the case studies above.",
 
-    // Project 1
-    project1Title: "Jira-Salesforce OAuth Integration",
-    project1Desc: "Developed a bidirectional integration between Jira and Salesforce using OAuth 2.0 authentication. Implemented secure token management, automated ticket synchronization, and real-time status updates. System automatically creates Salesforce cases from Jira issues and maintains data consistency across both platforms.",
-    project1Impact: "Seamless workflow automation",
-
-    // Project 2
-    project2Title: "LWC Excel Mass Upload System",
-    project2Desc: "Developed a Lightning Web Component that allows users to upload Excel files for mass data loading. The component validates and processes data locally before sending to Apex backend, which creates records in bulk and integrates with external databases via Web Services. Reduced processing time by over 60%.",
-    project2Impact: "60%+ time reduction",
-
-    // Project 3
-    project3Title: "Email-to-Case & Lead Assignment Automation",
-    project3Desc: "Designed automated logic to associate Accounts and Contacts to Cases created via email. System intelligently matches email senders with custom fields on Account objects, prioritizing company accounts over personal accounts. Extended Salesforce's standard Email-to-Case flow.",
-    project3Impact: "Automated lead routing",
-
-    // Project 4
-    project4Title: "Batch Apex Processing Engine",
-    project4Desc: "Built custom Batch Apex job to evaluate complex business logic on large record sets. Processes date-based calculations, state transitions, and performs bulk operations with optimized SOQL queries and error handling for daily scheduled execution.",
-    project4Impact: "Automated daily processing",
-
+    // Remaining Salesforce project (not duplicated in case studies)
     // Project 5
     project5Title: "XML Lead Processing Service",
     project5Desc: "Implemented Apex service to process incoming emails containing XML attachments and automatically create Lead records. System reads, validates, and parses XML data dynamically, integrating Salesforce with external lead generation systems.",
@@ -208,6 +205,7 @@ export const translations = {
     personalProjectsNav: "Productos",
     skipToContent: "Saltar al contenido",
     languageSwitcher: "Idioma",
+    salesforceCasesNav: "Casos",
 
     // Hero
     hello: "Hola, soy Jeffrey Dietz",
@@ -225,7 +223,7 @@ export const translations = {
     heroStat1v: "años Salesforce",
     heroStat2k: "3",
     heroStat2v: "productos de IA",
-    heroStat3k: "20+",
+    heroStat3k: "Varias",
     heroStat3v: "integraciones",
     cloudHintDesktop: "Arrastrá para explorar · Click en un nodo",
     cloudHintMobile: "Tocá un nodo para explorar",
@@ -250,7 +248,7 @@ export const translations = {
       "Desarrollador | Analista | Ingeniero Salesforce especializado en automatización empresarial, integraciones personalizadas y AMS (Application Management Services)",
     education: "Educación",
     educationTitle: "Ingeniería en Sistemas",
-    educationSubtitle: "(En Curso, finalización esperada a fines de 2027) - Universidad Abierta Interamericana (UAI)",
+    educationSubtitle: "(En Curso, finalización esperada a fines de 2026) - Universidad Abierta Interamericana (UAI)",
     educationCourses:
       "Materias: Análisis y Diseño de Sistemas, Cálculo II, Física I, Tecnologías de las Comunicaciones II",
     universityDegreeTitle: "Técnico Universitario en Programación",
@@ -287,14 +285,14 @@ export const translations = {
     accentureRole: "Desarrollador Salesforce",
     accenturePeriod: "Nov 2025 - Presente",
     accentureDesc: "Uniéndome a Accenture para trabajar en implementaciones empresariales de Salesforce y proyectos de transformación digital para clientes globales. Aportando más de 3 años de experiencia en desarrollo Salesforce para entregar soluciones innovadoras.",
-    accentureAch1: "Trabajando en implementaciones de Salesforce a gran escala para clientes Fortune 500",
+    accentureAch1: "Trabajando en implementaciones de Salesforce a gran escala para clientes enterprise",
     accentureAch2: "Contribuyendo a iniciativas de transformación digital en múltiples industrias",
     accentureAch3: "Aprovechando experiencia en Apex, LWC e integraciones para requisitos empresariales complejos",
     accentureAch4: "Colaborando con equipos globales en soluciones de nivel empresarial",
 
     // Avalian
     avalianRole: "Desarrollador Salesforce",
-    avalianPeriod: "Ago 2024 - Oct 2025",
+    avalianPeriod: "Ago 2024 - Nov 2025",
     avalianDesc: "Desarrollé e implementé soluciones avanzadas de Salesforce, especializándome en automatización de procesos usando Apex, Lightning Web Components y Flow Builder.",
     avalianAch1: "Implementé integraciones REST API para conectividad con bases de datos externas",
     avalianAch2: "Desarrollé lógica personalizada en Apex para optimizar tiempos de ejecución en procesos de alto volumen",
@@ -321,31 +319,27 @@ export const translations = {
     lboAch3: "Apliqué patrones MVC y consumí APIs externas",
     lboAch4: "Primera experiencia construyendo soluciones escalables fuera del entorno Salesforce",
 
+    // Salesforce case studies
+    salesforceCasesKicker: "// Casos · Salesforce",
+    salesforceCasesTitle: "Casos Salesforce",
+    salesforceCasesDescription:
+      "Trabajo Salesforce seleccionado en Agentforce, Apex, LWC, integraciones, service y sales. Las empresas cliente no se nombran; el contexto es la industria, no el logo.",
+    salesforceCasesFilterAll: "Todos",
+    salesforceCasesFiltersLabel: "Filtrar casos por área",
+    salesforceCasesProblem: "Problema",
+    salesforceCasesApproach: "Enfoque",
+    salesforceCasesDesign: "Decisiones de diseño",
+    salesforceCasesOutcome: "Resultado",
+    salesforceCasesStack: "Stack",
+    salesforceCasesClose: "Cerrar",
+    salesforceCasesOpenHint: "Click para abrir el caso completo →",
+
     // Projects
-    projectsTitle: "Proyectos Destacados",
+    projectsTitle: "Más Trabajo Salesforce",
     projectsDescription:
-      "Una selección de proyectos en los que he trabajado, demostrando mi experiencia en desarrollo y personalización de la plataforma Salesforce.",
+      "Trabajo Salesforce adicional más allá de los casos de arriba.",
 
-    // Project 1
-    project1Title: "Integración OAuth Jira-Salesforce",
-    project1Desc: "Desarrollé una integración bidireccional entre Jira y Salesforce usando autenticación OAuth 2.0. Implementé gestión segura de tokens, sincronización automática de tickets y actualizaciones de estado en tiempo real. El sistema crea automáticamente casos de Salesforce desde issues de Jira y mantiene consistencia de datos entre ambas plataformas.",
-    project1Impact: "Automatización fluida del flujo de trabajo",
-
-    // Project 2
-    project2Title: "Sistema de Carga Masiva Excel LWC",
-    project2Desc: "Desarrollé un Lightning Web Component que permite a los usuarios subir archivos Excel para carga masiva de datos. El componente valida y procesa datos localmente antes de enviarlos al backend Apex, que crea registros en masa e integra con bases de datos externas vía Web Services. Redujo el tiempo de procesamiento en más del 60%.",
-    project2Impact: "Reducción de tiempo del 60%+",
-
-    // Project 3
-    project3Title: "Automatización Email-to-Case y Asignación de Leads",
-    project3Desc: "Diseñé lógica automatizada para asociar Cuentas y Contactos a Casos creados vía email. El sistema empareja inteligentemente remitentes de email con campos personalizados en objetos Account, priorizando cuentas corporativas sobre cuentas personales. Extendí el flujo estándar Email-to-Case de Salesforce.",
-    project3Impact: "Enrutamiento automático de leads",
-
-    // Project 4
-    project4Title: "Motor de Procesamiento Batch Apex",
-    project4Desc: "Construí un job personalizado de Batch Apex para evaluar lógica de negocio compleja en grandes conjuntos de registros. Procesa cálculos basados en fechas, transiciones de estado y realiza operaciones masivas con consultas SOQL optimizadas y manejo de errores para ejecución diaria programada.",
-    project4Impact: "Procesamiento diario automatizado",
-
+    // Remaining Salesforce project (not duplicated in case studies)
     // Project 5
     project5Title: "Servicio de Procesamiento XML de Leads",
     project5Desc: "Implementé un servicio Apex para procesar emails entrantes con archivos adjuntos XML y crear automáticamente registros Lead. El sistema lee, valida y parsea datos XML dinámicamente, integrando Salesforce con sistemas externos de generación de leads.",

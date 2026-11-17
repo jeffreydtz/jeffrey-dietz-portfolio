@@ -330,7 +330,7 @@ export default function PersonalProjects() {
           }`}
         >
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-mono uppercase tracking-[0.3em] text-accent">// Products · AI</span>
+            <span className="text-xs font-mono uppercase tracking-[0.3em] text-accent">{"// Products · AI"}</span>
             <Sparkles className="w-4 h-4 text-accent animate-pulse" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-balance bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
@@ -482,7 +482,7 @@ export default function PersonalProjects() {
           {/* Side projects */}
           <div className="mt-20">
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-mono uppercase tracking-[0.3em] text-accent">// Side Builds</span>
+              <span className="text-xs font-mono uppercase tracking-[0.3em] text-accent">{"// Side Builds"}</span>
             </div>
             <h3 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
               {t("sideProjectsTitle")}

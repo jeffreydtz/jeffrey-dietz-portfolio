@@ -4,7 +4,15 @@ import { useEffect, useMemo, useState } from "react"
 import LanguageSwitcher from "./language-switcher"
 import { useLanguage } from "./language-context"
 
-const SECTION_IDS = ["about", "experience", "projects", "personal-projects", "skills", "contact"] as const
+const SECTION_IDS = [
+  "about",
+  "experience",
+  "salesforce-cases",
+  "projects",
+  "personal-projects",
+  "skills",
+  "contact",
+] as const
 
 interface NavigationProps {
   activeSection: string
@@ -32,6 +40,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
     () => [
       { id: "about", label: t("about") },
       { id: "experience", label: t("experience") },
+      { id: "salesforce-cases", label: t("salesforceCasesNav") },
       { id: "projects", label: t("projects") },
       { id: "personal-projects", label: t("personalProjectsNav") },
       { id: "skills", label: t("skills") },
@@ -87,7 +96,7 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
             </h1>
           </button>
 
-          <div className="hidden md:flex items-center gap-5 lg:gap-7">
+          <div className="hidden md:flex items-center gap-3 lg:gap-6">
             {sections.map((section) => (
               <button
                 key={section.id}

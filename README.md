@@ -44,8 +44,9 @@ jeffrey-dietz-portfolio/
 │   ├── hero.tsx            # Hero section with introduction
 │   ├── about.tsx           # About me section
 │   ├── experience.tsx      # Professional experience timeline
-│   ├── projects.tsx        # Salesforce projects showcase
-│   ├── personal-projects.tsx # Personal side projects
+│   ├── salesforce-cases.tsx # Salesforce case studies
+│   ├── projects.tsx        # Remaining Salesforce work
+│   ├── personal-projects.tsx # AI products and side builds
 │   ├── skills.tsx          # Technical skills
 │   ├── contact.tsx         # Contact information
 │   ├── navigation.tsx      # Navigation bar
@@ -68,7 +69,7 @@ jeffrey-dietz-portfolio/
 ## 🏢 Professional Experience
 
 - **Accenture** - Salesforce Developer (Nov 2025 - Present)
-- **Avalian** - Salesforce Developer (Aug 2024 - Oct 2025)
+- **Avalian** - Salesforce Developer (Aug 2024 - Nov 2025)
 - **Deloitte** - Salesforce Developer & Analyst (Apr 2023 - Aug 2024)
 - **LBO** - Full-Stack Developer (Oct 2022 - Mar 2023)
 
@@ -137,7 +138,7 @@ Every push to `main` triggers an automatic deployment. Apex (`jeffreydietz.dev`)
 ## 📧 Contact
 
 - **Email:** jeffreydietz33@gmail.com
-- **LinkedIn:** [linkedin.com/in/jeffrey--dietz](https://www.linkedin.com/in/jeffrey--dietz)
+- **LinkedIn:** [linkedin.com/in/jeffrey-dietz](https://www.linkedin.com/in/jeffrey-dietz)
 - **GitHub:** [github.com/jeffrey-dietz](https://github.com/jeffrey-dietz)
 
 ## 📄 License
