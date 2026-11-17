@@ -1,15 +1,14 @@
 "use client"
 
 import { useState } from "react"
-import { LanguageProvider } from "@/components/language-context"
 import Navigation, { SkipToContent } from "@/components/navigation"
 import Hero from "@/components/hero"
 import About from "@/components/about"
 import CompaniesMarquee from "@/components/companies-marquee"
 import Experience from "@/components/experience"
 import SalesforceCases from "@/components/salesforce-cases"
-import Projects from "@/components/projects"
-import PersonalProjects from "@/components/personal-projects"
+import AiWorkflow from "@/components/ai-workflow"
+import Products from "@/components/products"
 import Skills from "@/components/skills"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
@@ -19,7 +18,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState("about")
 
   return (
-    <LanguageProvider>
+    <>
       <SkipToContent />
       <main id="main" className="relative min-h-screen bg-background text-foreground">
         <AmbientBackdrop />
@@ -30,13 +29,13 @@ export default function Home() {
           <CompaniesMarquee />
           <Experience />
           <SalesforceCases />
-          <Projects />
-          <PersonalProjects />
+          <AiWorkflow />
+          <Products />
           <Skills />
           <Contact />
         </article>
         <Footer />
       </main>
-    </LanguageProvider>
+    </>
   )
 }

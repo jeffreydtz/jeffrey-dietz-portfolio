@@ -227,6 +227,19 @@
   animation: fade-in 0.6s ease-out;
 }
 
+@media print {
+  nav,
+  .ambient-backdrop,
+  footer {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
+
 /* ───── Ambient cutting-edge backdrop ───── */
 .ambient-backdrop {
   --spot-x: 50%;

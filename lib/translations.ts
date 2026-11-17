@@ -10,12 +10,16 @@ export const translations = {
     skipToContent: "Skip to content",
     languageSwitcher: "Language",
     salesforceCasesNav: "Cases",
+    workflowNav: "Workflow",
+    viewCv: "View CV",
+    downloadCv: "Print CV",
 
     // Hero
     hello: "Hello, I'm Jeffrey Dietz",
     heroTitle: "Salesforce & AI Developer",
+    heroEyebrow: "Accenture · Agentforce · own products",
     heroDescription:
-      "Salesforce Developer at Accenture with 3+ years building scalable enterprise solutions — Apex, Lightning Web Components, API integrations. Now pushing into Agentforce and agentic AI: I design, build and ship real AI-powered products end to end.",
+      "I build Salesforce that ships: Agentforce orchestrators, Apex, LWC, and integrations for enterprise, banking and health-insurance orgs. I also design and run my own products — a finance thesis app, an offline POS, computer vision, a 3D multiplayer game — with a fleet of specialized AI agents.",
     accentureBadge: "Accenture",
     experienceBadge: "3+ Years Experience",
     englishBadge: "C1 English",
@@ -25,10 +29,10 @@ export const translations = {
     salesforceEcosystem: "Salesforce Ecosystem",
     heroStat1k: "3+",
     heroStat1v: "yrs Salesforce",
-    heroStat2k: "3",
-    heroStat2v: "AI products shipped",
-    heroStat3k: "Multiple",
-    heroStat3v: "integrations",
+    heroStat2k: "~30",
+    heroStat2v: "specialized AI agents",
+    heroStat3k: "91%",
+    heroStat3v: "orchestrator accuracy",
     cloudHintDesktop: "Drag to explore · Click a node",
     cloudHintMobile: "Tap a node to explore",
     cloudA11y:
@@ -46,13 +50,15 @@ export const translations = {
     aboutParagraph2:
       "My expertise spans Apex development, Lightning Web Components, REST/SOAP integrations, and declarative automation (Flows, Process Builder). I've successfully delivered projects that reduced processing time by over 60% and automated complex business workflows in AMS environments.",
     aboutParagraph3:
-      "Beyond Salesforce, I build and ship my own AI products: a fintech platform with an AI Telegram bot, a computer-vision sports-analytics SaaS, and an autonomous Claude-powered content pipeline. Working daily with LLM APIs, agentic workflows, and full-stack TypeScript/Python gives me a unique edge as Salesforce moves into the Agentforce era.",
+      "Beyond Salesforce I ship my own products: Zarix (personal finance + thesis), Matilda POS / Sherpa for a clothing store, BeProPlayer, Colonos 3D, and a weekly Salesforce content bot. A fleet of about 30 specialized Grok Bot agents — product, university, YouTube, research, assistant, VPS — is how I build.",
     professionalFocus: "Professional Focus",
     professionalFocusText:
       "Salesforce Developer | Analyst | Engineer specializing in enterprise automation, custom integrations, and AMS (Application Management Services)",
     education: "Education",
     educationTitle: "Systems Engineering",
     educationSubtitle: "(In Progress, expected completion end of 2026) - Universidad Abierta Interamericana (UAI)",
+    uaiPeriod: "In progress · 2026",
+    australPeriod: "2021 – 2023",
     educationCourses: "Courses: System Analysis & Design, Calculus II, Physics I, Communication Technologies II",
     universityDegreeTitle: "University Technician in Programming",
     universityDegreeSubtitle: "(Completed 2021-2023) - Universidad Austral",
@@ -81,13 +87,14 @@ export const translations = {
     // Experience
     experienceTitle: "Professional Experience",
     experienceDescription:
-      "My professional journey working with leading companies, building Salesforce solutions and enterprise applications.",
+      "Work and study on one timeline — Accenture, Avalian, Deloitte, LBO, plus UAI and Austral.",
     keyAchievements: "Key Achievements:",
+    educationBadge: "Education",
 
     // Accenture
     accentureRole: "Salesforce Developer",
     accenturePeriod: "Nov 2025 - Present",
-    accentureDesc: "Joining Accenture to work on enterprise Salesforce implementations and digital transformation projects for global clients. Bringing 3+ years of Salesforce development experience to deliver innovative solutions.",
+    accentureDesc: "Salesforce Developer at Accenture on enterprise implementations and digital transformation for global clients — including Agentforce orchestrators in production.",
     accentureAch1: "Working on large-scale Salesforce implementations for enterprise clients",
     accentureAch2: "Contributing to digital transformation initiatives across multiple industries",
     accentureAch3: "Leveraging Apex, LWC, and integration expertise for complex business requirements",
@@ -159,9 +166,19 @@ export const translations = {
     newBadge: "NEW",
 
     // Personal Projects
-    personalProjectsTitle: "Products & AI Projects",
+    personalProjectsTitle: "Products",
     personalProjectsDescription:
-      "Real products I design, build and ship end to end — AI agents, computer vision, and full-stack SaaS beyond my corporate work.",
+      "Every real project I can show: live apps, public repos, and private work without a GitHub link. No invented metrics.",
+    productsKicker: "// Products · shipped",
+    earlyWorkTitle: "Earlier public repos",
+    earlyWorkDescription: "Smaller public experiments from earlier in the path.",
+    workflowKicker: "// How I build",
+    workflowTitle: "AI-native workflow",
+    workflowDescription:
+      "I run a fleet of about 30 specialized AI agents on Grok Bot, organized as teams. Cloud coding agents open PRs; independent AI reviews cross-check each other so false positives get discarded before merge. My own VPS hosts services — no IPs or internal URLs here.",
+    workflowDiagramLabel: "Grok Bot fleet",
+    workflowFleetHub: "Grok Bot · ~{n} specialized agents",
+    workflowReviewFlow: "Cloud coding agents → PR → independent AI reviews (cross-checked) → merge",
     keyFeatures: "Key Features:",
     status: "Status:",
     liveApp: "Live App",
@@ -177,9 +194,12 @@ export const translations = {
       "A comprehensive overview of my technical skills and areas of expertise in Salesforce development and modern technologies.",
 
     // Contact
-    contactTitle: "Let's Work Together",
+    contactTitle: "Let's work together",
     contactDescription:
-      "I'm always interested in hearing about new Salesforce projects and opportunities. Whether you need a developer for enterprise solutions, integrations, or process automation, feel free to reach out.",
+      "Salesforce, Agentforce, or a product that needs to ship. Remote. ES/EN. Send an email, open the CV, or find me on LinkedIn.",
+    cvTitle: "Curriculum vitae",
+    cvBack: "Back to portfolio",
+    cvPrintHint: "Use your browser’s print dialog to save a PDF.",
     sendEmail: "Send Email",
     copyEmail: "Copy email",
     emailCopied: "Copied",
@@ -206,12 +226,16 @@ export const translations = {
     skipToContent: "Saltar al contenido",
     languageSwitcher: "Idioma",
     salesforceCasesNav: "Casos",
+    workflowNav: "Flujo",
+    viewCv: "Ver CV",
+    downloadCv: "Imprimir CV",
 
     // Hero
     hello: "Hola, soy Jeffrey Dietz",
     heroTitle: "Desarrollador Salesforce e IA",
+    heroEyebrow: "Accenture · Agentforce · productos propios",
     heroDescription:
-      "Desarrollador Salesforce en Accenture con más de 3 años construyendo soluciones empresariales escalables — Apex, Lightning Web Components, integraciones API. Ahora avanzando en Agentforce e IA agéntica: diseño, construyo y lanzo productos reales potenciados por IA de punta a punta.",
+      "Construyo Salesforce que llega a producción: orchestrators de Agentforce, Apex, LWC e integraciones para orgs enterprise, bancos y prepagas. También diseño y corro mis propios productos — una app de finanzas (tesis), un POS offline, computer vision, un juego 3D multijugador — con una flota de agentes de IA especializados.",
     accentureBadge: "Accenture",
     experienceBadge: "3+ Años de Experiencia",
     englishBadge: "Inglés C1",
@@ -221,10 +245,10 @@ export const translations = {
     salesforceEcosystem: "Ecosistema Salesforce",
     heroStat1k: "3+",
     heroStat1v: "años Salesforce",
-    heroStat2k: "3",
-    heroStat2v: "productos de IA",
-    heroStat3k: "Varias",
-    heroStat3v: "integraciones",
+    heroStat2k: "~30",
+    heroStat2v: "agentes de IA especializados",
+    heroStat3k: "91%",
+    heroStat3v: "accuracy del orchestrator",
     cloudHintDesktop: "Arrastrá para explorar · Click en un nodo",
     cloudHintMobile: "Tocá un nodo para explorar",
     cloudA11y:
@@ -242,13 +266,15 @@ export const translations = {
     aboutParagraph2:
       "Mi experiencia abarca desarrollo Apex, Lightning Web Components, integraciones REST/SOAP y automatización declarativa (Flows, Process Builder). He entregado exitosamente proyectos que redujeron el tiempo de procesamiento en más del 60% y automatizaron flujos de trabajo empresariales complejos en entornos AMS.",
     aboutParagraph3:
-      "Más allá de Salesforce, construyo y lanzo mis propios productos de IA: una plataforma fintech con bot de Telegram con IA, un SaaS de análisis deportivo con visión por computadora y un pipeline autónomo de contenido con Claude. Trabajar a diario con APIs de LLM, flujos agénticos y full-stack TypeScript/Python me da una ventaja única ahora que Salesforce entra en la era Agentforce.",
+      "Más allá de Salesforce shippeo mis propios productos: Zarix (finanzas + tesis), Matilda POS / Sherpa para un local de ropa, BeProPlayer, Colonos 3D y un bot semanal de contenido Salesforce. Una flota de unos 30 agentes especializados en Grok Bot — producto, universidad, YouTube, research, asistente, VPS — es cómo construyo.",
     professionalFocus: "Enfoque Profesional",
     professionalFocusText:
       "Desarrollador | Analista | Ingeniero Salesforce especializado en automatización empresarial, integraciones personalizadas y AMS (Application Management Services)",
     education: "Educación",
     educationTitle: "Ingeniería en Sistemas",
     educationSubtitle: "(En Curso, finalización esperada a fines de 2026) - Universidad Abierta Interamericana (UAI)",
+    uaiPeriod: "En curso · 2026",
+    australPeriod: "2021 – 2023",
     educationCourses:
       "Materias: Análisis y Diseño de Sistemas, Cálculo II, Física I, Tecnologías de las Comunicaciones II",
     universityDegreeTitle: "Técnico Universitario en Programación",
@@ -278,13 +304,14 @@ export const translations = {
     // Experience
     experienceTitle: "Experiencia Profesional",
     experienceDescription:
-      "Mi trayectoria profesional trabajando con empresas líderes, construyendo soluciones Salesforce y aplicaciones empresariales.",
+      "Trabajo y estudio en una sola línea de tiempo — Accenture, Avalian, Deloitte, LBO, más UAI y Austral.",
     keyAchievements: "Logros Destacados:",
+    educationBadge: "Educación",
 
     // Accenture
     accentureRole: "Desarrollador Salesforce",
     accenturePeriod: "Nov 2025 - Presente",
-    accentureDesc: "Uniéndome a Accenture para trabajar en implementaciones empresariales de Salesforce y proyectos de transformación digital para clientes globales. Aportando más de 3 años de experiencia en desarrollo Salesforce para entregar soluciones innovadoras.",
+    accentureDesc: "Desarrollador Salesforce en Accenture en implementaciones enterprise y transformación digital para clientes globales — incluyendo orchestrators de Agentforce en producción.",
     accentureAch1: "Trabajando en implementaciones de Salesforce a gran escala para clientes enterprise",
     accentureAch2: "Contribuyendo a iniciativas de transformación digital en múltiples industrias",
     accentureAch3: "Aprovechando experiencia en Apex, LWC e integraciones para requisitos empresariales complejos",
@@ -356,9 +383,19 @@ export const translations = {
     newBadge: "NUEVO",
 
     // Personal Projects
-    personalProjectsTitle: "Productos y Proyectos de IA",
+    personalProjectsTitle: "Productos",
     personalProjectsDescription:
-      "Productos reales que diseño, construyo y lanzo de punta a punta — agentes de IA, visión por computadora y SaaS full-stack más allá del trabajo corporativo.",
+      "Cada proyecto real que puedo mostrar: apps en vivo, repos públicos y trabajo privado sin link de GitHub. Sin métricas inventadas.",
+    productsKicker: "// Productos · shipped",
+    earlyWorkTitle: "Repos públicos más tempranos",
+    earlyWorkDescription: "Experimentos públicos más chicos, de más atrás en el camino.",
+    workflowKicker: "// Cómo construyo",
+    workflowTitle: "Flujo de trabajo nativo de IA",
+    workflowDescription:
+      "Corro una flota de unos 30 agentes de IA especializados en Grok Bot, organizados en equipos. Los cloud coding agents abren PRs; reviews de IA independientes se cruzan para tirar falsos positivos antes del merge. Mi VPS hostea servicios — acá no van IPs ni URLs internas.",
+    workflowDiagramLabel: "Flota Grok Bot",
+    workflowFleetHub: "Grok Bot · ~{n} agentes especializados",
+    workflowReviewFlow: "Cloud coding agents → PR → reviews de IA independientes (cruzadas) → merge",
     keyFeatures: "Características Principales:",
     status: "Estado:",
     liveApp: "App en Vivo",
@@ -374,9 +411,12 @@ export const translations = {
       "Una visión completa de mis habilidades técnicas y áreas de especialización en desarrollo Salesforce y tecnologías modernas.",
 
     // Contact
-    contactTitle: "Trabajemos Juntos",
+    contactTitle: "Trabajemos juntos",
     contactDescription:
-      "Siempre estoy interesado en conocer nuevos proyectos y oportunidades en Salesforce. Ya sea que necesites un desarrollador para soluciones empresariales, integraciones o automatización de procesos, no dudes en contactarme.",
+      "Salesforce, Agentforce, o un producto que tenga que salir. Remoto. ES/EN. Mandá un email, abrí el CV o encontrame en LinkedIn.",
+    cvTitle: "Currículum",
+    cvBack: "Volver al portfolio",
+    cvPrintHint: "Usá el diálogo de impresión del navegador para guardar un PDF.",
     sendEmail: "Enviar Email",
     copyEmail: "Copiar email",
     emailCopied: "Copiado",

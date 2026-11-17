@@ -31,6 +31,9 @@ export default function Footer() {
             >
               {t("gitHub")}
             </a>
+            <a href="/cv" className="hover:text-foreground transition-colors">
+              {t("viewCv")}
+            </a>
             <a href="mailto:jeffreydietz33@gmail.com" className="hover:text-foreground transition-colors">
               {t("email")}
             </a>

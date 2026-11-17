@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Mail, Linkedin, Github, Copy, Check } from "lucide-react"
+import { Mail, Linkedin, Github, Copy, Check, FileText } from "lucide-react"
 import { useLanguage } from "./language-context"
 import { useScrollAnimation } from "@/lib/use-scroll-animation"
 import { EMAIL, LINKEDIN_URL } from "@/lib/links"
@@ -73,6 +73,13 @@ export default function Contact() {
             >
               <Linkedin className="w-5 h-5" />
               {t("viewLinkedIn")}
+            </a>
+            <a
+              href="/cv"
+              className="px-8 py-4 border-2 border-border rounded-xl font-semibold hover:bg-muted hover:border-accent/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
+              <FileText className="w-5 h-5" />
+              {t("viewCv")}
             </a>
           </div>
 

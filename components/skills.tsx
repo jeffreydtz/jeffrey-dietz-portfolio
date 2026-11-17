@@ -39,6 +39,7 @@ export default function Skills() {
       icon: "☁️",
       skills: [
         "Agentforce (Agents, Topics & Actions)",
+        "Agentforce Scripting / Orchestrators",
         "Prompt Builder & Prompt Templates",
         "Models API",
         "Flow + Apex Agent Actions",
@@ -78,6 +79,7 @@ export default function Skills() {
       skills: [
         "Git",
         "GitHub",
+        "Azure DevOps (Repos, Boards, User Stories)",
         "Bitbucket",
         "VS Code + SFDX CLI",
         "Jira / ServiceNow (AMS)",
@@ -90,6 +92,7 @@ export default function Skills() {
       category: t("skillCat5"),
       icon: "🤖",
       skills: [
+        "Grok Bot (multi-agent teams)",
         "Claude API (Anthropic SDK)",
         "Gemini API",
         "Agentic Pipelines & Multi-Agent Orchestration",

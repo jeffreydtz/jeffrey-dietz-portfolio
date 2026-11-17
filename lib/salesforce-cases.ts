@@ -35,63 +35,63 @@ export const salesforceCases: SalesforceCase[] = [
     id: "agentforce-multi-agent",
     status: "production",
     areas: ["Agentforce", "Apex", "LWC"],
-    stack: ["Agentforce", "Apex", "Lightning Web Components", "Prompt Builder"],
+    stack: ["Agentforce", "Agentforce Scripting", "Apex", "Lightning Web Components"],
     en: {
-      title: "Agentforce multi-agent orchestration",
+      title: "Agentforce orchestrator — 4 sub-agents",
       client: "Enterprise client",
       problem:
         "A single general-purpose assistant was a poor fit for an enterprise Salesforce org: requests spanned different domains, and routing them by hand did not scale.",
       approach:
-        "Designed a multi-agent Agentforce setup with specialized agents and tuned the routing so each request lands on the agent that owns that domain. Apex and LWC cover the deterministic actions and the operator-facing UI around those agents.",
+        "Built one orchestrator agent that manages four specialized sub-agents. This was among the first orchestrators built on Salesforce. Later migrated the setup from the legacy Agent Builder to Agentforce scripting mode so routing and actions are explicit instead of prompt-guessed.",
       designDecisions:
-        "Split agents by domain instead of stuffing every topic into one. Routing rules and topic/action design were iterated so hand-offs stay predictable. Apex handles side effects that must be exact; LWC is the control surface for people working the cases those agents create.",
+        "One orchestrator, four specialists — not every topic stuffed into a single agent. Scripting mode replaced the older builder so hand-offs are deterministic. Apex and LWC still own side effects and the operator UI.",
       outcome:
-        "In production. Agents take on their own slice of work, routing is more consistent, and operators have a Lightning surface to review what the agents did.",
+        "In production. Scripting mode made the system more deterministic: accuracy went from about 60% to 91%, with an average response time of about 30 seconds.",
       badge: "In production",
     },
     es: {
-      title: "Orquestación multi-agente con Agentforce",
+      title: "Orchestrator Agentforce — 4 sub-agentes",
       client: "Cliente enterprise",
       problem:
         "Un asistente genérico no alcanzaba en un org Salesforce enterprise: los pedidos cruzaban dominios distintos y enrutarlos a mano no escalaba.",
       approach:
-        "Armé un setup multi-agente en Agentforce con agentes especializados y afiné el routing para que cada pedido llegue al agente dueño de ese dominio. Apex y LWC cubren las acciones determinísticas y la UI para quien opera alrededor de esos agentes.",
+        "Armé un agente orchestrator que gestiona cuatro sub-agentes especializados. Fue de los primeros orchestrators construidos sobre Salesforce. Después migré el setup del Agent Builder legacy al modo scripting de Agentforce, para que el routing y las acciones queden explícitos en vez de adivinados por el prompt.",
       designDecisions:
-        "Separé agentes por dominio en lugar de meter todos los topics en uno. Iteré reglas de routing y el diseño de topics/actions para que los pases sean predecibles. Apex ejecuta los side effects que tienen que ser exactos; LWC es la superficie de control para las personas que trabajan los casos que esos agentes crean.",
+        "Un orchestrator, cuatro especialistas — no todos los topics metidos en un solo agente. El modo scripting reemplazó al builder anterior para que los pases sean determinísticos. Apex y LWC siguen dueños de los side effects y de la UI de operación.",
       outcome:
-        "En producción. Cada agente cubre su parte del trabajo, el routing es más consistente y hay una superficie Lightning para revisar lo que hicieron los agentes.",
+        "En producción. El modo scripting lo volvió más determinístico: la accuracy pasó de alrededor del 60% al 91%, con un tiempo de respuesta promedio de unos 30 s.",
       badge: "En producción",
     },
   },
   {
-    id: "ai-sales-agent",
+    id: "opportunity-document-intelligence",
     status: "production",
     areas: ["Agentforce", "Sales"],
-    stack: ["Agentforce", "Prompt Builder"],
+    stack: ["Agentforce", "Prompt Builder", "Prompt Templates", "Opportunity"],
     en: {
-      title: "AI sales agent for sales and upsell",
+      title: "Document intelligence on Opportunity",
       client: "Enterprise client",
       problem:
-        "Sales conversations needed a consistent way to pull CRM context and suggest a next step or upsell, without each rep inventing the pitch from scratch.",
+        "Teams working an Opportunity still had to open the attached documents — RFPs and similar — and read them by hand before they could answer a business question.",
       approach:
-        "Built an Agentforce sales agent with Prompt Builder templates for discovery, next-best action, and upsell language grounded in Salesforce sales data.",
+        "Documents attached to an Opportunity trigger Prompt Templates that analyze them and store the insights. An Agentforce agent then answers business questions grounded on that knowledge, so nobody has to read the docs first.",
       designDecisions:
-        "Prompt templates own tone and guardrails; the agent reads live CRM context instead of a static script. Sales-specific topics stay separate from service so the agent does not drift into case-handling.",
+        "Extraction lives in Prompt Templates at attach-time, not in a long chat. The agent answers from stored insights instead of re-parsing files on every question. Grounding stays on the Opportunity, not on a generic knowledge dump.",
       outcome:
-        "In production. Reps get a repeatable sales and upsell assistant inside Salesforce, with prompts that stay aligned to the org's commercial language.",
+        "In production. RFP and deal questions can be asked against the Opportunity without reading the attachments first.",
       badge: "In production",
     },
     es: {
-      title: "Agente de IA para ventas y upsell",
+      title: "Inteligencia de documentos en Opportunity",
       client: "Cliente enterprise",
       problem:
-        "Las conversaciones de ventas necesitaban una forma consistente de traer contexto del CRM y sugerir un próximo paso o un upsell, sin que cada seller invente el pitch desde cero.",
+        "Quien trabajaba una Opportunity todavía tenía que abrir los documentos adjuntos — RFPs y similares — y leerlos a mano antes de poder responder una pregunta de negocio.",
       approach:
-        "Construí un agente de ventas en Agentforce con plantillas de Prompt Builder para discovery, next-best action y lenguaje de upsell anclado a los datos comerciales de Salesforce.",
+        "Los documentos adjuntos a una Opportunity disparan Prompt Templates que los analizan y guardan los insights. Un agente de Agentforce responde después preguntas de negocio ancladas a ese conocimiento, sin que nadie tenga que leer los docs primero.",
       designDecisions:
-        "Las plantillas de prompt definen tono y límites; el agente lee contexto vivo del CRM en lugar de un script estático. Los topics de ventas quedan separados de service para que el agente no se desvíe a gestión de casos.",
+        "La extracción vive en Prompt Templates al adjuntar, no en un chat largo. El agente responde desde insights guardados en vez de re-parsear archivos en cada pregunta. El grounding se queda en la Opportunity, no en un dump genérico de knowledge.",
       outcome:
-        "En producción. El equipo comercial tiene un asistente repetible de ventas y upsell dentro de Salesforce, con prompts alineados al lenguaje comercial del org.",
+        "En producción. Se pueden preguntar RFPs y deals contra la Opportunity sin leer los adjuntos primero.",
       badge: "En producción",
     },
   },
@@ -99,31 +99,31 @@ export const salesforceCases: SalesforceCase[] = [
     id: "fraud-chargeback",
     status: "production",
     areas: ["Apex", "Service"],
-    stack: ["Apex", "Triggers", "Visualforce", "Lightning Components"],
+    stack: ["Apex", "Triggers", "Visualforce", "Lightning Components", "COBOL APIs"],
     en: {
       title: "Fraud and chargeback workflow",
       client: "Bank",
       problem:
-        "Fraud alerts and chargebacks were landing in Salesforce without a structured path from intake to resolution, which made status, ownership, and hand-offs hard to trust.",
+        "Fraud alerts and chargebacks were landing in Salesforce without a structured path from intake to resolution, and the system of record still lived on the bank's legacy COBOL stack.",
       approach:
-        "Implemented a custom workflow with Apex and Triggers driving the state machine, Visualforce for the operational screens that already existed, and Lightning Components for the newer case-handling UI.",
+        "Implemented a custom workflow with Apex and Triggers driving the state machine, Visualforce for the operational screens that already existed, and Lightning Components for the newer case-handling UI. Salesforce talks to the bank's legacy COBOL-based APIs for the systems that still own the money movement.",
       designDecisions:
-        "Kept the lifecycle in Apex so status changes stay server-side and auditable. Triggers enforce transitions instead of relying on page-level clicks. Visualforce was adapted where the banking project still needed it; Lightning Components cover the newer surfaces.",
+        "Kept the lifecycle in Apex so status changes stay server-side and auditable. Triggers enforce transitions instead of relying on page-level clicks. COBOL APIs stay behind Apex callouts so Lightning never talks to the mainframe directly. Visualforce was adapted where the banking project still needed it; Lightning Components cover the newer surfaces.",
       outcome:
-        "In production. Fraud and chargeback work follows a defined path in Salesforce, with clearer ownership and fewer ad-hoc status changes.",
+        "In production. Fraud and chargeback work follows a defined path in Salesforce while still settling against the COBOL APIs.",
       badge: "In production",
     },
     es: {
       title: "Flujo de fraude y contracargos",
       client: "Banco",
       problem:
-        "Las alertas de fraude y los contracargos llegaban a Salesforce sin un camino estructurado de intake a resolución, y eso hacía poco confiable el estado, la ownership y los pases.",
+        "Las alertas de fraude y los contracargos llegaban a Salesforce sin un camino estructurado de intake a resolución, y el sistema de record todavía vivía en el stack COBOL legacy del banco.",
       approach:
-        "Implementé un flujo custom con Apex y Triggers manejando la máquina de estados, Visualforce para las pantallas operativas que ya existían y Lightning Components para la UI más nueva de gestión de casos.",
+        "Implementé un flujo custom con Apex y Triggers manejando la máquina de estados, Visualforce para las pantallas operativas que ya existían y Lightning Components para la UI más nueva de gestión de casos. Salesforce habla con las APIs COBOL legacy del banco para los sistemas que todavía son dueños del movimiento de dinero.",
       designDecisions:
-        "Dejé el ciclo de vida en Apex para que los cambios de estado queden del lado servidor y sean auditables. Los triggers fuerzan las transiciones en lugar de depender de clicks en la página. Visualforce se adaptó donde el proyecto bancario todavía lo necesitaba; Lightning Components cubre las superficies nuevas.",
+        "Dejé el ciclo de vida en Apex para que los cambios de estado queden del lado servidor y sean auditables. Los triggers fuerzan las transiciones en lugar de depender de clicks en la página. Las APIs COBOL quedan detrás de callouts Apex para que Lightning nunca hable directo con el mainframe. Visualforce se adaptó donde el proyecto bancario todavía lo necesitaba; Lightning Components cubre las superficies nuevas.",
       outcome:
-        "En producción. El trabajo de fraude y contracargos sigue un camino definido en Salesforce, con ownership más clara y menos cambios de estado ad hoc.",
+        "En producción. El trabajo de fraude y contracargos sigue un camino definido en Salesforce y sigue asentando contra las APIs COBOL.",
       badge: "En producción",
     },
   },
@@ -252,6 +252,38 @@ export const salesforceCases: SalesforceCase[] = [
         "Schedulable Apex dispara el job una vez al día. Cada batch se queda dentro de los governor limits con SOQL acotado, y los errores se capturan por scope para que un registro malo no baje toda la corrida.",
       outcome:
         "En producción. El procesamiento diario corre en un schedule en lugar de un disparo manual, con cálculos y transiciones de estado seguros a volumen.",
+      badge: "En producción",
+    },
+  },
+  {
+    id: "xml-lead-processing",
+    status: "production",
+    areas: ["Apex", "Integrations"],
+    stack: ["Apex", "XML Parsing", "Email Services", "Dynamic SOQL", "Lead Management"],
+    en: {
+      title: "XML lead processing service",
+      client: "Enterprise client",
+      problem:
+        "Leads arrived as XML attachments on inbound email, and turning those files into Salesforce records was still a manual parse.",
+      approach:
+        "Implemented an Apex service to process incoming emails containing XML attachments and automatically create Lead records. The system reads, validates, and parses XML data dynamically, integrating Salesforce with external lead-generation systems.",
+      designDecisions:
+        "Stay on Salesforce email services instead of a custom inbound server. Dynamic parse so the XML shape can move without a full rewrite. Invalid payloads fail closed instead of creating half-leads.",
+      outcome:
+        "In production. Inbound XML becomes Lead records without a manual copy step.",
+      badge: "In production",
+    },
+    es: {
+      title: "Servicio de procesamiento XML de leads",
+      client: "Cliente enterprise",
+      problem:
+        "Los leads llegaban como adjuntos XML en emails inbound, y pasar esos archivos a registros de Salesforce seguía siendo un parse manual.",
+      approach:
+        "Implementé un servicio Apex para procesar emails entrantes con archivos adjuntos XML y crear automáticamente registros Lead. El sistema lee, valida y parsea datos XML dinámicamente, integrando Salesforce con sistemas externos de generación de leads.",
+      designDecisions:
+        "Me apoyé en los email services de Salesforce en vez de un servidor inbound custom. Parse dinámico para que la forma del XML pueda moverse sin un rewrite completo. Los payloads inválidos fallan cerrados en vez de crear half-leads.",
+      outcome:
+        "En producción. El XML inbound se vuelve registros Lead sin un copy manual.",
       badge: "En producción",
     },
   },
